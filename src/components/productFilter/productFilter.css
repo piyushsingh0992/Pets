@@ -1,0 +1,123 @@
+@import "../theme.css";
+
+.productFilter {
+  background-color: white;
+  margin: 5vh 0vh;
+  height: 32rem;
+  border-radius: 5px;
+  border: 2px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* padding: 1rem 0rem; */
+  min-width: 15rem;
+  position: sticky;
+  top: 10vh;
+  bottom: 0;
+}
+
+.filter-0 {
+  width: 90%;
+  padding: 1% 5%;
+}
+.filter-clear-all{
+  cursor: pointer;
+}
+.fliter-1,
+.fliter-2,
+.fliter-3,
+.filter-4 {
+  width: 90%;
+  /* background-color: palevioletred; */
+  border-top: 1px solid var(--primary);
+  padding: 5%;
+}
+.fliter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--primary);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.filter-option {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 0.1rem 0rem;
+}
+
+.product-filter-toggle-btn{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .product-filter-toggle-btn{
+   
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    position: fixed;
+    
+    width:95%;
+    padding:0.5rem  5% 0.5rem 0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: var(--secondary);
+    z-index:10;
+
+  }
+
+  .productFilter{
+    display: none;
+    height: 31.8rem;
+    z-index:100;
+    background-color: white;
+    position: fixed;
+    top:-5vh;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+
+  /* .filter-0 {
+    width: 90%;
+    padding: 1% 5%;
+  } */
+  .fliter-1,
+  .fliter-2,
+  .fliter-3,
+  .filter-4 {
+    padding: 1% 5%;
+
+  }
+
+  
+
+  .show{
+    display: flex;
+  }
+
+  .hide{
+    display: none;
+  }
+
+
+
+  
+  
+}

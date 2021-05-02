@@ -1,0 +1,15 @@
+.cartPage{
+    width: 76%;
+    padding: 0 12%;
+    display: flex;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 600px) {
+    .cartPage{
+        width: 97%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0rem 1.5% 2rem 1.5%;
+    }
+}

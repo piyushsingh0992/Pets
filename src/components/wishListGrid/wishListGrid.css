@@ -1,0 +1,19 @@
+.productGrid {
+  margin: 2vh;
+  display: flex;
+  max-width: 100%;
+
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+
+.productGrid-card-container {
+  margin: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  .productGrid {
+    margin: 8vh 0rem;
+    min-width: 100%;
+  }
+}

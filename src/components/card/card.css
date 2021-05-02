@@ -1,0 +1,105 @@
+@import "../theme.css";
+
+.card {
+  padding: 1rem 1rem;
+  background-color: var(--white);
+
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+}
+.out-of-stock {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.out-of-stock > p {
+  font-size: 2rem;
+  color: var(--primary);
+  font-family: logo;
+}
+.card-img-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 12rem;
+  min-width: 13rem;
+  max-width: 13rem;
+
+  margin-bottom: 0.5rem;
+  border: 1px solid #e2ebef;
+  border-radius: 5px;
+}
+
+.card-img {
+  height: 10;
+  object-fit: contain;
+}
+.card-add-to-wishlist {
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  cursor: pointer;
+}
+
+.card-description-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+.card-heading {
+  color: var(--bold-text);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: grey;
+}
+.card-price-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0.5rem 0rem;
+}
+
+.card-new-price {
+  color: var(--bold-text);
+  font-size: 0.9rem;
+}
+
+.card-old-price {
+  text-decoration: line-through;
+  color: var(--primary-text);
+  margin: 0px 0.5rem;
+}
+
+.card-percentage-off {
+  color: green;
+}
+
+.card-btn-container {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+}

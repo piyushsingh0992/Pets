@@ -1,0 +1,14 @@
+.productPage {
+  display: flex;
+  width: 97%;
+  padding: 0 1.5%;
+  background-color: #efefef;
+}
+
+@media only screen and (max-width: 600px) {
+  .productPage {
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+  }
+}

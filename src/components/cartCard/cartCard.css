@@ -1,0 +1,62 @@
+@import "../theme.css";
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 11rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  margin:0.5rem 0rem;
+  background-color: white;
+
+}
+
+.cartCard-details {
+  display: flex;
+}
+
+.cartCard-btn{
+    font-size: 0.8rem;
+    padding:0.5rem ;
+}
+.cartProduct-image {
+  height: 8rem;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.cartProduct-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 7rem;
+}
+.cartProduct-details >h2{
+    
+    font-size:1.5rem;
+}
+
+.cartProduct-details >p{
+    margin:0.5rem 0rem;
+    font-size:1.2rem;
+}
+
+
+.quantity-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.quantity-controls img {
+  height: 1.6rem;
+  width: 1.6rem;
+  cursor: pointer;
+}
+
+.quantity-controls p {
+  font-size: 1.3rem;
+  margin:0px 1rem
+}

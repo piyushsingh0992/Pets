@@ -1,0 +1,27 @@
+:root {
+    --primary: #ff6600;
+    --secondary: #ff771f;
+    --tertiary: #ff8c3c;
+  
+    --background: #ffaf7a;
+    
+    --primary-text: #000;
+    --bold-text: #000;
+    
+  
+  
+    --dark-primary:#121212;
+    --dark-secondary: #404040;
+    --dark-tertiary: #282828;;
+  
+   --dark-background:#282828 ;
+    
+   --dark-primary-text: #B3B3B3;
+    --dark-bold-text: #ffffff;
+  
+    --white: #ffffff;
+    --black:#000;
+    --red:red;
+    --green:green;
+  }
+  

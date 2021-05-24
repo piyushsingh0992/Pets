@@ -2,48 +2,89 @@ import React from "react";
 import "./cartCard.css";
 import Button from "../button/Button";
 import Product from "./images/dogFood.jpg";
-import plus from "./images/plus.svg";
-import minus from "./images/minus.svg";
+import plus from "../../utils/images/icons/plus.svg";
+import minus from "../../utils/images/icons/minus.svg";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+
+import {
+  quantityManagerInCart,
+  removeFromCart,
+} from "../../utils/cartFunctions.js";
+
+import { addToWishList } from "../../utils/wishlistFunctions.js";
+
 const CartCard = ({
   productImage,
   productName,
   price,
-  removeFromCart,
+
+  id,
+
   quantity,
 }) => {
+  const { theme } = useTheme();
+  const { language } = useLanguage();
+  const { wishlistDispatch } = useWishlist();
+  const { cartDispatch } = useCart();
+
+  
+  function addTowishList() {
+    addToWishList(wishlistDispatch, id);
+    removeFromCart(cartDispatch, id);
+  }
+
   return (
-    <div className="cartCard">
+    <div
+      className="cartCard"
+      style={{
+        backgroundColor: theme.highLightBackground,
+      }}
+    >
       <div className="cartCard-details">
-        <img src={Product} className="cartProduct-image" />
+        <img src={productImage} className="cartProduct-image" />
         <div className="cartProduct-details">
-          
-          <h2>Dog Food</h2>
-          <p>Rs 1000</p>
-          
-          <div className="quantity-controls">
-            <img src={minus} />
-            <p>22</p>
-            <img src={plus} />
+          <h2 style={{ color: theme.boldText }}>{productName}</h2>
+          <p style={{ color: theme.primaryText }}>Rs {price}</p>
+
+          <div
+            className="quantity-controls"
+            style={{ color: theme.primaryText }}
+          >
+            {language.quantity}: &ensp;
+            <img
+              src={minus}
+              onClick={() => {
+                quantityManagerInCart(cartDispatch, "DECREASE", id);
+              }}
+            />
+            <p style={{ color: theme.boldText }}>{quantity}</p>
+            <img
+              src={plus}
+              onClick={() => {
+                quantityManagerInCart(cartDispatch, "INCREASE", id);
+              }}
+            />
           </div>
         </div>
       </div>
       <div className="cartCard-btn-container">
-      <Button type="secondary" text="Remove from Cart"  size="cartCard-btn"/>
+        <Button
+          type="secondary"
+          text={language.removeCart}
+          size="cartCard-btn"
+          clickFunction={()=>{removeFromCart(cartDispatch, id)}}
+        />
+        <Button
+          type="secondary"
+          text="Move to Wishlist"
+          size="cartCard-btn"
+          clickFunction={addTowishList}
+        />
       </div>
     </div>
-    // <div className="cartCard">
-    //   <img src={productImage ? productImage : ""} className="cartProduct-image"/>
-    //   <div className="cartProduct-details">
-    //     <h1>{productName}</h1>
-    //     <p>Rs {price}</p>
-    //     <div className="quantity-controls">
-    //       <img src={minus} />
-    //       {quantity}
-    //       <img src={plus} />
-    //     </div>
-    //     <Button type="secondary" text="Remove from Cart" clickFunction={removeFromCart}/>
-    //   </div>
-    // </div>
   );
 };
 

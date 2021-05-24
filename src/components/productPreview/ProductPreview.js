@@ -1,27 +1,123 @@
 import React from "react";
+
 import Button from "../button/Button";
 import Rating from "../rating/Rating";
-import product from "./images/dogFood.jpg";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import plus from "../../utils/images/icons/plus.svg";
+import minus from "../../utils/images/icons/minus.svg";
+import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+
+import {
+
+  addToCart,
+  quantityManagerInCart,
+} from "../../utils/cartFunctions.js";
+
+import {addToWishList,removeFromWishList,} from "../../utils/wishlistFunctions.js";
 import "./productPreview.css";
-const ProductPreview = () => {
+const ProductPreview = ({ productDetails }) => {
+  const { theme } = useTheme();
+  const { language } = useLanguage();
+  const { cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
+  
+  
+
+  let newPrice = Math.floor(
+    productDetails.price - (productDetails.price / 100) * productDetails.off
+  );
+
+
+  const wishListButtonHandler = () => {
+    if (productDetails.wishlist) {
+      removeFromWishList(wishlistDispatch, productDetails.id);
+    } else {
+      addToWishList(wishlistDispatch, productDetails.id);
+    }
+  };
+
+  function quantityHandler(type) {
+    quantityManagerInCart(cartDispatch, type, productDetails.id);
+  }
+  function cartButtonHandler() {
+    addToCart(cartDispatch, productDetails.id);
+   
+  }
   return (
-    <div className="productPreview">
-      <img src={product} className="product-img" />
+    <div
+      className="productPreview"
+      style={{
+        backgroundColor: theme.highLightBackground,
+      }}
+    >
+      <img src={productDetails.productImg} className="product-img" />
 
       <div className="product-description">
         <div>
-        <h1>Product Name</h1>
-        <Rating rating={5} />
+          <h1 style={{ color: theme.boldText }}>
+            {productDetails.productName}
+          </h1>
+          <Rating rating={5} />
         </div>
-        <p className="product-des">Description</p>
-        <div class="product-price-container">
-          <p class="Product-new-price">Rs 10000 </p>
-          <p class="Product-old-price">Rs 9999</p>
-          <p class="Product-percentage-off">5% off</p>
+        <p className="product-des" style={{ color: theme.primaryText }}>
+          {productDetails.desc}
+        </p>
+        <div className="product-price-container">
+          <p className="Product-new-price" style={{ color: theme.boldText }}>
+            Rs {newPrice}
+          </p>
+          <p className="Product-old-price" style={{ color: theme.primaryText }}>
+            Rs {productDetails.price}
+          </p>
+          <p className="Product-percentage-off">{productDetails.off} % off</p>
         </div>
         <div className="product-btn-container">
-          <Button type="primary" text="Add to Cart" size="product-preview-btn" />
-          <Button type="secondary" text="Add to Wishlist" size="product-preview-btn"/>
+          {productDetails?.quantity > 0 ? (
+            <div className="productPreviewQuantityHandler">
+              <img
+                src={minus}
+                onClick={() => {
+                  quantityHandler("DECREASE");
+                }}
+              />
+              <p style={{ color: theme.boldText }}>
+                {productDetails?.quantity}
+              </p>
+              <img
+                src={plus}
+                onClick={() => {
+                  quantityHandler("INCREASE");
+                }}
+              />
+            </div>
+          ) : (
+            <Button
+              type="primary"
+              text={language.addCart}
+              size="product-preview-btn"
+              clickFunction={() => {
+                cartButtonHandler();
+              }}
+            />
+          )}
+
+          {productDetails.wishlist ? (
+            <Button
+              type="secondary"
+              text="Remove from Wishlist"
+              size="wishlist-preview-btn"
+              clickFunction={wishListButtonHandler}
+            />
+          ) : (
+            <Button
+              type="secondary"
+              text={language.addWishlist}
+              size="product-preview-btn"
+              clickFunction={wishListButtonHandler}
+            />
+          )}
         </div>
       </div>
     </div>

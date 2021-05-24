@@ -1,17 +1,15 @@
-@import "../theme.css";
-
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  background-color: var(--primary);
+  max-width: 100%;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  padding: 0.7vw 0vw;
+  padding: 0.6vw 0vw;
   z-index: 5;
+  /* border-bottom: 0.1px solid var(--primary); */
 }
 
 .navbar-left {
@@ -37,13 +35,13 @@
 
 .navbar-brand-name {
   font-size: 1.5rem;
-  color: var(--white) !important;
+  color: var(--primary) !important;
   padding: 0;
   margin: 0;
   font-family: logo;
 }
 .navbar-search {
-  background-color: var(--white);
+  background-color: var(--grey);
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -54,17 +52,17 @@
 
 .navbar-search > input {
   border: 0px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   width: 4rem;
   outline: none;
+  background-color: var(--grey);
 }
 
-
-.navbar-search > input:valid{
+.navbar-search > input:valid {
   width: 12rem;
 }
 
-.navbar-search > input:focus{
+.navbar-search > input:focus {
   width: 12rem;
 }
 .navbar-search-icon {
@@ -79,28 +77,39 @@
   height: 100%;
   margin-right: 2rem;
 }
+
 .route-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-width: 10rem;
-  max-width: 12rem;
+  width: 24rem;
 }
 
+.themeChange-btn {
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 999999999999999999999999;
+}
+
+.themeChange-btn > img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
 .navbar-icon {
   cursor: pointer;
 }
 
 .navbar-icon img {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.7rem;
+  width: 1.7rem;
 }
 .navbar-login {
-  color: var(--white);
   font-size: 1.3rem;
   cursor: pointer;
-  font-family: logo;
 }
 .navbar-menu-icon {
   height: 2rem;
@@ -118,8 +127,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar{
-    padding:2vw 0vw;
+  .navbar {
+    padding: 2vw 0vw;
   }
   .navbar-right {
     margin-right: 0rem;
@@ -135,20 +144,18 @@
   .navbar-login {
     display: none;
   }
-
-  .route-container {
-    min-width: 3rem;
-    justify-content: flex-end;
-  }
-
   .navbar-right {
     display: flex;
     align-items: center;
-
     height: 100%;
-    width: 6%;
+    width: 35%;
+    padding-right: 1rem;
+  }
 
-    padding-right: 2rem;
+  .route-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .navbar-menu-icon {
@@ -165,15 +172,16 @@
     width: 100vw;
     height: 100vh;
     display: block;
+
   }
 
   .navbar-mobile-slide {
-    background-color: var(--primary);
+    background-color: var(--white);
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 50%;
+    width: 40%;
     height: 96vh;
 
     padding: 2vh 3vw;
@@ -184,27 +192,28 @@
   }
   .navbar-slide-brand {
     height: 2.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--primary);
   }
 
   .navbar-mobile-options {
     display: flex;
-    align-items: center;
-
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    font-size: 1.4rem;
-    font-family: logo;
-    padding: 0.5rem 0rem;
+    align-items: flex-start;
     cursor: pointer;
+
   }
 
   .navbar-mobile-options img {
     height: 2rem;
     width: 2rem;
+
     padding-right: 1rem;
+
+  }
+
+  .navbar-mobile-options p{
+
+   
+    font-size: 1.4rem;
   }
 }

@@ -1,8 +1,4 @@
-@font-face {
-  src: url(fonts/Futura-Bold.otf);
-  font-family: logo;
-}
-
+@import './utils/theme.css';
 
 *{
   margin:0px;

@@ -1,103 +1,257 @@
-import React ,{useState}from "react";
+import React, { useState, useReducer } from "react";
 import "./productFilter.css";
 import Button from "../button/Button";
-const ProductFilter = () => {
-  const [show,showSetter]=useState(false);
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 
-
+const ProductFilter = ({ filterState, filterdispatch }) => {
+  const [show, showSetter] = useState(false);
+  const { theme } = useTheme();
+  const { language } = useLanguage();
+  let { sort, rating, animal, fastDelivery, outOfStock } = filterState;
 
   return (
     <div>
-      <div className="product-filter-toggle-btn">
-        <Button type="secondary" text="Filter" clickFunction={()=>{showSetter(value=>!value)}}/>
+      <div
+        className="product-filter-toggle-btn"
+        style={{
+          backgroundColor: theme.highLightBackground,
+        }}
+      >
+        <Button
+          type="primary"
+          clickFunction={() => {
+            showSetter((value) => !value);
+          }}
+          text={language.filter.filter}
+        />
       </div>
-      <div className={`productFilter ${show?'show':'hide'}`}>
+      <div
+        className={`productFilter ${show ? "show" : "hide"}`}
+        style={{
+          backgroundColor: theme.highLightBackground,
+          color: theme.primaryText,
+        }}
+      >
         <div className="filter-0">
           <div className="fliter-heading">
-            <p>Filter's</p>
-            <p className="filter-clear-all">Clear All</p>
+            <p>{language.filter.filter}</p>
+            <p className="filter-clear-all" onClick={(e) => {
+                  filterdispatch({ type: "CLEAR_ALL" });
+                }}>{language.filter.clear}</p>
           </div>
         </div>
         <div className="fliter-1">
           <div className="fliter-heading">
-            <p>Sort By</p>
+            <p>{language.filter.sort.sortBy}</p>
           </div>
           <div className="filter-options">
             <div className="filter-option">
-              <label>Price Low to High</label>
-              <input type="radio" name="price" value="low-high" />
+              <label>{language.filter.sort.high}</label>
+              <input
+                type="radio"
+                name="price"
+                value="HIGH_TO_LOW"
+                onChange={(e) => {
+                  filterdispatch({ type: "SORT", payload: e.target.value });
+                }}
+                checked={sort && sort === "HIGH_TO_LOW"}
+              />
             </div>
+
             <div className="filter-option">
-              <label>Price high to low</label>
-              <input type="radio" name="price" value="high-low" />
+              <label>{language.filter.sort.low}</label>
+              <input
+                type="radio"
+                name="price"
+                value="LOW_TO_HIGH"
+                onChange={(e) => {
+                  filterdispatch({ type: "SORT", payload: e.target.value });
+                }}
+                checked={sort && sort === "LOW_TO_HIGH"}
+              />
             </div>
           </div>
         </div>
 
         <div className="fliter-2">
           <div className="fliter-heading">
-            <p>Rating</p>
+            <p>{language.filter.rating.rating}</p>
           </div>
           <div className="filter-options">
             <div className="filter-option">
-              <label>5 Stars Only</label>
-              <input type="radio" name="stars" value="five" />
+              <label>5 {language.filter.rating.only}</label>
+              <input
+                type="radio"
+                name="stars"
+                value={5}
+                onChange={(e) => {
+                  filterdispatch({ type: "RATING", payload: e.target.value });
+                }}
+                checked={rating === "5"}
+              />
             </div>
             <div className="filter-option">
-              <label>4 Stars and above</label>
-              <input type="radio" name="stars" value="four" />
+              <label>4 {language.filter.rating.above}</label>
+              <input
+                type="radio"
+                name="stars"
+                value={4}
+                onChange={(e) => {
+                  filterdispatch({ type: "RATING", payload: e.target.value });
+                }}
+                checked={rating === "4"}
+              />
             </div>
             <div className="filter-option">
-              <label>3 Stars and above</label>
-              <input type="radio" name="stars" value="three" />
+              <label>3 {language.filter.rating.above}</label>
+              <input
+                type="radio"
+                name="stars"
+                value={3}
+                onChange={(e) => {
+                  filterdispatch({ type: "RATING", payload: e.target.value });
+                }}
+                checked={rating === "3"}
+              />
             </div>
             <div className="filter-option">
-              <label>2 Stars and above</label>
-              <input type="radio" name="stars" value="two" />
+              <label>2 {language.filter.rating.above}</label>
+              <input
+                type="radio"
+                name="stars"
+                value={2}
+                onChange={(e) => {
+                  filterdispatch({ type: "RATING", payload: e.target.value });
+                }}
+                checked={rating === "2"}
+              />
             </div>
             <div className="filter-option">
-              <label>1 Stars and above</label>
-              <input type="radio" name="stars" value="one" />
+              <label>1 {language.filter.rating.above}</label>
+              <input
+                type="radio"
+                name="stars"
+                value={1}
+                onChange={(e) => {
+                  filterdispatch({ type: "RATING", payload: e.target.value });
+                }}
+                checked={rating === "1"}
+              />
             </div>
           </div>
         </div>
 
         <div className="fliter-3">
           <div className="fliter-heading">
-            <p>Pet Type</p>
+            <p>{language.filter.petType}</p>
           </div>
           <div className="filter-options">
             <div className="filter-option">
-              <label>Dog</label>
-              <input type="checkbox" value="dog" />
+              <label>{language.all}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="all"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "all"}
+              />
             </div>
             <div className="filter-option">
-              <label>Cat</label>
-              <input type="checkbox" value="cat" />
+              <label>{language.dog}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="dog"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "dog"}
+              />
             </div>
             <div className="filter-option">
-              <label>Bird</label>
-              <input type="checkbox" value="bird" />
+              <label>{language.cat}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="cat"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "cat"}
+              />
             </div>
             <div className="filter-option">
-              <label>Fish</label>
-              <input type="checkbox" value="fish" />
+              <label>{language.bird}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="bird"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "bird"}
+              />
             </div>
             <div className="filter-option">
-              <label>Reptile</label>
-              <input type="checkbox" value="reptile" />
+              <label>{language.fish}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="fish"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "fish"}
+              />
+            </div>
+            <div className="filter-option">
+              <label>{language.reptile}</label>
+              <input
+                type="radio"
+                name="animal"
+                value="reptile"
+                onChange={(e) => {
+                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
+                }}
+                checked={animal === "reptile"}
+              />
             </div>
           </div>
         </div>
 
         <div className="filter-4">
           <div className="fliter-heading">
-            <p>Other's</p>
+            <p>{language.filter.delivery.delivery}</p>
           </div>
           <div className="filter-options">
             <div className="filter-option">
-              <label>Include Out of Stock</label>
-              <input type="checkbox" value="stock-out" />
+              <label>{language.filter.delivery.fast}</label>
+              <input
+                type="checkbox"
+                value="fast-delivery"
+                onChange={() => {
+                  filterdispatch({ type: "FAST_DELIVERY" });
+                }}
+                checked={fastDelivery}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="filter-5">
+          <div className="fliter-heading">
+            <p>{language.filter.other.other}</p>
+          </div>
+          <div className="filter-options">
+            <div className="filter-option">
+              <label>{language.filter.other.include}</label>
+              <input type="checkbox" value="out-of-stock" onChange={() => {
+                  filterdispatch({ type: "OUT_OF_STOCK" });
+                }}
+                checked={outOfStock}/>
             </div>
           </div>
         </div>

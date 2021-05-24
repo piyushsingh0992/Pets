@@ -1,0 +1,24 @@
+.emptyCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+
+    height: 100vh;
+    margin: 0 2rem;
+    text-align: center;
+
+}
+
+
+.emptyCart p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+
+}
+.emptyCart>img {
+    height: 18rem;
+
+
+}

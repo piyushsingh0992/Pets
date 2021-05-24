@@ -1,0 +1,36 @@
+.search {
+  background-color: var(--primary-background);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.4rem 0.5rem;
+  max-height: 2rem;
+}
+
+.search > input {
+  border: 0px;
+  font-size: 1.1rem;
+  width: 4rem;
+  outline: none;
+  background-color: var(--primary-background);
+}
+
+.search > input:valid {
+  width: 12rem;
+}
+
+.search > input:focus {
+  width: 12rem;
+}
+.search-icon {
+  height: 1.2rem;
+  width: 1.2rem;
+  padding-right: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    display: none;
+  }
+}

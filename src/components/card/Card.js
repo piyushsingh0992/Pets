@@ -1,73 +1,137 @@
 import React, { useState } from "react";
 import "./card.css";
 
-import heart1 from "./images/heart1.svg";
-import heart2 from "./images/heart2.svg";
+import heart1 from "../../utils/images/icons/heart1.svg";
+import heart2 from "../../utils/images/icons/heart2.svg";
 import Button from "../button/Button";
 import Rating from "../rating/Rating";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useCart } from "../../contexts/cartContext/cartContext.js";
+
+import { Link } from "react-router-dom";
+
+import {
+  quantityManagerInCart,
+  addToCart,
+} from "../../utils/cartFunctions.js";
+
+import {addToWishList,removeFromWishList,} from "../../utils/wishlistFunctions.js";
 const Card = ({
   productImage,
   productName,
   price,
   off,
   productDes,
-  addToWishList,
-  removeFromWishList,
   rating,
   outOfStock,
+  imgHeight,
+  id,
+  fast,
+  wishlist,
+  quantity,
 }) => {
   let newPrice = Math.floor(price - (price / 100) * off);
-
-  const [wishlistButton, wishlistButtonSetter] = useState(false);
-
+  const { theme } = useTheme();
+  const { language } = useLanguage();
+  const { wishlistDispatch } = useWishlist();
+  const { cartDispatch } = useCart();
   const wishListButtonHandler = () => {
-    if (wishlistButton) {
-      wishlistButtonSetter(false);
-      removeFromWishList && removeFromWishList();
+    if (wishlist) {
+      removeFromWishList(wishlistDispatch, id);
     } else {
-      wishlistButtonSetter(true);
-      addToWishList && addToWishList();
+      addToWishList(wishlistDispatch, id);
     }
   };
 
   return (
-    <div class="card">
+    <div
+      className="card"
+      style={{ backgroundColor: theme.highLightBackground }}
+      key={id}
+    >
       {outOfStock && (
-        <div class="out-of-stock">
-          <p>Out of Stock</p>
-          <p></p>
+        <div className="out-of-stock">
+          <p>{language.outStock}</p>
         </div>
       )}
-      <div class="card-img-container">
+
+      <Link to={`/productdetails/${id}`}>
+        <div className="card-img-container">
+          <img
+            src={productImage}
+            className="card-img"
+            alt="product"
+            style={{ height: imgHeight && `${imgHeight}rem` }}
+          />
+        </div>
+        <div className="card-description-container">
+          <p className="card-heading" style={{ color: theme.boldText }}>
+            {productName && productName.length > 20
+              ? `${productName?.slice(0, 20)}...`
+              : productName}
+          </p>
+          <p className="card-description" style={{ color: theme.primaryText }}>
+            {productDes && productDes.length > 24
+              ? `${productDes?.slice(0, 24)}...`
+              : productDes}
+          </p>
+          <div className="card-price-container">
+            <p className="card-new-price" style={{ color: theme.boldText }}>
+              Rs {newPrice}{" "}
+            </p>
+            <p className="card-old-price" style={{ color: theme.primaryText }}>
+              Rs {price}
+            </p>
+            <p className="card-percentage-off">{off} % off</p>
+          </div>
+
+          <Rating rating={rating} />
+        </div>
+      </Link>
+      <div className="card-btn-container">
+        {quantity > 0 ? (
+          <div className="card-quantity-handler">
+            <div
+              className="card-decrease-quantity"
+              onClick={() => {
+                quantityManagerInCart(cartDispatch, "DECREASE", id);
+              }}
+            >
+              <p>-</p>
+            </div>
+            <p style={{ color: theme.boldText }}>{quantity}</p>
+            <div
+              className="card-increase-quantity"
+              onClick={() => {
+                quantityManagerInCart(cartDispatch, "INCREASE", id);
+              }}
+            >
+              <p>+</p>
+            </div>
+          </div>
+        ) : (
+          <Button
+            type="primary"
+            text={language.addCart}
+            clickFunction={() => {
+              addToCart(cartDispatch, id);
+            }}
+          />
+        )}
+
         <img
           onClick={wishListButtonHandler}
-          src={wishlistButton ? heart2 : heart1}
-          class="card-add-to-wishlist"
+          src={wishlist ? heart2 : heart1}
+          className="card-add-to-wishlist"
           alt="Add toCart"
         />
-        <img src={productImage} class="card-img" alt="product" />
-      </div>
-      <div class="card-description-container">
-        <p class="card-heading">
-          {productName && productName.length > 20
-            ? `${productName?.slice(0, 20)}...`
-            : productName}
-        </p>
-        <p class="card-description">
-          {productDes && productDes.length > 24
-            ? `${productDes?.slice(0, 24)}...`
-            : productDes}
-        </p>
-        <div class="card-price-container">
-          <p class="card-new-price">Rs {newPrice} </p>
-          <p class="card-old-price">Rs {price}</p>
-          <p class="card-percentage-off">{off}% off</p>
-        </div>
-
-        <Rating rating={rating} />
-      </div>
-      <div class="card-btn-container">
-        <Button type="primary" text="Add to Cart" />
+        {fast && (
+          <div className="fast-delivery-tag">
+            <p>Fast</p>
+          </div>
+        )}
       </div>
     </div>
   );

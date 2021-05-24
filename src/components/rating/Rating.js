@@ -3,15 +3,31 @@ import "./rating.css";
 function Rating({ rating }) {
   const ratingHandler = (rating) => {
     let finalRating = [];
-    if (rating > 5 || rating < 0) {
-      return [];
+    if (rating > 5 ) {
+      return [
+        <span className="fa fa-star checked"></span>,
+        <span className="fa fa-star checked"></span>,
+        <span className="fa fa-star checked"></span>,
+        <span className="fa fa-star checked"></span>,
+        <span className="fa fa-star checked"></span>,
+      ];
+    }
+
+    if (rating < 0) {
+      return [
+        <span className="fa fa-star "></span>,
+        <span className="fa fa-star "></span>,
+        <span className="fa fa-star "></span>,
+        <span className="fa fa-star "></span>,
+        <span className="fa fa-star "></span>,
+      ];
     }
     for (let i = 0; i < rating; i++) {
-      finalRating.push(<span class="fa fa-star checked"></span>);
+      finalRating.push(<span className="fa fa-star checked"></span>);
     }
 
     for (let i = 0; i < 5 - rating; i++) {
-      finalRating.push(<span class="fa fa-star "></span>);
+      finalRating.push(<span className="fa fa-star "></span>);
     }
 
     return finalRating;

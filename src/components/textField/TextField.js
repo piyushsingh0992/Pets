@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import "./textField.css";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
-const TextField = ({ label, type }) => {
+const TextField = ({ label, type,textValueSetter }) => {
+  const { theme } = useTheme();
   const [value, valueSetter] = useState("");
-  const [empty, emptySetter] = useState(true);
+
   function inputValueHandler(e) {
     valueSetter(e.target.value);
-    if (e.target.value.length > 0) {
-      emptySetter(false);
-      console.log("length ->", e.target.value.length);
-    } else {
-      emptySetter(true);
-    }
+    textValueSetter(e.target.value)
   }
 
   return (
     <span className="textField">
       <input
-        className={empty ? "empty" : "filled"}
+        className="empty"
         type={type ? type : "text"}
         value={value}
         onChange={(e) => {
@@ -25,7 +22,7 @@ const TextField = ({ label, type }) => {
         }}
         required
       />
-      <label>{label}</label>
+      <label >{label}</label>
     </span>
   );
 };

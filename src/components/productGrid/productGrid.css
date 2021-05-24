@@ -1,19 +1,25 @@
 .productGrid {
-  margin: 2vh;
-  display: flex;
+  margin: 5vh 5vh 10vh 5vh;
+  display: grid;
   max-width: 100%;
+  grid-template-columns: 15rem 15rem 15rem 15rem;
+  grid-template-rows: auto;
+  grid-gap: 1.8rem;
 
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  
+  justify-content: center;
 }
 
 .productGrid-card-container {
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 @media only screen and (max-width: 600px) {
   .productGrid {
-    margin: 8vh 0rem;
+    /* padding: 5vh ; */
+    margin: 5vh 0vh 10vh 0vh;
     min-width: 100%;
+    grid-template-columns: 13rem 13rem;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    justify-content: center;
   }
 }

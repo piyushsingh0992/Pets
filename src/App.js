@@ -5,23 +5,37 @@ import ProductPage from "./screens/ProductPage/ProductPage.js";
 import ProductPreviewPage from "./screens/ProductPreviewPage/ProductPreviewPage.js";
 import CartPage from "./screens/CartPage/CartPage.js";
 import WishlistPage from "./screens/WishlistPage/WishlistPage.js";
-import LoginPage from "./screens/loginPage/LoginPage.js";
-
+import LoginPage from "./screens/LoginPage/LoginPage.js";
+import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
+import { useTheme } from "./contexts/themeContext/themeContext.js";
+import { Routes, Route } from "react-router-dom";
+import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
 import "./App.css";
-
 function App() {
+  const { theme } = useTheme();
   return (
-    <div className="app">
-      <Navbar />
-      {/* <HomePage /> */}
-      {/* <ProductPage/> */}
-      {/* <ProductPreviewPage/> */}
-      {/* <CartPage/> */}
-      {/* <WishlistPage/> */}
-      {/* <LoginPage/> */}
+    
+      <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
+        <Navbar />
 
-      <Footer />
-    </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <PrivateRoute path="/cart" element={<CartPage />} />
+          <PrivateRoute path="/wishlist" element={<WishlistPage />} />
+          {/* <Route path="/cart" element={<CartPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} /> */}
+          <Route path="/products" element={<ProductPage />} />
+          <Route
+            path="/productdetails/:productId"
+            element={<ProductPreviewPage />}
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    
   );
 }
 

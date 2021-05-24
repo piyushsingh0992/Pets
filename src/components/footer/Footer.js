@@ -1,18 +1,29 @@
 import React from "react";
 import "./footer.css";
-import instagram from "./images/instagram.svg";
-import github from "./images/github.svg";
-import linkedln from "./images/linkedln.svg";
-import twitter from "./images/twitter.svg";
+import instagram from "../../utils/images/icons/instagram.svg";
+import github from "../../utils/images/icons/github.svg";
+import linkedln from "../../utils/images/icons/linkedln.svg";
+import twitter from "../../utils/images/icons/twitter.svg";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 
 const Footer = () => {
+  const { theme } = useTheme();
+  const { language } = useLanguage();
   return (
-    <div className="footer">
+    <div
+      className="footer"
+      style={{ background: theme.highLightBackground, color: theme.boldText }}
+    >
       <p>
-        Developed by{" "}
-        <a className="footer-primary-link" href="">
-          Piyush Singh
-        </a>{" "}
+        {language.developed}&ensp;
+        <a
+          className="footer-primary-link"
+          href=""
+          style={{ color: theme.boldText }}
+        >
+          {language.name}
+        </a>
       </p>
 
       <div className="footer-icons-container">

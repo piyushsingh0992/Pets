@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./loginPage.css";
 
-import Login from "../../components/login/Login.js";
+import Signin from "../../components/signin/Signin.js";
+import SignUp from "../../components/signup/Signup.js";
+
 const LoginPage = () => {
+  const [user, userSetter] = useState(true);
+
   return (
     <div className="loginPage">
-      <Login/>
+      {user ? (
+        <Signin userSetter={userSetter} />
+      ) : (
+        <SignUp userSetter={userSetter} />
+      )}
     </div>
   );
 };

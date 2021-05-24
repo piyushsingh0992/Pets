@@ -2,7 +2,7 @@
   display: flex;
   width: 97%;
   padding: 0 1.5%;
-  background-color: #efefef;
+  background-color: var(--grey);
 }
 
 @media only screen and (max-width: 600px) {

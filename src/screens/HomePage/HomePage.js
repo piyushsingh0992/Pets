@@ -1,21 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./homePage.css";
 
 import Hero from "../../components/hero/Hero.js";
 import DropdownBar from "../../components/dropdownBar/DropdownBar.js";
+import Loader from "../../components/loader/Loader.js";
 import Grid from "../../components/grid/Grid.js";
-import Recommend from "../../components/recommend/Recommend.js"
+import Recommend from "../../components/recommend/Recommend.js";
+import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useCart } from "../../contexts/cartContext/cartContext.js";
 
+import { checkingCartAndWishlist } from "../../utils/common.js";
 
 const HomePage = () => {
-    return (
-        <div className="home">
-            <DropdownBar/>
-            <Hero/>
-            <Grid/>
-            <Recommend text="New Trending"/>
-        </div>
-    );
+  const [productdataFromServer, productdataFromServerSetter] = useState([]);
+  const [loader, loaderSetter] = useState(false);
+  const { wishlistState } = useWishlist();
+  const { cartState } = useCart();
+
+  useEffect(() => {
+    let source = axios.CancelToken.source();
+    (async function () {
+      try {
+        loaderSetter(true);
+        let { data } = await axios.post("/recommend", {
+          cancelToken: source.token,
+        });
+
+        productdataFromServerSetter(data.products);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        loaderSetter(false);
+      }
+    })();
+
+    return () => {
+      source.cancel();
+    };
+  }, []);
+
+  let filteredData = checkingCartAndWishlist(
+    productdataFromServer,
+    cartState,
+    wishlistState
+  );
+
+  return loader ? (
+    <div
+      style={{
+        minWidth: "90vw",
+        minHeight: "90vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Loader size={5} />
+    </div>
+  ) : (
+    <div className="home">
+      <DropdownBar />
+      <Hero />
+      <Grid />
+      <Recommend filteredData={filteredData} />
+    </div>
+  );
 };
 
 export default HomePage;

@@ -1,0 +1,24 @@
+.emptyWishlist {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+
+    height: 80vh;
+    margin: 0 2rem;
+    text-align: center;
+
+}
+
+
+.emptyWishlist p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+
+}
+.emptyWishlist>img {
+    height: 18rem;
+
+
+}

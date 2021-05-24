@@ -1,5 +1,9 @@
 .app{
   max-width:100%;
   /* overflow:hidden ; */
-  background-color: #efefef;
+  /* background-color: #efefef; */
+  /* background-color: red !important; */
+  /* height:100vh; */
+
+  font-family: 'Poppins', sans-serif;
 }

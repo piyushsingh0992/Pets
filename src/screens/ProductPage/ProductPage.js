@@ -1,14 +1,87 @@
-import React from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import "./productPage.css";
 import ProductGrid from "../../components/productGrid/ProductGrid.js";
 import ProductFilter from "../../components/productFilter/ProductFilter.js";
-
+import axios from "axios";
+import Loader from "../../components/loader/Loader.js";
+import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useLocation } from "react-router-dom";
+import {
+  filteringData,
+  filterManager,
+  checkingCartAndWishlist,
+} from "../../utils/common.js";
 const ProductPage = () => {
-  return (
+  const query = new URLSearchParams(useLocation().search);
+
+  const [productdataFromServer, productdataFromServerSetter] = useState([]);
+  const [loader, loaderSetter] = useState(false);
+  const { wishlistState } = useWishlist();
+  const { cartState } = useCart();
+  const [filterState, filterdispatch] = useReducer(filterManager, {
+    sort: null,
+    rating: -1,
+    animal: "all",
+    fastDelivery: false,
+    outOfStock: false,
+    category: "all",
+  });
+
+  useEffect(() => {
+    let source = axios.CancelToken.source();
+    (async function () {
+      try {
+        loaderSetter(true);
+        let response = await axios.get("/products", {
+          cancelToken: source.token,
+        });
+
+        productdataFromServerSetter(response.data.products);
+        filterdispatch({ type: "ANIMAL", payload: query.get("animal") });
+
+        query.get("cateogry") &&
+          filterdispatch({ type: "CATEOGRY", payload: query.get("cateogry") });
+      } catch (error) {
+        console.error(error);
+      } finally {
+        loaderSetter(false);
+      }
+    })();
+
+    return () => {
+      source.cancel();
+    };
+  }, []);
+
+  let cartUpdatedData = checkingCartAndWishlist(
+    productdataFromServer,
+    cartState,
+    wishlistState
+  );
+
+  let filteredData = filteringData(cartUpdatedData, filterState);
+
+  return loader ? (
+    <div
+      style={{
+        minWidth: "90vw",
+        minHeight: "90vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Loader size={5} />
+    </div>
+  ) : (
     <div className="productPage">
-      <ProductFilter />
-      <ProductGrid />
-      
+      <ProductFilter
+        filterState={filterState}
+        filterdispatch={filterdispatch}
+      />
+
+      <ProductGrid productData={filteredData} filterdispatch={filterdispatch} />
     </div>
   );
 };

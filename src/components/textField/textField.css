@@ -1,8 +1,7 @@
-@import '../theme.css';
-
 .textField {
   position: relative;
   display: inline-block;
+  margin:0.8rem 0;
 }
 
 .textField > input {
@@ -13,10 +12,11 @@
 
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
+  background-color: var(--primary-background);
 }
 
 .empty {
-  border: 1px solid grey;
+  border: 1px solid var(--dark-primary-text);
 }
 
 .filled {
@@ -33,7 +33,7 @@
   top: 0.5rem;
   left: 1rem;
   transition: all 0.5s ease-in-out;
-  color:grey;
+  color: grey;
 }
 
 input:focus ~ label,

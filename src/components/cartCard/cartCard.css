@@ -1,4 +1,3 @@
-@import "../theme.css";
 .cartCard {
   display: flex;
   flex-direction: column;
@@ -8,18 +7,24 @@
   padding: 0.5rem 1rem;
   border: 1px solid var(--primary);
   border-radius: 5px;
-  margin:0.5rem 0rem;
+  margin: 0.5rem 0rem;
   background-color: white;
-
 }
 
 .cartCard-details {
   display: flex;
 }
 
-.cartCard-btn{
-    font-size: 0.8rem;
-    padding:0.5rem ;
+.cartCard-btn-container {
+  /* width: 45%; */
+  align-items: center;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.cartCard-btn {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  margin-right:0.5rem;
 }
 .cartProduct-image {
   height: 8rem;
@@ -33,16 +38,14 @@
   justify-content: space-around;
   height: 7rem;
 }
-.cartProduct-details >h2{
-    
-    font-size:1.5rem;
+.cartProduct-details > h2 {
+  font-size: 1.5rem;
 }
 
-.cartProduct-details >p{
-    margin:0.5rem 0rem;
-    font-size:1.2rem;
+.cartProduct-details > p {
+  margin: 0.5rem 0rem;
+  font-size: 1.2rem;
 }
-
 
 .quantity-controls {
   display: flex;
@@ -58,5 +61,11 @@
 
 .quantity-controls p {
   font-size: 1.3rem;
-  margin:0px 1rem
+  margin: 0px 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .cartCard-btn-container {
+    width: 70%;
+  }
 }

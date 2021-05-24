@@ -1,4 +1,3 @@
-@import "../theme.css";
 .grid-container {
   padding: 4vw 10vw;
   font-family: logo;
@@ -20,28 +19,46 @@
 
 .category1 {
   display: flex;
-  border: 1px solid var(--primary);
   height: 15rem;
   background-color: var(--white);
-  color: #36454F;
-  border-radius: 5px;
-  overflow: hidden;
+  border-radius: 20px;
+  /* overflow: hidden; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.category1 img {
-  height: 15rem;
+.cateogry-img-container-1 {
+  height: 13rem;
+  object-fit: contain;
+  flex: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex: 2
 }
 
-.category1 > div {
+
+.cateogry-img-container-1>img {
+  height: 12rem;
+  object-fit: contain;
+}
+
+.cateogry-details-1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  flex: 2;
   font-size: 1.5rem;
+  height: 70%;
 }
+
+
 
 .grid-row-2 {
   display: grid;
@@ -51,30 +68,48 @@
 
 .category2 {
   display: flex;
-  height: 100%;
-  align-items: center;
-  border: 1px solid var(--primary);
   height: 15rem;
   background-color: var(--white);
-  color: #36454F;
-  border-radius: 5px;
-  overflow: hidden;
+  border-radius: 20px;
+  /* overflow: hidden; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.category2 img {
-  height: 8rem;
+.cateogry-img-container-2 {
+  height: 13rem;
+
+  flex: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex: 2
 }
 
-.category2 > div {
+
+.cateogry-img-container-2 img {
+  height: 8.5rem;
+  object-fit: contain;
+
+}
+
+
+
+.cateogry-details-2 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100%;
+  height: 60%;
   width: 100%;
   font-size: 0.9rem;
+
+  flex: 2
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,38 +118,75 @@
   }
 
   .grid {
-    grid-template-rows: 10rem 5rem;
+    grid-template-rows: 10rem 8rem;
+    grid-gap: 1.5rem;
   }
+
+  .grid-row-1 {
+
+    grid-gap: 1.5rem;
+  }
+
+
+  .grid-row-2 {
+
+    grid-gap: 1.15rem !important;
+  }
+
 
   .category1 {
     height: 10rem;
   }
 
-  .category1 img {
-    height: 15rem;
-    display: none;
-  }
-  .category1 > div {
-    font-size: 1.1rem;
+  .cateogry-img-container-1 {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .grid-row-2 {
-    grid-gap: 1.5rem;
+  .cateogry-img-container-1>img {
+    height: 7rem;
   }
+
+  .cateogry-details-1 {
+    font-size: 0.7rem;
+    display: none;
+  }
+
 
   .category2 {
+
+
+
+    height: 8rem;
+  }
+
+
+
+
+  .cateogry-img-container-2 img {
     height: 5rem;
+
   }
 
-  .category2 > div {
-    font-size: 0.7rem;
-  }
 
-  .category2 img {
-    display: none;
-  }
 
-  .category2 .btn {
+  .cateogry-details-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+    font-size: 0.9rem;
+
+    background-color: green;
+    flex: 2;
+
+
+
+    /* sow */
     display: none;
   }
 }

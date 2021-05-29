@@ -1,4 +1,4 @@
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
 import dogbed1 from "./images/products/dogs/bed/dogbed1.png";
 import dogbed2 from "./images/products/dogs/bed/dogbed2.png";
@@ -126,12 +126,12 @@ import reptilehome4 from "./images/products/reptiles/home/reptilehome4.png";
 import reptilehome5 from "./images/products/reptiles/home/reptilehome5.png";
 import reptilehome6 from "./images/products/reptiles/home/reptilehome6.png";
 
-
-
 const data = [
+  
+
   {
     productName: "Reptile Home",
-    productImg: reptilehome1,
+    productImg: "https://i.ibb.co/3sj9TSq/reptilehome1.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -142,14 +142,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
 
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Home",
-    productImg: reptilehome2,
+    productImg: "https://i.ibb.co/SVtwpMy/reptilehome2.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -160,13 +159,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Home",
-    productImg: reptilehome3,
+    productImg: "https://i.ibb.co/87k2mrG/reptilehome3.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -177,13 +176,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Home",
-    productImg: reptilehome4,
+    productImg: "https://i.ibb.co/tcyWYTC/reptilehome4.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -194,13 +193,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Home",
-    productImg: reptilehome5,
+    productImg: "https://i.ibb.co/wSTt0LK/reptilehome5.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -211,13 +210,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Home",
-    productImg: reptilehome6,
+    productImg: "https://i.ibb.co/5TqCtzT/reptilehome6.png",
     desc: "Make sure your reptile friend hava cozy home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -228,13 +227,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood1,
+    productImg: "https://i.ibb.co/84X3Kd6/reptilefood1.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -245,13 +244,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood2,
+    productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -262,13 +261,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood3,
+    productImg: "https://i.ibb.co/WcgtP9Y/reptilefood3.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -279,13 +278,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood4,
+    productImg: "https://i.ibb.co/qNf5ggv/reptilefood4.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -296,13 +295,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood5,
+    productImg: "https://i.ibb.co/wcVdkQ6/reptilefood5.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -313,13 +312,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood6,
+    productImg: "https://i.ibb.co/cL78XxF/reptilefood6.png",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -330,13 +329,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood7,
+    productImg: "https://i.ibb.co/THWhVCw/reptilefood7.jpg",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -347,13 +346,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Reptile Food",
-    productImg: reptilefood8,
+    productImg: "https://i.ibb.co/wp3KFCX/reptilefood8.jpg",
     desc: "Nutrient food for your reptile friend",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -364,12 +363,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Bird Home",
-    productImg: birdhome1,
+    productImg: "https://i.ibb.co/4sHTqQL/birdhome1.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -380,13 +379,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome2,
+    productImg: "https://i.ibb.co/5BY9rWh/birdhome2.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -397,13 +396,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome3,
+    productImg: "https://i.ibb.co/yRnYRLz/birdhome3.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -414,13 +413,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome4,
+    productImg: "https://i.ibb.co/rMKXP4q/birdhome4.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -431,13 +430,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome5,
+    productImg: "https://i.ibb.co/nwNXTY2/birdhome5.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -448,13 +447,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome6,
+    productImg: "https://i.ibb.co/znp9gBP/birdhome6.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -465,13 +464,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome7,
+    productImg: "https://i.ibb.co/Vp8FL6F/birdhome7.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -482,14 +481,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
-    
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome8,
+    productImg: "https://i.ibb.co/7Jrbs05/birdhome8.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -500,14 +498,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 18,
   },
 
   {
     productName: "Bird Home",
-    productImg: birdhome9,
+    productImg: "https://i.ibb.co/h2TBK2k/birdhome9.png",
     desc: "Build a home  for your  bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -518,13 +516,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood1,
+    productImg: "https://i.ibb.co/gtn03Vs/birdfood1.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -535,13 +533,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
-    fastDelivery:  Math.floor(Math.random() * 2) === 0 ? true : false,
+
+    fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood2,
+    productImg: "https://i.ibb.co/1zYGxZH/birdfood2.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -552,13 +550,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood3,
+    productImg: "https://i.ibb.co/4tGrrf4/birdfood3.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -569,13 +567,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood4,
+    productImg: "https://i.ibb.co/RYnLfdM/birdfood4.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -586,13 +584,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood5,
+    productImg: "https://i.ibb.co/8DqFQyh/birdfood5.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -603,13 +601,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood6,
+    productImg: "https://i.ibb.co/VvRdfsv/birdfood6.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -620,13 +618,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood7,
+    productImg: "https://i.ibb.co/PQBQMCj/birdfood7.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -637,13 +635,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood8,
+    productImg: "https://i.ibb.co/4pp3k2M/birdfood8.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -654,13 +652,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Bird Food",
-    productImg: birdfood9,
+    productImg: "https://i.ibb.co/Dgk4wB0/birdfood9.png",
     desc: "food  for bird",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -671,12 +669,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Cat Toy",
-    productImg: cattoy1,
+    productImg: "https://i.ibb.co/2v5gpfF/toy1.png",
     desc: "Toy's  for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -687,12 +686,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Cat Toy",
-    productImg: cattoy2,
+    productImg: "https://i.ibb.co/ckQdczd/toy2.png",
     desc: "Toy's  for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -703,13 +702,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Toy",
-    productImg: cattoy3,
+    productImg: "https://i.ibb.co/h10HwvF/toy3.png",
     desc: "Toy's  for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -720,13 +719,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Toy",
-    productImg: cattoy4,
+    productImg: "https://i.ibb.co/zxqqZqC/toy4.png",
     desc: "Toy's  for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -737,13 +736,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Toy",
-    productImg: cattoy5,
+    productImg: "https://i.ibb.co/vc018V8/toy5.png",
     desc: "Toy's  for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -754,12 +753,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Cat Leash",
-    productImg: catleash1,
+    productImg: "https://i.ibb.co/T4MVk8c/leash1.png",
     desc: "Leash for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -770,13 +769,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Leash",
-    productImg: catleash2,
+    productImg: "https://i.ibb.co/4PDS1fS/leash2.png",
     desc: "Leash for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -787,13 +786,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Leash",
-    productImg: catleash3,
+    productImg: "https://i.ibb.co/jM0QV7Y/leash3.png",
     desc: "Leash for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -804,13 +803,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat Leash",
-    productImg: catleash4,
+    productImg: "https://i.ibb.co/c8cq2Xh/leash4.png",
     desc: "Leash for Cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -821,12 +820,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Cat jacket",
-    productImg: catjacket1,
+    productImg: "https://i.ibb.co/wpYv45w/jacket1.webp",
     desc: "make sure your cat look good",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -837,13 +836,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat jacket",
-    productImg: catjacket2,
+    productImg: "https://i.ibb.co/dJDVzVw/jacket2.png",
     desc: "make sure your cat look good",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -854,13 +853,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat jacket",
-    productImg: catjacket3,
+    productImg: "https://i.ibb.co/W0Bz9Zx/jacket3.png",
     desc: "make sure your cat look good",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -871,14 +870,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 8,
   },
 
   {
     productName: "Cat jacket",
-    productImg: catjacket4,
+    productImg: "https://i.ibb.co/74G6Lch/jacket4.png",
     desc: "make sure your cat look good",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -889,13 +888,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood1,
+    productImg: "https://i.ibb.co/gFd3smM/catfood1.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -906,13 +905,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood2,
+    productImg: "https://i.ibb.co/TWZ0mRx/catfood2.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -923,13 +922,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood3,
+    productImg: "https://i.ibb.co/yscb7Nc/catfood3.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -940,13 +939,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood4,
+    productImg: "https://i.ibb.co/289czJh/catfood4.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -957,13 +956,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood5,
+    productImg: "https://i.ibb.co/XY7Dw1c/catfood5.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -974,13 +973,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood6,
+    productImg: "https://i.ibb.co/B2br3Nx/catfood6.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -991,13 +990,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood7,
+    productImg: "https://i.ibb.co/6XkjsH4/catfood7.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1008,13 +1007,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood8,
+    productImg: "https://i.ibb.co/KwnR7Y8/catfood8.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1025,13 +1024,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood9,
+    productImg: "https://i.ibb.co/8jNwhYB/catfood9.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1042,13 +1041,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Cat food",
-    productImg: catfood10,
+    productImg: "https://i.ibb.co/b6rfGVV/catfood10.png",
     desc: "nutrient filled food for your cat",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1059,12 +1058,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Fish food",
-    productImg: fishfood1,
+    productImg: "https://i.ibb.co/bbJ262Q/fishfood1.png",
     desc: "nutrient filled food for your fish",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1075,13 +1074,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Fish food",
-    productImg: fishfood2,
+    productImg: "https://i.ibb.co/2yvW0DW/fishfood2.png",
     desc: "nutrient filled food for your fish",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1092,13 +1091,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Fish food",
-    productImg: fishfood3,
+    productImg: "https://i.ibb.co/pxSYgfT/fishfood3.png",
     desc: "nutrient filled food for your fish",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1109,13 +1108,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Fish food",
-    productImg: fishfood4,
+    productImg: "https://i.ibb.co/5YSD8LB/fishfood4.png",
     desc: "nutrient filled food for your fish",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1126,13 +1125,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Fish food",
-    productImg: fishfood5,
+    productImg: "https://i.ibb.co/NT1ncKj/fishfood5.png",
     desc: "nutrient filled food for your fish",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1143,13 +1142,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 7),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Aquarium",
-    productImg: aqua1,
+    productImg: "https://i.ibb.co/t4bVpT3/aqua1.png",
     desc: "Make sure your fish have the best home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1160,13 +1159,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Aquarium",
-    productImg: aqua2,
+    productImg: "https://i.ibb.co/y5nLrDT/aqua2.png",
     desc: "Make sure your fish have the best home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1177,13 +1176,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Aquarium",
-    productImg: aqua3,
+    productImg: "https://i.ibb.co/54jtgQc/aqua3.png",
     desc: "Make sure your fish have the best home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1194,13 +1193,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Aquarium",
-    productImg: aqua4,
+    productImg: "https://i.ibb.co/4s2NY0n/aqua4.png",
     desc: "Make sure your fish have the best home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1211,13 +1210,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Aquarium",
-    productImg: aqua5,
+    productImg: "https://i.ibb.co/ZgqMnYJ/aqua5.png",
     desc: "Make sure your fish have the best home",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1228,29 +1227,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
-    fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
-  },
-  {
-    productName: "Dog Toy",
-    productImg: dogtoy1,
-    desc: "best quality toy for dog's",
-    price: Math.floor(Math.random() * 1000),
-    off: Math.floor(Math.random() * 50),
-    outOfStock: Math.floor(Math.random() * 4) === 0 ? true : false,
-    tags: {
-      animal: "dog",
-      category: "toy",
-    },
-    rating: Math.floor(Math.random() * 6),
-    wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy2,
+    productImg: "https://i.ibb.co/Cwv0B2s/toy1.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1261,29 +1244,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
-    fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
-  },
-  {
-    productName: "Dog Toy",
-    productImg: dogtoy3,
-    desc: "best quality toy for dog's",
-    price: Math.floor(Math.random() * 1000),
-    off: Math.floor(Math.random() * 50),
-    outOfStock: Math.floor(Math.random() * 4) === 0 ? true : false,
-    tags: {
-      animal: "dog",
-      category: "toy",
-    },
-    rating: Math.floor(Math.random() * 6),
-    wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy4,
+    productImg: "https://i.ibb.co/2qHFKg6/toy2.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1294,13 +1261,29 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
+    fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
+  },
+  {
+    productName: "Dog Toy",
+    productImg: "https://i.ibb.co/xfrnJF9/toy3.webp",
+    desc: "best quality toy for dog's",
+    price: Math.floor(Math.random() * 1000),
+    off: Math.floor(Math.random() * 50),
+    outOfStock: Math.floor(Math.random() * 4) === 0 ? true : false,
+    tags: {
+      animal: "dog",
+      category: "toy",
+    },
+    rating: Math.floor(Math.random() * 6),
+    wishlist: false,
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy5,
+    productImg: "https://i.ibb.co/QcqY9Wf/toy4.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1311,14 +1294,31 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
+    fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
+  },
+
+  {
+    productName: "Dog Toy",
+    productImg: "https://i.ibb.co/Km5ZBRD/toy5.png",
+    desc: "best quality toy for dog's",
+    price: Math.floor(Math.random() * 1000),
+    off: Math.floor(Math.random() * 50),
+    outOfStock: Math.floor(Math.random() * 4) === 0 ? true : false,
+    tags: {
+      animal: "dog",
+      category: "toy",
+    },
+    rating: Math.floor(Math.random() * 6),
+    wishlist: false,
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 8,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy6,
+    productImg: "https://i.ibb.co/KLxC1GX/toy6.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1329,13 +1329,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy7,
+    productImg: " https://i.ibb.co/Y0Bb0Hw/toy7.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1346,13 +1346,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy8,
+    productImg: "https://i.ibb.co/drgxX1m/toy8.webp",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1363,13 +1363,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy9,
+    productImg: "https://i.ibb.co/xj1LChG/toy9.png",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1380,13 +1380,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Toy",
-    productImg: dogtoy10,
+    productImg: "https://i.ibb.co/1ZYyjVp/toy10.webp",
     desc: "best quality toy for dog's",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1397,13 +1397,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 8,
   },
+
   {
     productName: "Dog Bed",
-    productImg: dogbed1,
+    productImg: "https://i.ibb.co/gyWfhk6/dogbed1.png",
     desc: "Make sure your dog get a comfortable sleep",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1414,14 +1415,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 5,
   },
-
   {
     productName: "Dog Bed",
-    productImg: dogbed2,
+    productImg: "https://i.ibb.co/gycxVht/dogbed2.png",
     desc: "Make sure your dog get a comfortable sleep",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1432,14 +1432,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 7,
   },
 
   {
     productName: "Dog Bed",
-    productImg: dogbed3,
+    productImg: "https://i.ibb.co/jJMC1DG/dogbed3.png",
     desc: "Make sure your dog get a comfortable sleep",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1450,14 +1450,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 7,
   },
 
   {
     productName: "Dog Bed",
-    productImg: dogbed4,
+    productImg: "https://i.ibb.co/PCjZDJZ/dogbed4.png",
     desc: "Make sure your dog get a comfortable sleep",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1468,14 +1468,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 7,
   },
 
   {
     productName: "Dog Bed",
-    productImg: dogbed5,
+    productImg: "https://i.ibb.co/HHVPM7n/dogbed5.png",
     desc: "Make sure your dog get a comfortable sleep",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1486,14 +1486,14 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
     imgHeight: 7,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood1,
+    productName: "Dog food 1",
+    productImg: "https://i.ibb.co/ckWPQGW/dogFood1.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1504,13 +1504,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood2,
+    productName: "Dog food 2",
+    productImg: "https://i.ibb.co/gSG68t3/dogFood2.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1521,13 +1521,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood3,
+    productName: "Dog food 3",
+    productImg: "https://i.ibb.co/sg8J4SY/dogFood3.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1538,13 +1538,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood4,
+    productName: "Dog food 4",
+    productImg: "https://i.ibb.co/zmfZhnD/dogFood4.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1555,13 +1555,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood5,
+    productName: "Dog food 5",
+    productImg: "https://i.ibb.co/25WTLjD/dogFood5.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1572,13 +1572,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood6,
+    productName: "Dog food 6",
+    productImg: "https://i.ibb.co/DLvvnh8/dogFood6.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1589,12 +1589,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
-    productName: "Dog food",
-    productImg: dogfood7,
+    productName: "Dog food 7",
+    productImg: "https://i.ibb.co/Sy85gts/dogFood7.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1605,13 +1605,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood8,
+    productName: "Dog food 8",
+    productImg: "https://i.ibb.co/17y95Bf/dogFood8.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1622,13 +1622,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood9,
+    productName: "Dog food 9",
+    productImg: "https://i.ibb.co/XYfHSNf/dogFood9.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1639,13 +1639,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
-    productName: "Dog food",
-    productImg: dogfood10,
+    productName: "Dog food 10",
+    productImg: "https://i.ibb.co/5BF0nHr/dog-Food10.png",
     desc: "Feed your dog high quality nutrient full food",
     price: Math.floor(Math.random() * 1000),
     off: Math.floor(Math.random() * 50),
@@ -1656,13 +1656,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Jacket",
-    productImg: dogjacket1,
+    productImg: "https://i.ibb.co/P5CtPzd/jacket1.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1673,13 +1673,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Jacket",
-    productImg: dogjacket2,
+    productImg: "https://i.ibb.co/Ht1p5KS/jacket2.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1690,12 +1690,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Jacket",
-    productImg: dogjacket3,
+    productImg: "https://i.ibb.co/nMct0kM/jacket3.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1706,13 +1706,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 
   {
     productName: "Dog Jacket",
-    productImg: dogjacket4,
+    productImg: "https://i.ibb.co/2sn6hwx/jacket6.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1723,12 +1723,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Jacket",
-    productImg: dogjacket5,
+    productImg: "https://i.ibb.co/JrLRm4p/jacket4.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1739,12 +1739,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Jacket",
-    productImg: dogjacket6,
+    productImg: "https://i.ibb.co/LC4Jkpp/jacket5.png",
     desc: "Your dog also feel cold give him a jacket",
     price: Math.floor(Math.random() * 5000),
     off: Math.floor(Math.random() * 50),
@@ -1755,12 +1755,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog Leash",
-    productImg: dogleash1,
+    productImg: "  https://i.ibb.co/m5c7Jxn/leash1.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1771,12 +1772,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash2,
+    productImg: "https://i.ibb.co/RysBCZT/leash2.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1787,12 +1788,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash3,
+    productImg: "https://i.ibb.co/HzCWHnh/leash3.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1803,12 +1804,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash4,
+    productImg: "https://i.ibb.co/JtjL7cP/leash4.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1819,12 +1820,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash5,
+    productImg: "https://i.ibb.co/31KNwD5/leash5.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1835,12 +1836,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash6,
+    productImg: "https://i.ibb.co/fNmv3FW/leash6.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1851,12 +1852,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog Leash",
-    productImg: dogleash7,
+    productImg: "https://i.ibb.co/m5c7Jxn/leash1.png",
     desc: "It's a dog leash go on long walk with your dog",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1867,12 +1868,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar1,
+    productImg: "  https://i.ibb.co/2ymTYWx/collar1.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1883,12 +1885,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar2,
+    productImg: "https://i.ibb.co/rHNtZjp/collar2.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1899,12 +1902,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar3,
+    productImg: "https://i.ibb.co/CV19PPD/collar3.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1915,12 +1919,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar4,
+    productImg: "https://i.ibb.co/nB7Z5ZZ/collar4.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1931,12 +1936,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar5,
+    productImg: "https://i.ibb.co/93T2tvw/collar5.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1947,12 +1953,13 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
+
   {
     productName: "Dog collar",
-    productImg: dogcollar6,
+    productImg: "https://i.ibb.co/3N7VzY3/collar6.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1963,12 +1970,12 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
   {
     productName: "Dog collar",
-    productImg: dogcollar7,
+    productImg: "https://i.ibb.co/2gjyGFb/collar7.png",
     desc: "It's a dog collar",
     price: Math.floor(Math.random() * 2000),
     off: Math.floor(Math.random() * 50),
@@ -1979,15 +1986,11 @@ const data = [
     },
     rating: Math.floor(Math.random() * 6),
     wishlist: false,
-    
+
     fastDelivery: Math.floor(Math.random() * 2) === 0 ? true : false,
   },
 ];
 
-
-export const ProductArray=data.map(
-  (item,index)=>{
-    return {...item,id:`${item.tags.animal}-${item.tags.category}-${index}`}
-  }
-);
-
+export const ProductArray = data.map((item, index) => {
+  return { ...item, id: `${item.tags.animal}-${item.tags.category}-${index}` };
+});

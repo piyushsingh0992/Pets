@@ -1,47 +1,26 @@
 import React, { useState, useEffect } from "react";
+import "./signin.css";
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField/TextField.js";
 import Button from "../button/Button.js";
-import "./signin.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 const Signin = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { login, loginDispatch } = useAuth();
+  const { login, authChecker } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [password, passwordSetter] = useState("");
   const [userId, userIdSetter] = useState("");
 
-  async function authChecker(userId, password) {
-    try {
-      let { data } = await axios.post(`/authCheck`, {
-        userId,
-        password,
-      });
-
-      if (data.status === "success") {
-        loginDispatch({ payload: "LOGIN" });
-        localStorage.setItem(
-          "loginStatus",
-          JSON.stringify({ loginStatus: true })
-        );
-      }
-    } catch (error) {
-      console.error({ error });
-    }
-  }
-
   useEffect(() => {
-    if (login === true) {
+    if (login) {
       navigate(state?.from ? state.from : "/");
     }
   }, [login]);
-  
 
   return (
     <div

@@ -1,29 +1,30 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useReducer,
-} from "react";
-
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
+import { loginHandler } from "./reducer.js";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  const [login, loginDispatch] = useReducer(loginHandler, false);
+  
+  async function authChecker(userId, password) {
+    try {
+      let { data } = await axios.post(`/authCheck`, {
+        userId,
+        password,
+      });
 
-  function loginHandler(state, action) {
-    let { payload } = action;
-    switch (payload) {
-      case "LOGIN":
-        return true;
-      case "LOGOUT":
-        return false;
-      default:
-        return false;
+      if (data.status === "success") {
+        loginDispatch({ payload: "LOGIN" });
+        localStorage.setItem(
+          "loginStatus",
+          JSON.stringify({ loginStatus: true })
+        );
+      }
+    } catch (error) {
+      console.error({ error });
     }
   }
-  const [login, loginDispatch] = useReducer(loginHandler, false);
 
   useEffect(() => {
     let login = JSON.parse(localStorage.getItem("loginStatus"));
@@ -31,7 +32,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, loginDispatch }}>
+    <AuthContext.Provider value={{ login, authChecker, loginDispatch }}>
       {children}
     </AuthContext.Provider>
   );

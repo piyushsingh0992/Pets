@@ -7,7 +7,6 @@ import {
   categoryHandler,
 } from "./filterFunctions.js";
 
-
 export function filterManager(state, action) {
   const { type, payload } = action;
 
@@ -17,7 +16,7 @@ export function filterManager(state, action) {
     case "RATING":
       return { ...state, rating: payload };
     case "ANIMAL":
-      return { ...state, animal: payload };
+      return { ...state, animal: payload, category: "all" };
     case "FAST_DELIVERY":
       return { ...state, fastDelivery: !state.fastDelivery };
     case "OUT_OF_STOCK":
@@ -91,4 +90,3 @@ export function filteringData(productdataFromServer, filterState) {
 
   return filteredData;
 }
-

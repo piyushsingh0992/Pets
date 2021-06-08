@@ -14,28 +14,25 @@ import "./App.css";
 function App() {
   const { theme } = useTheme();
   return (
-    
-      <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
-        <Navbar />
+    <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
+      <Navbar />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <PrivateRoute path="/cart" element={<CartPage />} />
-          <PrivateRoute path="/wishlist" element={<WishlistPage />} />
-          {/* <Route path="/cart" element={<CartPage />} />
-        <Route path="/wishlist" element={<WishlistPage />} /> */}
-          <Route path="/products" element={<ProductPage />} />
-          <Route
-            path="/productdetails/:productId"
-            element={<ProductPreviewPage />}
-          />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/*" element={<ErrorPage />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <PrivateRoute path="/cart" element={<CartPage />} />
+        <PrivateRoute path="/wishlist" element={<WishlistPage />} />
 
-        <Footer />
-      </div>
-    
+        <Route path="/products" element={<ProductPage />} />
+        <Route
+          path="/productdetails/:productId"
+          element={<ProductPreviewPage />}
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+
+      <Footer />
+    </div>
   );
 }
 

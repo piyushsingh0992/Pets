@@ -11,12 +11,9 @@ import axios from "axios";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  // let currentLoginValue=localStorage?.getItem("loginStatus")?localStorage.getItem("loginStatus"):false;
-  // const [login, loginSetter] = useState(false);
 
   function loginHandler(state, action) {
     let { payload } = action;
-
     switch (payload) {
       case "LOGIN":
         return true;

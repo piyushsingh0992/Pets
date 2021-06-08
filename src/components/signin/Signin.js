@@ -36,15 +36,12 @@ const Signin = ({ userSetter }) => {
     }
   }
 
-  if (login === true) {
-    debugger;
-    console.log({ login });
-    navigate(state?.from ? state.from : "/");
-    console.log("it exited the navigate but route didn't changed");
-  }
-
-  console.log({ login });
-  debugger;
+  useEffect(() => {
+    if (login === true) {
+      navigate(state?.from ? state.from : "/");
+    }
+  }, [login]);
+  
 
   return (
     <div

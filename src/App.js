@@ -10,11 +10,13 @@ import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
 import { useTheme } from "./contexts/themeContext/themeContext.js";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
+import Toast from "./components/toast/Toast.js";
 import "./App.css";
 function App() {
   const { theme } = useTheme();
   return (
     <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
+      <Toast/>
       <Navbar />
 
       <Routes>

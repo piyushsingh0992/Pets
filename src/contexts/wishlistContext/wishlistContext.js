@@ -15,16 +15,14 @@ export const WishlistProvider = ({ children }) => {
 
   const [loader, loaderSetter] = useState(false);
   useEffect(() => {
-    
-    // use effect of wishlist provider
     let source = axios.CancelToken.source();
     (async function () {
       try {
         loaderSetter(true);
-        let response = await axios.get("/wishlist", {
+        let {data} = await axios.get("https://pets.piyushsingh6.repl.co/wishlist", {
           cancelToken: source.token,
         });
-        wishlistDispatch({ type: "FIRST_LOAD", payload: response.data });
+        wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
       } catch (error) {
         console.error(error);
       } finally {

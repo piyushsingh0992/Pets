@@ -1,0 +1,9 @@
+.card-add-to-wishlist {
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 0.6rem;
+    cursor: pointer !important;
+    z-index: 4;
+  }

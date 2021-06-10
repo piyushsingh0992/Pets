@@ -23,10 +23,9 @@ const HomePage = () => {
     (async function () {
       try {
         loaderSetter(true);
-        let { data } = await axios.post("/recommend", {
+        let { data } = await axios.get("https://pets.piyushsingh6.repl.co/recommendation", {
           cancelToken: source.token,
         });
-
         productdataFromServerSetter(data.products);
       } catch (error) {
         console.error(error);

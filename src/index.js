@@ -8,15 +8,17 @@ import { WishlistProvider } from "./contexts/wishlistContext/wishlistContext.js"
 import { PetsServer } from "./server/server.js";
 import { CartProvider } from "./contexts/cartContext/cartContext.js";
 import { AuthProvider } from "./contexts/authContext/authContext.js";
+import {ToastProvider} from "./contexts/toastContext/toastContext.js";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
-PetsServer();
+// PetsServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <Router>
+        <ToastProvider>
         <ThemeProvider>
           <LanguageProvider>
             <WishlistProvider>
@@ -26,6 +28,7 @@ ReactDOM.render(
             </WishlistProvider>
           </LanguageProvider>
         </ThemeProvider>
+        </ToastProvider>
       </Router>
     </AuthProvider>
   </React.StrictMode>,

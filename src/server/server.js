@@ -10,36 +10,31 @@ export const PetsServer = () => {
     routes() {
       this.namespace = "/";
 
-      this.post("/authCheck",(schema,request)=>{
-        const {userId,password}=JSON.parse(request.requestBody);
-        
-        let user=authDataBase.find((item)=>item.user===userId);
-       
-        if(user?.password===password){
-         
-          return {status:'success',user}
-        }else{
-        
-          return {status:'failure',password}
-        }
+      // this.post("/authCheck", (schema, request) => {
+      //   const { userId, password } = JSON.parse(request.requestBody);
+      //   let user = authDataBase.find((item) => item.user === userId);
+      //   if (user?.password === password) {
+      //     return { status: "success", user };
+      //   } else {
+      //     return { status: "failure", password };
+      //   }
+      // });
 
-      })
+      // this.post("/recommend", (schema, request) => {
+      //   const { productId } = JSON.parse(request.requestBody);
+      //   let recommendedArray = recommendations(ProductArray, productId);
+      //   return { status: "success", products: recommendedArray };
+      // });
 
-      this.post("/recommend", (schema, request) => {
-        const { productId } = JSON.parse(request.requestBody);
-        let recommendedArray = recommendations(ProductArray, productId);
-        return { status: "success", products: recommendedArray };
-      });
+      // this.post("/productdetails", (schema, request) => {
+      //   const { productId } = JSON.parse(request.requestBody);
+      //   let desiredProduct = findProduct(ProductArray, productId);
+      //   return { status: "success", product: desiredProduct };
+      // });
 
-      this.post("/productdetails", (schema, request) => {
-        const { productId } = JSON.parse(request.requestBody);
-        let desiredProduct = findProduct(ProductArray, productId);
-        return { status: "success", product: desiredProduct };
-      });
-
-      this.get("/products", (schema, request) => {
-        return { status: "success", products: ProductArray };
-      });
+      // this.get("/products", (schema, request) => {
+      //   return { status: "success", products: ProductArray };
+      // });
 
       this.get("/cart", (schema, request) => {
         return { status: "success", products: cart };
@@ -47,10 +42,10 @@ export const PetsServer = () => {
 
       this.post("/cart", (schema, request) => {
         let { productId, action } = JSON.parse(request.requestBody);
-
         let currentProduct = findProduct(ProductArray, productId);
         let presentIncart = isPresentInCart(cart, productId);
 
+        
         switch (action) {
           case "ADD":
             if (!presentIncart) {
@@ -128,21 +123,21 @@ export const PetsServer = () => {
         return { status: "success", product: newProduct };
       });
 
-      this.get("/wishlist", (schema) => {
-        return wishlist;
-      });
+      // this.get("/wishlist", (schema) => {
+      //   return wishlist;
+      // });
 
-      this.post("/wishlist", (schema, request) => {
-        let { productId } = JSON.parse(request.requestBody);
-        let currentProduct = ProductArray.find((item) => {
-          return item.id === productId;
-        });
+      // this.post("/wishlist", (schema, request) => {
+      //   let { productId } = JSON.parse(request.requestBody);
+      //   let currentProduct = ProductArray.find((item) => {
+      //     return item.id === productId;
+      //   });
 
-        wishlist = [...wishlist, { ...currentProduct, wishlist: true }];
-        let newProduct = { ...currentProduct, wishlist: true };
+      //   wishlist = [...wishlist, { ...currentProduct, wishlist: true }];
+      //   let newProduct = { ...currentProduct, wishlist: true };
 
-        return { status: "success", product: newProduct };
-      });
+      //   return { status: "success", product: newProduct };
+      // });
 
       this.delete("/wishlist", (schema, request) => {
         let { productId } = request.queryParams;

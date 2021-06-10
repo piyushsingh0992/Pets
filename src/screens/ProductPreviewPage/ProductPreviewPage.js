@@ -23,15 +23,14 @@ const ProductPreviewPage = () => {
     const source = axios.CancelToken.source();
     (async function () {
       try {
+        
         loaderSetter(true);
-        let response = await axios.post(`/productdetails`, {
-          cancelToken: source.token,
-          productId: productId,
-        });
-
-
+        let response = await axios.get(`https://pets.piyushsingh6.repl.co/products/${productId}`);
+        
         productDetailsSetter(response.data.product);
+        
       } catch (error) {
+        
         console.error(error.message);
       }
     })();
@@ -45,10 +44,10 @@ const ProductPreviewPage = () => {
     let source = axios.CancelToken.source();
     (async function () {
       try {
-        let response = await axios.post("/recommend", {
-          cancelToken: source.token,
-          productId: productId,
-        });
+        
+        let response = await axios.get(`https://pets.piyushsingh6.repl.co/recommendation/${productId}`);
+
+        
         productdataFromServerSetter(response.data.products);
       } catch (error) {
         console.error(error.message);

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./card.css";
 
-import heart1 from "../../utils/images/icons/heart1.svg";
-import heart2 from "../../utils/images/icons/heart2.svg";
 import Button from "../button/Button";
 import Rating from "../rating/Rating";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
@@ -11,13 +9,10 @@ import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 
 import { Link } from "react-router-dom";
+import WishListButton from "../wishListButton/WishListButton.js";
 
-import {
-  quantityManagerInCart,
-  addToCart,
-} from "../../utils/cartFunctions.js";
+import { quantityManagerInCart, addToCart } from "../../utils/cartFunctions.js";
 
-import {addToWishList,removeFromWishList,} from "../../utils/wishlistFunctions.js";
 const Card = ({
   productImage,
   productName,
@@ -37,13 +32,6 @@ const Card = ({
   const { language } = useLanguage();
   const { wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
-  const wishListButtonHandler = () => {
-    if (wishlist) {
-      removeFromWishList(wishlistDispatch, id);
-    } else {
-      addToWishList(wishlistDispatch, id);
-    }
-  };
 
   return (
     <div
@@ -120,13 +108,7 @@ const Card = ({
             }}
           />
         )}
-
-        <img
-          onClick={wishListButtonHandler}
-          src={wishlist ? heart2 : heart1}
-          className="card-add-to-wishlist"
-          alt="Add toCart"
-        />
+        <WishListButton wishlist={wishlist} id={id} />
         {fast && (
           <div className="fast-delivery-tag">
             <p>Fast</p>

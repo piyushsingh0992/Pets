@@ -33,13 +33,13 @@ const ProductPage = () => {
     (async function () {
       try {
         loaderSetter(true);
-        let response = await axios.get("/products", {
-          cancelToken: source.token,
-        });
 
-        productdataFromServerSetter(response.data.products);
+        let { data } = await axios.get(
+          "https://pets.piyushsingh6.repl.co/products"
+        );
+
+        productdataFromServerSetter(data.products);
         filterdispatch({ type: "ANIMAL", payload: query.get("animal") });
-
         query.get("cateogry") &&
           filterdispatch({ type: "CATEOGRY", payload: query.get("cateogry") });
       } catch (error) {

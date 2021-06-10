@@ -9,11 +9,10 @@ export function AuthProvider({ children }) {
   
   async function authChecker(userId, password) {
     try {
-      let { data } = await axios.post(`/authCheck`, {
+      let { data } = await axios.post(`https://pets.piyushsingh6.repl.co/authCheck`, {
         userId,
         password,
       });
-
       if (data.status === "success") {
         loginDispatch({ payload: "LOGIN" });
         localStorage.setItem(

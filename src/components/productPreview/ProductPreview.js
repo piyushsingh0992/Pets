@@ -2,6 +2,7 @@ import React from "react";
 
 import Button from "../button/Button";
 import Rating from "../rating/Rating";
+import WishListButton from "../wishListButton/WishListButton.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import plus from "../../utils/images/icons/plus.svg";
@@ -9,41 +10,24 @@ import minus from "../../utils/images/icons/minus.svg";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 
-import {
-
-  addToCart,
-  quantityManagerInCart,
-} from "../../utils/cartFunctions.js";
-
-import {addToWishList,removeFromWishList,} from "../../utils/wishlistFunctions.js";
+import { addToCart, quantityManagerInCart } from "../../utils/cartFunctions.js";
 import "./productPreview.css";
 const ProductPreview = ({ productDetails }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { cartDispatch } = useCart();
-  const { wishlistDispatch } = useWishlist();
-  
-  
+
 
   let newPrice = Math.floor(
     productDetails.price - (productDetails.price / 100) * productDetails.off
   );
 
 
-  const wishListButtonHandler = () => {
-    if (productDetails.wishlist) {
-      removeFromWishList(wishlistDispatch, productDetails.id);
-    } else {
-      addToWishList(wishlistDispatch, productDetails.id);
-    }
-  };
-
   function quantityHandler(type) {
     quantityManagerInCart(cartDispatch, type, productDetails.id);
   }
   function cartButtonHandler() {
     addToCart(cartDispatch, productDetails.id);
-   
   }
   return (
     <div
@@ -103,21 +87,16 @@ const ProductPreview = ({ productDetails }) => {
             />
           )}
 
-          {productDetails.wishlist ? (
-            <Button
-              type="secondary"
-              text="Remove from Wishlist"
-              size="wishlist-preview-btn"
-              clickFunction={wishListButtonHandler}
-            />
-          ) : (
-            <Button
-              type="secondary"
-              text={language.addWishlist}
-              size="product-preview-btn"
-              clickFunction={wishListButtonHandler}
-            />
-          )}
+          <WishListButton
+            text={
+              productDetails.wishlist
+                ? "Remove from Wishlist"
+                : "Add to Wishlist"
+            }
+            wishlist={productDetails.wishlist}
+            id={productDetails.id}
+            productPreview
+          />
         </div>
       </div>
     </div>

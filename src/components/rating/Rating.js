@@ -3,7 +3,7 @@ import "./rating.css";
 function Rating({ rating }) {
   const ratingHandler = (rating) => {
     let finalRating = [];
-    if (rating > 5 ) {
+    if (rating > 5) {
       return [
         <span className="fa fa-star checked"></span>,
         <span className="fa fa-star checked"></span>,

@@ -15,7 +15,6 @@ const EmptyWishlist = () => {
         </p>
       </div>
       <Link to="/products">
-     
         <Button text="Explore" />
       </Link>
 

@@ -5,7 +5,7 @@ import Button from "../button/Button";
 import Rating from "../rating/Rating";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 
 import { Link } from "react-router-dom";
@@ -30,8 +30,8 @@ const Card = ({
   let newPrice = Math.floor(price - (price / 100) * off);
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
+  const { toastDispatch } = useToast();
 
   return (
     <div
@@ -84,7 +84,12 @@ const Card = ({
             <div
               className="card-decrease-quantity"
               onClick={() => {
-                quantityManagerInCart(cartDispatch, "DECREASE", id);
+                quantityManagerInCart(
+                  cartDispatch,
+                  "DECREASE",
+                  id,
+                  toastDispatch
+                );
               }}
             >
               <p>-</p>
@@ -93,7 +98,12 @@ const Card = ({
             <div
               className="card-increase-quantity"
               onClick={() => {
-                quantityManagerInCart(cartDispatch, "INCREASE", id);
+                quantityManagerInCart(
+                  cartDispatch,
+                  "INCREASE",
+                  id,
+                  toastDispatch
+                );
               }}
             >
               <p>+</p>
@@ -104,7 +114,7 @@ const Card = ({
             type="primary"
             text={language.addCart}
             clickFunction={() => {
-              addToCart(cartDispatch, id);
+              addToCart(cartDispatch, id, toastDispatch);
             }}
           />
         )}

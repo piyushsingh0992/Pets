@@ -9,9 +9,7 @@
   justify-content: center;
 }
 
-.productGrid-card-container {
-  /* margin: 1rem; */
-}
+
 @media only screen and (max-width: 600px) {
   .productGrid {
     /* padding: 5vh ; */

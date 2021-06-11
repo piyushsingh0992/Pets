@@ -1,21 +1,21 @@
 :root {
-    --primary: #ff6600;
-    --primary-text:#424242;
-    --bold-text: black;
-    --highlight-text:#ff6600;
-    --primary-background:#efefef;
-    --highlight-background:#ffffff;
-    
-
-    --dark-primary: #ff6600;
-    --dark-primary-text:#D1D1D1;
-    --dark-bold-text:#ffffff;
-    --dark-highlight-text:#ff6600;
-    --dark-primary-background:#212121;
-    --dark-highlight-background:#424242;
+  --primary: #ff6600;
+  --primary-text: #424242;
+  --bold-text: black;
+  --highlight-text: #ff6600;
+  --primary-background: #efefef;
+  --highlight-background: #ffffff;
 
 
-    /* --primary-text: #000;
+  --dark-primary: #ff6600;
+  --dark-primary-text: #D1D1D1;
+  --dark-bold-text: #ffffff;
+  --dark-highlight-text: #ff6600;
+  --dark-primary-background: #212121;
+  --dark-highlight-background: #424242;
+
+
+  /* --primary-text: #000;
     --grey:#efefef;
   
     --dark-primary:#121212;
@@ -26,17 +26,16 @@
     
    --dark-primary-text: #B3B3B3;
     --dark-bold-text: #ffffff; */
-  
 
 
-    --white: #ffffff;
-    --black:#000;
-    --red:red;
-    --green:green;
-  }
 
-  @font-face {
-    src: url(font/Futura-Bold.otf);
-    font-family: logo;
-  }
-  
+  --white: #ffffff;
+  --black: #000;
+  --red: red;
+  --green: green;
+}
+
+@font-face {
+  src: url(font/Futura-Bold.otf);
+  font-family: logo;
+}

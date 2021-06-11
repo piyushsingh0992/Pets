@@ -40,6 +40,7 @@
   margin: 0;
   font-family: logo;
 }
+
 .navbar-search {
   background-color: var(--grey);
   border-radius: 25px;
@@ -50,7 +51,7 @@
   max-height: 2rem;
 }
 
-.navbar-search > input {
+.navbar-search>input {
   border: 0px;
   font-size: 1.1rem;
   width: 4rem;
@@ -58,13 +59,14 @@
   background-color: var(--grey);
 }
 
-.navbar-search > input:valid {
+.navbar-search>input:valid {
   width: 12rem;
 }
 
-.navbar-search > input:focus {
+.navbar-search>input:focus {
   width: 12rem;
 }
+
 .navbar-search-icon {
   height: 1.2rem;
   width: 1.2rem;
@@ -95,10 +97,11 @@
   z-index: 999999999999999999999999;
 }
 
-.themeChange-btn > img {
+.themeChange-btn>img {
   height: 1.5rem;
   width: 1.5rem;
 }
+
 .navbar-icon {
   cursor: pointer;
 }
@@ -107,10 +110,12 @@
   height: 1.7rem;
   width: 1.7rem;
 }
+
 .navbar-login {
   font-size: 1.3rem;
   cursor: pointer;
 }
+
 .navbar-menu-icon {
   height: 2rem;
   width: 2rem;
@@ -130,6 +135,7 @@
   .navbar {
     padding: 2vw 0vw;
   }
+
   .navbar-right {
     margin-right: 0rem;
   }
@@ -141,9 +147,11 @@
   .navbar-icon {
     display: none;
   }
+
   .navbar-login {
     display: none;
   }
+
   .navbar-right {
     display: flex;
     align-items: center;
@@ -190,6 +198,7 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
   .navbar-slide-brand {
     height: 2.5rem;
     margin-bottom: 1rem;
@@ -211,9 +220,9 @@
 
   }
 
-  .navbar-mobile-options p{
+  .navbar-mobile-options p {
 
-   
+
     font-size: 1.4rem;
   }
 }

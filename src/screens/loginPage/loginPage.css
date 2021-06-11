@@ -1,6 +1,6 @@
-.loginPage{
-    min-height:98vh;
-    min-width:95vw;
+.loginPage {
+    min-height: 98vh;
+    min-width: 95vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,8 +9,8 @@
 
 
 @media only screen and (max-width: 600px) {
-    .loginPage{
-        min-height:95vh;
+    .loginPage {
+        min-height: 95vh;
 
     }
 }

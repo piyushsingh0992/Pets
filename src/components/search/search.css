@@ -8,7 +8,7 @@
   max-height: 2rem;
 }
 
-.search > input {
+.search>input {
   border: 0px;
   font-size: 1.1rem;
   width: 4rem;
@@ -16,13 +16,14 @@
   background-color: var(--primary-background);
 }
 
-.search > input:valid {
+.search>input:valid {
   width: 12rem;
 }
 
-.search > input:focus {
+.search>input:focus {
   width: 12rem;
 }
+
 .search-icon {
   height: 1.2rem;
   width: 1.2rem;

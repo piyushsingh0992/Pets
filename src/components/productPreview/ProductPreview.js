@@ -1,4 +1,5 @@
 import React from "react";
+import "./productPreview.css";
 
 import Button from "../button/Button";
 import Rating from "../rating/Rating";
@@ -8,26 +9,24 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import plus from "../../utils/images/icons/plus.svg";
 import minus from "../../utils/images/icons/minus.svg";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-
+import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { addToCart, quantityManagerInCart } from "../../utils/cartFunctions.js";
-import "./productPreview.css";
+
 const ProductPreview = ({ productDetails }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { cartDispatch } = useCart();
 
-
+  const { toastState, toastDispatch } = useToast();
   let newPrice = Math.floor(
     productDetails.price - (productDetails.price / 100) * productDetails.off
   );
 
-
   function quantityHandler(type) {
-    quantityManagerInCart(cartDispatch, type, productDetails.id);
+    quantityManagerInCart(cartDispatch, type, productDetails.id, toastDispatch);
   }
   function cartButtonHandler() {
-    addToCart(cartDispatch, productDetails.id);
+    addToCart(cartDispatch, productDetails.id, toastDispatch);
   }
   return (
     <div

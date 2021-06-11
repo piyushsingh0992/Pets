@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
-const TextField = ({ label, type,textValueSetter }) => {
+const TextField = ({ label, type, textValueSetter }) => {
   const { theme } = useTheme();
   const [value, valueSetter] = useState("");
 
   function inputValueHandler(e) {
     valueSetter(e.target.value);
-    textValueSetter(e.target.value)
+    textValueSetter(e.target.value);
   }
 
   return (
@@ -22,7 +22,7 @@ const TextField = ({ label, type,textValueSetter }) => {
         }}
         required
       />
-      <label >{label}</label>
+      <label>{label}</label>
     </span>
   );
 };

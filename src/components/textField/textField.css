@@ -1,10 +1,10 @@
 .textField {
   position: relative;
   display: inline-block;
-  margin:0.8rem 0;
+  margin: 0.8rem 0;
 }
 
-.textField > input {
+.textField>input {
   font-size: 1.5rem;
   max-width: 13rem;
 
@@ -23,11 +23,11 @@
   border: 2px solid var(--primary);
 }
 
-.textField > input:focus {
+.textField>input:focus {
   border: 2px solid var(--primary);
 }
 
-.textField > label {
+.textField>label {
   font-size: 1.5rem;
   position: absolute;
   top: 0.5rem;
@@ -36,8 +36,8 @@
   color: grey;
 }
 
-input:focus ~ label,
-input:valid ~ label {
+input:focus~label,
+input:valid~label {
   top: -1.6rem;
   left: 0.5rem;
   font-size: 1.3rem;

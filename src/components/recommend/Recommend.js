@@ -4,10 +4,9 @@ import Card from "../card/Card.js";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Recommend = ({ filteredData }) => {
-
   const { theme } = useTheme();
   const { language } = useLanguage();
 
@@ -16,7 +15,7 @@ const Recommend = ({ filteredData }) => {
       <div className="recommendation-heading">
         <h1> {language.recommend}</h1>
         <Link to="/products">
-        <p style={{ color: theme.boldText }}>{language.more}</p>
+          <p style={{ color: theme.boldText }}>{language.more}</p>
         </Link>
       </div>
       <div className="recommend">

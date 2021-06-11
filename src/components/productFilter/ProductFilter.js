@@ -36,9 +36,14 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
         <div className="filter-0">
           <div className="fliter-heading">
             <p>{language.filter.filter}</p>
-            <p className="filter-clear-all" onClick={(e) => {
-                  filterdispatch({ type: "CLEAR_ALL" });
-                }}>{language.filter.clear}</p>
+            <p
+              className="filter-clear-all"
+              onClick={(e) => {
+                filterdispatch({ type: "CLEAR_ALL" });
+              }}
+            >
+              {language.filter.clear}
+            </p>
           </div>
         </div>
         <div className="fliter-1">
@@ -248,10 +253,14 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
           <div className="filter-options">
             <div className="filter-option">
               <label>{language.filter.other.include}</label>
-              <input type="checkbox" value="out-of-stock" onChange={() => {
+              <input
+                type="checkbox"
+                value="out-of-stock"
+                onChange={() => {
                   filterdispatch({ type: "OUT_OF_STOCK" });
                 }}
-                checked={outOfStock}/>
+                checked={outOfStock}
+              />
             </div>
           </div>
         </div>

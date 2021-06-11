@@ -3,9 +3,8 @@ import "./cartPage.css";
 import CartList from "../../components/cartList/CartList.js";
 import PriceCalculator from "../../components/priceCalculator/PriceCalculator.js";
 import Loader from "../../components/loader/Loader.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
 import EmptyCart from "../../components/emptyCart/EmptyCart";
-
+import { useCart } from "../../contexts/cartContext/cartContext.js";
 const CartPage = () => {
   const { loader, cartState } = useCart();
   return loader ? (

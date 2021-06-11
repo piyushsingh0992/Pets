@@ -1,23 +1,23 @@
-
-
-.cardList{
+.cardList {
     display: flex;
     flex-direction: column;
-    flex:3.5;
-    margin:5vh 0;
+    flex: 3.5;
+    margin: 5vh 0;
 }
 
-.cardList >h1{
-    font-family:logo;
-    color:var(--primary);
+.cardList>h1 {
+    font-family: logo;
+    color: var(--primary);
     font-size: 1.5rem;
-    margin:0vh 0vh 0.1rem 0vh;
+    margin: 0vh 0vh 0.1rem 0vh;
 }
+
 @media only screen and (max-width: 600px) {
 
-.cardList{
-    display: flex;
-    flex-direction: column;
-    flex:3.5;
-    margin:5vh ;
-}}
+    .cardList {
+        display: flex;
+        flex-direction: column;
+        flex: 3.5;
+        margin: 5vh;
+    }
+}

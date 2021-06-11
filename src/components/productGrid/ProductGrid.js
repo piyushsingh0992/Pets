@@ -1,15 +1,12 @@
 import React from "react";
 import "./productGrid.css";
-
 import Card from "../card/Card.js";
-
 
 const ProductGrid = ({ productData, filterdispatch }) => {
   return (
     <div className="productGrid">
       {productData.map((item) => {
         return (
-
           <Card
             quantity={item.quantity}
             productImage={item.productImg}
@@ -25,7 +22,6 @@ const ProductGrid = ({ productData, filterdispatch }) => {
             fast={item.fastDelivery}
             filterdispatch={filterdispatch}
           />
-          
         );
       })}
     </div>

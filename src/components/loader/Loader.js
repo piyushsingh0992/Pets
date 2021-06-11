@@ -1,7 +1,6 @@
 import React from "react";
 import "./loader.css";
 const Loader = ({ size }) => {
-    
   let dimension = size
     ? {
         width: `${1.5 * size}rem`,

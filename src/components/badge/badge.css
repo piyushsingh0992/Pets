@@ -1,38 +1,37 @@
+.badge-container {
+  position: relative;
+  display: inline-block;
+}
 
-  .badge-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .badge {
-    border-radius: 50%;
-    position: absolute;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-  }
-  
+.badge {
+  border-radius: 50%;
+  position: absolute;
 
-  
-  
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+
+
+
+
+.badge-item {
+  height: 1.5rem;
+  width: 1.4rem;
+  top: -0.5rem;
+  right: -1rem;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
   .badge-item {
+
     height: 1.5rem;
     width: 1.4rem;
     top: -0.5rem;
-    right: -1rem;
-    font-size: 1rem;
+    right: 0.2rem;
+    font-size: 0.6rem;
   }
-  
-  @media only screen and (max-width: 600px) {
-    .badge-item {
-
-      height: 1.5rem;
-      width: 1.4rem;
-      top: -0.5rem;
-      right: 0.2rem;
-      font-size: 0.6rem;
-    }
-  }
+}

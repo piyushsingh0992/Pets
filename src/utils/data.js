@@ -127,8 +127,6 @@ import reptilehome5 from "./images/products/reptiles/home/reptilehome5.png";
 import reptilehome6 from "./images/products/reptiles/home/reptilehome6.png";
 
 const data = [
-  
-
   {
     productName: "Reptile Home",
     productImg: "https://i.ibb.co/3sj9TSq/reptilehome1.png",

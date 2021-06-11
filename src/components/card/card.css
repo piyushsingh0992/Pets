@@ -1,9 +1,8 @@
-
 .card {
   padding: 1rem;
   background-color: var(--white);
   max-height: 23rem;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,6 +11,7 @@
   position: relative;
   border-radius: 10px;
 }
+
 .out-of-stock {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
@@ -27,22 +27,24 @@
 }
 
 
-.fast-delivery-tag{
-  position:absolute;
-  top:1rem;
-  left:0rem;
-  width:30%;
+.fast-delivery-tag {
+  position: absolute;
+  top: 1rem;
+  left: 0rem;
+  width: 30%;
   padding: 0.2rem 0.6rem;
   background-color: var(--primary);
-  color:var(--white);
-  font-size:1.5rem;
+  color: var(--white);
+  font-size: 1.5rem;
   border-radius: 5px;
 }
-.out-of-stock > p {
+
+.out-of-stock>p {
   font-size: 2rem;
   color: var(--primary);
   font-family: logo;
 }
+
 .card-img-container {
   display: flex;
   justify-content: center;
@@ -58,6 +60,7 @@
   height: 12rem;
   object-fit: contain;
 }
+
 .card-add-to-wishlist {
   height: 2rem;
   width: 2rem;
@@ -74,6 +77,7 @@
   width: 100%;
   align-items: flex-start;
 }
+
 .card-heading {
   color: var(--bold-text);
   font-size: 1rem;
@@ -85,6 +89,7 @@
   font-size: 0.9rem;
   color: var(--primary-text);
 }
+
 .card-price-container {
   display: flex;
   justify-content: flex-start;
@@ -116,38 +121,38 @@
   width: 100%;
 }
 
-.card-quantity-handler{
+.card-quantity-handler {
   display: flex;
   align-items: center;
-  width:100%;
+  width: 100%;
   justify-content: space-around;
 }
 
-.card-quantity-handler >p{
+.card-quantity-handler>p {
   font-size: 2rem;
 }
 
-.card-quantity-handler>div{
+.card-quantity-handler>div {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 0.1rem 0.7rem;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
 
 }
 
-.card-increase-quantity{
-  color:var(--white);
-  border:2px solid var(--primary);
+.card-increase-quantity {
+  color: var(--white);
+  border: 2px solid var(--primary);
   background-color: var(--primary);
 }
 
-.card-decrease-quantity{
+.card-decrease-quantity {
 
-  color:var(--primary);
-  border:2px solid var(--primary);
+  color: var(--primary);
+  border: 2px solid var(--primary);
   background-color: transparent;
 }
 
@@ -157,17 +162,18 @@
     height: 9rem;
     object-fit: contain;
   }
+
   .card-img-container {
     height: 9rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+  }
 
-    .out-of-stock > p {
-      font-size: 1.5rem;
-      color: var(--primary);
-      font-family: logo;
-    }
+  .out-of-stock>p {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-family: logo;
+  }
 }

@@ -11,12 +11,10 @@ import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 
-const WishListButton = ({ wishlist, id, productPreview ,text}) => {
-  debugger;
+const WishListButton = ({ wishlist, id, productPreview, text }) => {
   const { wishlistDispatch } = useWishlist();
   const { toastDispatch } = useToast();
   const wishListButtonHandler = () => {
-    debugger;
     if (wishlist) {
       removeFromWishList(wishlistDispatch, id, toastDispatch);
     } else {

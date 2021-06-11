@@ -1,4 +1,4 @@
-.errorPage{
+.errorPage {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,18 +6,18 @@
     height: 100vh;
 }
 
-.errorPage >h1{
+.errorPage>h1 {
     font-size: 4rem;
-    color:var(--primary);
+    color: var(--primary);
     font-family: logo;
 }
 
-.errorPage >h2{
+.errorPage>h2 {
     font-size: 2rem;
 
 }
 
-.errorPage >p{
+.errorPage>p {
     font-size: 1.5rem;
 
 }

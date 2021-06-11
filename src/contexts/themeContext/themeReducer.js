@@ -6,7 +6,7 @@ export function themeReducer(state, action) {
     case true:
       return day;
     case false:
-        return night;
+      return night;
     default:
       return day;
   }

@@ -1,6 +1,6 @@
 export function cartManager(state, action) {
   const { type, payload } = action;
-  
+
   switch (type) {
     case "FIRST_LOAD":
       return payload;
@@ -23,9 +23,7 @@ export function cartManager(state, action) {
         return item;
       });
     case "DECREASE":
-    
-      if(payload.quantity<=1){
-       
+      if (payload.quantity < 1) {
         return state?.filter((item) => {
           if (item.id === payload.id) {
             return false;

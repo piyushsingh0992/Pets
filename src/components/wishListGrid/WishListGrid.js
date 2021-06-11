@@ -10,7 +10,6 @@ const WishlistGrid = () => {
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
 
- 
   const filteredData = addedToCart(wishlistState, cartState);
 
   return (

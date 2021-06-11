@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./homePage.css";
-
+import axios from "axios";
 import Hero from "../../components/hero/Hero.js";
 import DropdownBar from "../../components/dropdownBar/DropdownBar.js";
 import Loader from "../../components/loader/Loader.js";
@@ -9,7 +8,6 @@ import Grid from "../../components/grid/Grid.js";
 import Recommend from "../../components/recommend/Recommend.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-
 import { checkingCartAndWishlist } from "../../utils/common.js";
 
 const HomePage = () => {
@@ -23,9 +21,12 @@ const HomePage = () => {
     (async function () {
       try {
         loaderSetter(true);
-        let { data } = await axios.get("https://pets.piyushsingh6.repl.co/recommendation", {
-          cancelToken: source.token,
-        });
+        let { data } = await axios.get(
+          "https://pets.piyushsingh6.repl.co/recommendation",
+          {
+            cancelToken: source.token,
+          }
+        );
         productdataFromServerSetter(data.products);
       } catch (error) {
         console.error(error);

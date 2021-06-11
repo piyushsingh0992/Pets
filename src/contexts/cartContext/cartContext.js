@@ -19,10 +19,13 @@ export function CartProvider({ children }) {
     (async function () {
       try {
         loaderSetter(true);
-        const response = await axios.get("/cart", {
-          cancelToken: source.token,
-        });
-        cartDispatch({ type: "FIRST_LOAD", payload: response.data.products });
+        const { data } = await axios.get(
+          "https://pets.piyushsingh6.repl.co/cart",
+          {
+            cancelToken: source.token,
+          }
+        );
+        cartDispatch({ type: "FIRST_LOAD", payload: data.products });
       } catch (error) {
         console.error(error);
       } finally {

@@ -6,9 +6,8 @@ import {
   useState,
 } from "react";
 import axios from "axios";
-import {wishListManager } from "./wishlistreducer.js";
+import { wishListManager } from "./wishlistreducer.js";
 const WishlistContext = createContext();
-
 
 export const WishlistProvider = ({ children }) => {
   const [wishlistState, wishlistDispatch] = useReducer(wishListManager, []);
@@ -19,9 +18,12 @@ export const WishlistProvider = ({ children }) => {
     (async function () {
       try {
         loaderSetter(true);
-        let {data} = await axios.get("https://pets.piyushsingh6.repl.co/wishlist", {
-          cancelToken: source.token,
-        });
+        let { data } = await axios.get(
+          "https://pets.piyushsingh6.repl.co/wishlist",
+          {
+            cancelToken: source.token,
+          }
+        );
         wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
       } catch (error) {
         console.error(error);
@@ -30,9 +32,9 @@ export const WishlistProvider = ({ children }) => {
       }
     })();
 
-    return ()=>{
+    return () => {
       source.cancel();
-    }
+    };
   }, []);
   return (
     <WishlistContext.Provider

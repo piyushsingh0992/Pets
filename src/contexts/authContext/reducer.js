@@ -4,6 +4,7 @@ export function loginHandler(state, action) {
     case "LOGIN":
       return true;
     case "LOGOUT":
+      localStorage.removeItem("loginStatus"); 
       return false;
     default:
       return false;

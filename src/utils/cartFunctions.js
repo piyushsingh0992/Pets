@@ -62,7 +62,6 @@ export async function removeFromCart(cartDispatch, productId, toastDispatch) {
     let { data } = await axios.delete(
       `https://pets.piyushsingh6.repl.co/cart/${productId}`
     );
-    debugger;
 
     if (data.status === "success") {
       cartDispatch({ type: "REMOVE", payload: data.product });

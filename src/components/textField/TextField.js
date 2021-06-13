@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
-const TextField = ({ label, type, textValueSetter }) => {
+const TextField = ({ label, type, value,valueSetter }) => {
   const { theme } = useTheme();
-  const [value, valueSetter] = useState("");
+  // const [value, valueSetter] = useState("");
 
-  function inputValueHandler(e) {
-    valueSetter(e.target.value);
-    textValueSetter(e.target.value);
-  }
+  // function inputValueHandler(e) {
+  //   valueSetter(e.target.value);
+  //   // textValueSetter(e.target.value);
+  // }
 
   return (
     <span className="textField">
@@ -18,7 +18,7 @@ const TextField = ({ label, type, textValueSetter }) => {
         type={type ? type : "text"}
         value={value}
         onChange={(e) => {
-          inputValueHandler(e);
+          valueSetter(e.target.value);
         }}
         required
       />

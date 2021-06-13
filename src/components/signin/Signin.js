@@ -32,10 +32,11 @@ const Signin = ({ userSetter }) => {
         <h1 className="signin-brand-name">{language.pets}</h1>
       </div>
 
-      <TextField textValueSetter={userIdSetter} label={language.auth.email} />
+      <TextField valueSetter={userIdSetter} label={language.auth.email} value={userId} />
       <TextField
-        textValueSetter={passwordSetter}
+        valueSetter={passwordSetter}
         label={language.auth.password}
+        value={password}
       />
       <div className="signin-submit-btn">
         <Button

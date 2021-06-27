@@ -1,7 +1,7 @@
 export function wishListManager(state, action) {
   const { type, payload } = action;
 
-  let present = state.find((item) => item.id === payload.id);
+  let present = state.find((item) => item.id === payload?.id);
 
   switch (type) {
     case "FIRST_LOAD":
@@ -20,6 +20,9 @@ export function wishListManager(state, action) {
         }
         return true;
       });
+    case "LOGOUT":
+      console.log("wishlist logout");
+      return [];
 
     default:
       return state;

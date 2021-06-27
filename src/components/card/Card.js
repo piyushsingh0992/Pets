@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import "./card.css";
-
-import Button from "../button/Button";
 import Rating from "../rating/Rating";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
-
 import { Link } from "react-router-dom";
 import WishListButton from "../wishListButton/WishListButton.js";
-
-import { quantityManagerInCart, addToCart } from "../../utils/cartFunctions.js";
+import CartButton from "../cartButton/CartButton.js";
 
 const Card = ({
   productImage,
@@ -30,9 +24,6 @@ const Card = ({
   let newPrice = Math.floor(price - (price / 100) * off);
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { cartDispatch } = useCart();
-  const { toastDispatch } = useToast();
-
   return (
     <div
       className="card"
@@ -79,46 +70,8 @@ const Card = ({
         </div>
       </Link>
       <div className="card-btn-container">
-        {quantity > 0 ? (
-          <div className="card-quantity-handler">
-            <div
-              className="card-decrease-quantity"
-              onClick={() => {
-                quantityManagerInCart(
-                  cartDispatch,
-                  "DECREASE",
-                  id,
-                  toastDispatch
-                );
-              }}
-            >
-              <p>-</p>
-            </div>
-            <p style={{ color: theme.boldText }}>{quantity}</p>
-            <div
-              className="card-increase-quantity"
-              onClick={() => {
-                quantityManagerInCart(
-                  cartDispatch,
-                  "INCREASE",
-                  id,
-                  toastDispatch
-                );
-              }}
-            >
-              <p>+</p>
-            </div>
-          </div>
-        ) : (
-          <Button
-            type="primary"
-            text={language.addCart}
-            clickFunction={() => {
-              addToCart(cartDispatch, id, toastDispatch);
-            }}
-          />
-        )}
-        <WishListButton wishlist={wishlist} id={id} />
+        <CartButton quantity={quantity} id={id} type="CARD_CART_BUTTON" />
+        <WishListButton wishlist={wishlist} id={id} type="PRODUCT_CARD" />
         {fast && (
           <div className="fast-delivery-tag">
             <p>Fast</p>

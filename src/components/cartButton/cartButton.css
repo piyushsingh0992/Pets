@@ -1,0 +1,101 @@
+/* cart button in Card  */
+
+
+.card-quantity-handler {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.card-quantity-handler>img {
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.card-quantity-handler>img:hover {
+    transform: scale(0.9);
+}
+
+.card-quantity-handler>p {
+    font-size: 1.5rem;
+}
+
+
+
+.card-decrease-quantity {
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    background-color: transparent;
+}
+
+.card-increase-quantity {
+    color: var(--white);
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+}
+
+
+
+/* cart button in product Previw  */
+
+
+.productPreviewQuantityHandler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex: 1;
+    font-size: 2rem
+}
+
+
+.productPreviewQuantityHandler img {
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.productPreviewQuantityHandler img:hover {
+    transform: scale(0.9);
+}
+
+.product-preview-btn {
+    font-size: 1.3rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.2rem;
+    font-weight: 550;
+    flex: 1
+}
+
+
+/* cart button in cart */
+
+.quantity-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.quantity-controls img {
+    height: 1.6rem;
+    width: 1.6rem;
+    cursor: pointer;
+}
+
+.quantity-controls p {
+    font-size: 1.3rem;
+    margin: 0px 1rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .product-preview-btn {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0 0.2rem;
+        font-weight: 100;
+    }
+
+}

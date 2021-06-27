@@ -7,13 +7,15 @@ import {
   addToWishList,
   removeFromWishList,
 } from "../../utils/wishlistFunctions.js";
+import { removeFromCart } from "../../utils/cartFunctions.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-
+import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 
-const WishListButton = ({ wishlist, id, productPreview, text }) => {
+const WishListButton = ({ wishlist, id, text, type }) => {
   const { wishlistDispatch } = useWishlist();
   const { toastDispatch } = useToast();
+  const { cartDispatch } = useCart();
   const wishListButtonHandler = () => {
     if (wishlist) {
       removeFromWishList(wishlistDispatch, id, toastDispatch);
@@ -21,21 +23,52 @@ const WishListButton = ({ wishlist, id, productPreview, text }) => {
       addToWishList(wishlistDispatch, id, toastDispatch);
     }
   };
-  return productPreview ? (
-    <Button
-      type="secondary"
-      text={text}
-      size="wishlist-preview-btn"
-      clickFunction={wishListButtonHandler}
-    />
-  ) : (
-    <img
-      onClick={wishListButtonHandler}
-      src={wishlist ? heart2 : heart1}
-      className="card-add-to-wishlist"
-      alt="Add toCart"
-    />
-  );
+
+  function addTowishListHandler() {
+    addToWishList(wishlistDispatch, id, toastDispatch);
+    removeFromCart(cartDispatch, id);
+  }
+
+  switch (type) {
+    case "PRODUCT_PREVIEW":
+      return (
+        <Button
+          type="secondary"
+          text={text}
+          size="wishlist-preview-btn"
+          clickFunction={wishListButtonHandler}
+        />
+      );
+
+    case "PRODUCT_CARD":
+      return (
+        <img
+          onClick={wishListButtonHandler}
+          src={wishlist ? heart2 : heart1}
+          className="card-add-to-wishlist"
+          alt="Add toCart"
+        />
+      );
+    case "CART_WISHLIST":
+      return (
+        <Button
+          type="secondary"
+          text="Move to Wishlist"
+          size="cartCard-wishlist-btn"
+          clickFunction={addTowishListHandler}
+        />
+      );
+
+    default:
+      return (
+        <img
+          onClick={wishListButtonHandler}
+          src={wishlist ? heart2 : heart1}
+          className="card-add-to-wishlist"
+          alt="Add toCart"
+        />
+      );
+  }
 };
 
 export default WishListButton;

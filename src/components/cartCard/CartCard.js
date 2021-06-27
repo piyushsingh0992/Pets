@@ -1,41 +1,19 @@
 import React from "react";
 import "./cartCard.css";
 import Button from "../button/Button";
-import plus from "../../utils/images/icons/plus.svg";
-import minus from "../../utils/images/icons/minus.svg";
+import WishListButton from "../wishListButton/WishListButton.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { Link } from "react-router-dom";
-import {
-  quantityManagerInCart,
-  removeFromCart,
-} from "../../utils/cartFunctions.js";
-
-import { addToWishList } from "../../utils/wishlistFunctions.js";
-
-const CartCard = ({
-  productImage,
-  productName,
-  price,
-
-  id,
-
-  quantity,
-}) => {
+import { removeFromCart } from "../../utils/cartFunctions.js";
+import CartButton from "../cartButton/CartButton.js";
+const CartCard = ({ productImage, productName, price, id, quantity }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
-  const { toastState, toastDispatch } = useToast();
-
-  function addTowishListHandler() {
-    addToWishList(wishlistDispatch, id, toastDispatch);
-
-    removeFromCart(cartDispatch, id);
-  }
+  const { toastDispatch } = useToast();
 
   return (
     <div
@@ -53,36 +31,7 @@ const CartCard = ({
             <h2 style={{ color: theme.boldText }}>{productName}</h2>
           </Link>
           <p style={{ color: theme.primaryText }}>Rs {price}</p>
-
-          <div
-            className="quantity-controls"
-            style={{ color: theme.primaryText }}
-          >
-            {language.quantity}: &ensp;
-            <img
-              src={minus}
-              onClick={() => {
-                quantityManagerInCart(
-                  cartDispatch,
-                  "DECREASE",
-                  id,
-                  toastDispatch
-                );
-              }}
-            />
-            <p style={{ color: theme.boldText }}>{quantity}</p>
-            <img
-              src={plus}
-              onClick={() => {
-                quantityManagerInCart(
-                  cartDispatch,
-                  "INCREASE",
-                  id,
-                  toastDispatch
-                );
-              }}
-            />
-          </div>
+          <CartButton id={id} quantity={quantity} type="CART_CART_BUTTON" />
         </div>
       </div>
       <div className="cartCard-btn-container">
@@ -94,12 +43,7 @@ const CartCard = ({
             removeFromCart(cartDispatch, id, toastDispatch);
           }}
         />
-        <Button
-          type="secondary"
-          text="Move to Wishlist"
-          size="cartCard-btn"
-          clickFunction={addTowishListHandler}
-        />
+        <WishListButton type="CART_WISHLIST" id={id} />
       </div>
     </div>
   );

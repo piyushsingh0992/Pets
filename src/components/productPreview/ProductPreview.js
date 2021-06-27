@@ -1,33 +1,16 @@
 import React from "react";
 import "./productPreview.css";
-
-import Button from "../button/Button";
 import Rating from "../rating/Rating";
 import WishListButton from "../wishListButton/WishListButton.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import plus from "../../utils/images/icons/plus.svg";
-import minus from "../../utils/images/icons/minus.svg";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { addToCart, quantityManagerInCart } from "../../utils/cartFunctions.js";
+import CartButton from "../cartButton/CartButton.js";
 
 const ProductPreview = ({ productDetails }) => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
-  const { cartDispatch } = useCart();
-
-  const { toastState, toastDispatch } = useToast();
   let newPrice = Math.floor(
     productDetails.price - (productDetails.price / 100) * productDetails.off
   );
 
-  function quantityHandler(type) {
-    quantityManagerInCart(cartDispatch, type, productDetails.id, toastDispatch);
-  }
-  function cartButtonHandler() {
-    addToCart(cartDispatch, productDetails.id, toastDispatch);
-  }
   return (
     <div
       className="productPreview"
@@ -57,36 +40,13 @@ const ProductPreview = ({ productDetails }) => {
           <p className="Product-percentage-off">{productDetails.off} % off</p>
         </div>
         <div className="product-btn-container">
-          {productDetails?.quantity > 0 ? (
-            <div className="productPreviewQuantityHandler">
-              <img
-                src={minus}
-                onClick={() => {
-                  quantityHandler("DECREASE");
-                }}
-              />
-              <p style={{ color: theme.boldText }}>
-                {productDetails?.quantity}
-              </p>
-              <img
-                src={plus}
-                onClick={() => {
-                  quantityHandler("INCREASE");
-                }}
-              />
-            </div>
-          ) : (
-            <Button
-              type="primary"
-              text={language.addCart}
-              size="product-preview-btn"
-              clickFunction={() => {
-                cartButtonHandler();
-              }}
-            />
-          )}
-
+          <CartButton
+            id={productDetails.id}
+            quantity={productDetails?.quantity}
+            type="PRODUCT_PREVIW_CART_BUTTON"
+          />
           <WishListButton
+            type="PRODUCT_PREVIEW"
             text={
               productDetails.wishlist
                 ? "Remove from Wishlist"
@@ -94,7 +54,6 @@ const ProductPreview = ({ productDetails }) => {
             }
             wishlist={productDetails.wishlist}
             id={productDetails.id}
-            productPreview
           />
         </div>
       </div>

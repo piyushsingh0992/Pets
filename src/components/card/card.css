@@ -121,40 +121,10 @@
   width: 100%;
 }
 
-.card-quantity-handler {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-around;
-}
 
-.card-quantity-handler>p {
-  font-size: 2rem;
-}
 
-.card-quantity-handler>div {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0.1rem 0.7rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  cursor: pointer;
 
-}
 
-.card-increase-quantity {
-  color: var(--white);
-  border: 2px solid var(--primary);
-  background-color: var(--primary);
-}
-
-.card-decrease-quantity {
-
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  background-color: transparent;
-}
 
 
 @media only screen and (max-width: 600px) {

@@ -13,28 +13,19 @@ import { Link } from "react-router-dom";
 import nightIcon from "../../utils/images/icons/dark.svg";
 import dayIcon from "../../utils/images/icons/light.svg";
 import "./navbar.css";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import Logout from "../logout/Logout.js";
 const Navbar = () => {
   const [phoneView, phoneViewSetter] = useState(true);
   const { theme, themeSetter } = useTheme();
   const { language, languageSetter } = useLanguage();
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
-  const { login, loginDispatch } = useAuth();
   let quantityIncart = cartState.reduce((accumulator, state) => {
     return accumulator + state.quantity;
   }, 0);
-
   function phoneViewHandler() {
     phoneViewSetter((value) => !value);
   }
-
-  function logoutHanlder() {
-    loginDispatch({ payload: "LOGOUT" });
-
-    localStorage.removeItem("loginStatus");
-  }
-
   return (
     <div
       className="navbar"
@@ -107,23 +98,7 @@ const Navbar = () => {
               </Badge>
             </span>
           </Link>
-
-          {login ? (
-            <div
-              onClick={logoutHanlder}
-              className={"navbar-login"}
-              style={{ color: theme.boldText }}
-            >
-              <p>{language.logout}</p>
-            </div>
-          ) : (
-            <Link to="/login">
-              <div className={"navbar-login"} style={{ color: theme.boldText }}>
-                <p>{language.login}</p>
-              </div>
-            </Link>
-          )}
-
+          <Logout />
           <img
             src={menu}
             className={"navbar-menu-icon"}
@@ -171,23 +146,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar-slide-Bottom">
-            <Link to="/login">
-              {login ? (
-                <div
-                  className="navbar-mobile-options"
-                  style={{ color: theme.boldText }}
-                >
-                  <p>{language.logout}</p>
-                </div>
-              ) : (
-                <div
-                  className="navbar-mobile-options"
-                  style={{ color: theme.boldText }}
-                >
-                  <p>{language.login}</p>
-                </div>
-              )}
-            </Link>
+            <Logout type="LOGOUT_SIDENAVBAR" />
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ const HomePage = () => {
       try {
         loaderSetter(true);
         let { data } = await axios.get(
-          "https://pets.piyushsingh6.repl.co/recommendation",
+          "https://pets-1.piyushsingh6.repl.co/recommendation",
           {
             cancelToken: source.token,
           }

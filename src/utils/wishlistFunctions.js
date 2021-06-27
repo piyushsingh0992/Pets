@@ -6,7 +6,7 @@ export async function addToWishList(
 ) {
   try {
     let { data } = await axios.post(
-      `https://pets.piyushsingh6.repl.co/wishlist/${productId}`,
+      `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`,
       {
         productId,
       }
@@ -43,7 +43,7 @@ export async function removeFromWishList(
 ) {
   try {
     let { data } = await axios.delete(
-      `https://pets.piyushsingh6.repl.co/wishlist/${productId}`
+      `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`
     );
 
     if (data.status === "success") {

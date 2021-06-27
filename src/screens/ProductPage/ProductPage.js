@@ -35,7 +35,7 @@ const ProductPage = () => {
         loaderSetter(true);
 
         let { data } = await axios.get(
-          "https://pets.piyushsingh6.repl.co/products"
+          "https://pets-1.piyushsingh6.repl.co/products"
         );
 
         productdataFromServerSetter(data.products);

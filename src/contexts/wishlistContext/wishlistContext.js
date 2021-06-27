@@ -19,7 +19,7 @@ export const WishlistProvider = ({ children }) => {
       try {
         loaderSetter(true);
         let { data } = await axios.get(
-          "https://pets.piyushsingh6.repl.co/wishlist",
+          "https://pets-1.piyushsingh6.repl.co/wishlist",
           {
             cancelToken: source.token,
           }

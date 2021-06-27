@@ -18,7 +18,7 @@ const Signup = ({ userSetter }) => {
   async function createAccount() {
     try {
       let { data } = await axios.post(
-        `https://pets.piyushsingh6.repl.co/auth/create`,
+        `https://pets-1.piyushsingh6.repl.co/auth/create`,
         { userName, userId, password }
       );
 

@@ -23,7 +23,7 @@ const ProductPreviewPage = () => {
       try {
         loaderSetter(true);
         let response = await axios.get(
-          `https://pets.piyushsingh6.repl.co/products/${productId}`
+          `https://pets-1.piyushsingh6.repl.co/products/${productId}`
         );
 
         productDetailsSetter(response.data.product);
@@ -42,7 +42,7 @@ const ProductPreviewPage = () => {
     (async function () {
       try {
         let response = await axios.get(
-          `https://pets.piyushsingh6.repl.co/recommendation/${productId}`
+          `https://pets-1.piyushsingh6.repl.co/recommendation/${productId}`
         );
 
         productdataFromServerSetter(response.data.products);

@@ -3,7 +3,7 @@ import axios from "axios";
 export async function addToCart(cartDispatch, id, toastDispatch) {
   try {
     let { data } = await axios.post(
-      `https://pets.piyushsingh6.repl.co/cart/${id}`,
+      `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
         action: "ADD",
       }
@@ -30,7 +30,7 @@ export async function quantityManagerInCart(
 ) {
   try {
     let { data } = await axios.post(
-      `https://pets.piyushsingh6.repl.co/cart/${id}`,
+      `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
         action: type,
       }
@@ -60,7 +60,7 @@ export async function quantityManagerInCart(
 export async function removeFromCart(cartDispatch, productId, toastDispatch) {
   try {
     let { data } = await axios.delete(
-      `https://pets.piyushsingh6.repl.co/cart/${productId}`
+      `https://pets-1.piyushsingh6.repl.co/cart/${productId}`
     );
 
     if (data.status === "success") {

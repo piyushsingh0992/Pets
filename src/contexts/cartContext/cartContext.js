@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
       try {
         loaderSetter(true);
         const { data } = await axios.get(
-          "https://pets.piyushsingh6.repl.co/cart",
+          "https://pets-1.piyushsingh6.repl.co/cart",
           {
             cancelToken: source.token,
           }

@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   async function authChecker(userId, password) {
     try {
       let { data } = await axios.post(
-        `https://pets.piyushsingh6.repl.co/auth`,
+        `https://pets-1.piyushsingh6.repl.co/auth`,
         {
           userId,
           password,

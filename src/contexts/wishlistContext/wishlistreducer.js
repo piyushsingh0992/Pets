@@ -21,7 +21,7 @@ export function wishListManager(state, action) {
         return true;
       });
     case "LOGOUT":
-      console.log("wishlist logout");
+
       return [];
 
     default:

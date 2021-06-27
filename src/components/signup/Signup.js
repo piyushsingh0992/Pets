@@ -41,7 +41,6 @@ const Signup = ({ userSetter }) => {
         });
       }
     } catch (error) {
-      console.log("error");
       toastDispatch({
         trigger: true,
         type: "error",

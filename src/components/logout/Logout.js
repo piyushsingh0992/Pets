@@ -15,13 +15,13 @@ const Logout = ({ type }) => {
   const { wishlistDispatch } = useWishlist();
 
   function logoutHanlder() {
-    console.log("a");
+   
     loginDispatch({ payload: "LOGOUT" });
-    console.log("b");
+  
     cartDispatch({ type: "LOGOUT" });
-    console.log("c");
+   
     wishlistDispatch({ type: "LOGOUT" });
-    console.log("d");
+   
   }
   switch (type) {
     case "LOGOUT_NAVBAR":

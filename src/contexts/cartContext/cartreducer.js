@@ -38,7 +38,6 @@ export function cartManager(state, action) {
         return item;
       });
     case "LOGOUT":
-      console.log("cart logout");
       return [];
     default:
       return state;

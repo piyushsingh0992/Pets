@@ -7,7 +7,7 @@ import {
   addToWishList,
   removeFromWishList,
 } from "../../utils/wishlistFunctions/wishlistFunctions.js";
-import { removeFromCart } from "../../utils/cartFunctions.js";
+import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";

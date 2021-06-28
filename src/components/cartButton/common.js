@@ -1,6 +1,9 @@
 import plus from "../../utils/images/icons/plus.svg";
 import minus from "../../utils/images/icons/minus.svg";
-import { quantityManagerInCart, addToCart } from "../../utils/cartFunctions.js";
+import {
+  quantityManagerInCart,
+  addToCart,
+} from "../../utils/cartFunctions/cartFunctions.js";
 
 import Button from "../button/Button";
 

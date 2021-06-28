@@ -14,7 +14,6 @@ export function cartManager(state, action) {
           return true;
         }
       });
-
     case "INCREASE":
       return state.map((item) => {
         if (item.id === payload.id) {

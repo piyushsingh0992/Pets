@@ -19,17 +19,44 @@ export function CartProvider({ children }) {
     if (login) {
       (async function () {
         try {
+          let localCart = JSON.parse(localStorage.getItem("cart"));
           loaderSetter(true);
-          const { data } = await axios.get(
-            "https://pets-1.piyushsingh6.repl.co/cart"
+          const { data } = await axios.post(
+            "https://pets-1.piyushsingh6.repl.co/cart",
+            {
+              localCart: localCart ? localCart : [],
+            }
           );
           cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+          localStorage.removeItem("cart");
         } catch (error) {
           console.error(error);
         } finally {
           loaderSetter(false);
         }
       })();
+    } else {
+      let localCart = JSON.parse(localStorage.getItem("cart"));
+
+      if (localCart) {
+        (async function () {
+          try {
+            loaderSetter(true);
+            const { data } = await axios.post(
+              "https://pets-1.piyushsingh6.repl.co/cart/products",
+              {
+                localCart,
+              }
+            );
+
+            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+          } catch (error) {
+            console.error(error);
+          } finally {
+            loaderSetter(false);
+          }
+        })();
+      }
     }
   }, [login]);
 

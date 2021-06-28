@@ -7,7 +7,7 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { Link } from "react-router-dom";
-import { removeFromCart } from "../../utils/cartFunctions.js";
+import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
 import CartButton from "../cartButton/CartButton.js";
 const CartCard = ({ productImage, productName, price, id, quantity }) => {
   const { theme } = useTheme();

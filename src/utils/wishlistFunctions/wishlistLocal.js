@@ -3,13 +3,12 @@ import axios from "axios";
 function addtoLocalStorage(productId) {
   let wishlist = JSON.parse(localStorage.getItem("wishlist"));
   if (wishlist) {
-    wishlist.push(productId);
+    wishlist.push({ productId });
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   } else {
-    localStorage.setItem("wishlist", JSON.stringify([productId]));
+    localStorage.setItem("wishlist", JSON.stringify([{ productId }]));
   }
 }
-
 export async function addToWishListLocal(
   wishlistDispatch,
   productId,
@@ -51,8 +50,8 @@ export async function addToWishListLocal(
 function removingFromLocalStorage(productId, toastDispatch) {
   let wishlist = JSON.parse(localStorage.getItem("wishlist"));
   if (wishlist) {
-    wishlist = wishlist.filter((id) => {
-      if (id === productId) {
+    wishlist = wishlist.filter((item) => {
+      if (item.productId === productId) {
         return false;
       }
       return true;

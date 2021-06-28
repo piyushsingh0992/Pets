@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
         loginDispatch({ payload: "LOGIN" });
         localStorage.setItem(
           "loginStatus",
-          JSON.stringify({ loginStatus: true })
+          JSON.stringify({ loginStatus: true ,user:data.user})
         );
       }
     } catch (error) {

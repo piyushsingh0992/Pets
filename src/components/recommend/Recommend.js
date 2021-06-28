@@ -32,7 +32,7 @@ const Recommend = ({ filteredData }) => {
               outOfStock={item.outOfStock}
               wishlist={item.wishlist}
               imgHeight={item.imgHeight}
-              id={item.id}
+              id={item._id}
               fast={item.fastDelivery}
             />
           );

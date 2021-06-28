@@ -47,6 +47,8 @@ export const WishlistProvider = ({ children }) => {
               localwishlist: wishlist ? wishlist : [],
             }
           );
+
+
           wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
         } catch (error) {
           console.error(error);

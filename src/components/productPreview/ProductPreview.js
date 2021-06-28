@@ -41,7 +41,7 @@ const ProductPreview = ({ productDetails }) => {
         </div>
         <div className="product-btn-container">
           <CartButton
-            id={productDetails.id}
+            id={productDetails._id}
             quantity={productDetails?.quantity}
             type="PRODUCT_PREVIW_CART_BUTTON"
           />
@@ -53,7 +53,7 @@ const ProductPreview = ({ productDetails }) => {
                 : "Add to Wishlist"
             }
             wishlist={productDetails.wishlist}
-            id={productDetails.id}
+            id={productDetails._id}
           />
         </div>
       </div>

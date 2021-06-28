@@ -67,14 +67,14 @@ const ProductPreviewPage = () => {
   let currentProduct = productDetails;
 
   let wishlistUpdated = wishlistState.find(
-    (item) => item.id === currentProduct.id
+    (item) => item._id === currentProduct._id
   );
 
   if (wishlistUpdated) {
     currentProduct = { ...currentProduct, wishlist: wishlistUpdated.wishlist };
   }
 
-  let cartUpdated = cartState.find((item) => item.id === currentProduct.id);
+  let cartUpdated = cartState.find((item) => item._id === currentProduct._id);
   if (cartUpdated) {
     currentProduct = { ...currentProduct, quantity: cartUpdated.quantity };
   }

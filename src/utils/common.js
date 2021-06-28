@@ -40,7 +40,7 @@ export function filterManager(state, action) {
 export function addedToWishlist(productList, wishList) {
   return productList.map((product) => {
     const present = wishList.find((item) => {
-      return product.id === item.id;
+      return product._id === item._id;
     });
     if (present) {
       return { ...present, quantity: 0 };
@@ -72,6 +72,7 @@ export function checkingCartAndWishlist(
     productdataFromServer,
     wishlistState
   );
+
   let cartUpdatedData = addedToCart(wishlistUpdatedData, cartState);
 
   return cartUpdatedData;

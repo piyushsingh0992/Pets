@@ -59,7 +59,6 @@ const ProductPage = () => {
     cartState,
     wishlistState
   );
-
   let filteredData = filteringData(cartUpdatedData, filterState);
 
   return loader ? (

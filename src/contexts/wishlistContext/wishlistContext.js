@@ -42,7 +42,7 @@ export const WishlistProvider = ({ children }) => {
           loaderSetter(true);
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
           let { data } = await axios.post(
-            "https://pets-1.piyushsingh6.repl.co/wishlist/all",
+            "https://pets-1.piyushsingh6.repl.co/wishlist/products/all",
             {
               localwishlist: wishlist ? wishlist : [],
             }

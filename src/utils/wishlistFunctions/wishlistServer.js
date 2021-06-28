@@ -1,5 +1,6 @@
 import axios from "axios";
-export async function addToWishList(
+
+export async function addToWishListServer(
   wishlistDispatch,
   productId,
   toastDispatch
@@ -36,7 +37,7 @@ export async function addToWishList(
   }
 }
 
-export async function removeFromWishList(
+export async function removeFromWishListServer(
   wishlistDispatch,
   productId,
   toastDispatch

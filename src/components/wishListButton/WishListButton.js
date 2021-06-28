@@ -6,7 +6,7 @@ import Button from "../button/Button";
 import {
   addToWishList,
   removeFromWishList,
-} from "../../utils/wishlistFunctions.js";
+} from "../../utils/wishlistFunctions/wishlistFunctions.js";
 import { removeFromCart } from "../../utils/cartFunctions.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";

@@ -22,10 +22,11 @@ export const WishlistProvider = ({ children }) => {
         try {
           loaderSetter(true);
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+          let {user} = JSON.parse(localStorage.getItem("loginStatus"));
           let { data } = await axios.post(
             "https://pets-1.piyushsingh6.repl.co/wishlist",
             {
-              localwishlist: wishlist ? wishlist : [],
+              localwishlist: wishlist ? wishlist : [],userKey:user._id
             }
           );
           wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
@@ -44,11 +45,9 @@ export const WishlistProvider = ({ children }) => {
           let { data } = await axios.post(
             "https://pets-1.piyushsingh6.repl.co/wishlist/products/all",
             {
-              localwishlist: wishlist ? wishlist : [],
+              localwishlist: wishlist ? wishlist : []
             }
           );
-
-
           wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
         } catch (error) {
           console.error(error);

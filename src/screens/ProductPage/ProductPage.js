@@ -29,7 +29,6 @@ const ProductPage = () => {
   });
 
   useEffect(() => {
-    let source = axios.CancelToken.source();
     (async function () {
       try {
         loaderSetter(true);
@@ -48,10 +47,6 @@ const ProductPage = () => {
         loaderSetter(false);
       }
     })();
-
-    return () => {
-      source.cancel();
-    };
   }, []);
 
   let cartUpdatedData = checkingCartAndWishlist(

@@ -1,12 +1,10 @@
 .footer {
-
     width: 100%;
     padding: 1rem 0vw;
-
     text-align: center;
     font-size: 1.3rem;
     z-index: 2;
-    /* border-top: 0.1px solid var(--primary); */
+    max-height: 10rem;
 }
 
 .footer-icons-container {

@@ -6,6 +6,7 @@ import ProductPreviewPage from "./screens/ProductPreviewPage/ProductPreviewPage.
 import CartPage from "./screens/CartPage/CartPage.js";
 import WishlistPage from "./screens/WishlistPage/WishlistPage.js";
 import LoginPage from "./screens/LoginPage/LoginPage.js";
+import SearchPage from "./screens/SearchPage/SearchPage.js";
 import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
 import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
 import Toast from "./components/toast/Toast.js";
@@ -28,6 +29,7 @@ function App() {
         <PrivateRoute path="/cart" element={<CartPage />} />
         <PrivateRoute path="/wishlist" element={<WishlistPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <Footer />

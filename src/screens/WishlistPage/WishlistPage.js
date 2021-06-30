@@ -11,7 +11,7 @@ const WishlistPage = () => {
     <div
       style={{
         minWidth: "90vw",
-        minHeight: "10000vh",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

@@ -1,0 +1,17 @@
+.searchPage {
+
+    min-height: 100vh;
+
+}
+
+.searchPage h1 {
+    padding: 1rem 10vh 0rem 10vh;
+    font-size: 1.5rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .searchPage h1 {
+        padding: 1rem 4vh 0rem 4vh;
+    }
+}

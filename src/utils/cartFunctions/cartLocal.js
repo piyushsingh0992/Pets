@@ -51,8 +51,6 @@ export async function quantityManagerInCartLocal(
     }
     switch (type) {
       case "INCREASE":
-        console.log("localCart ->",localCart);
-        
         localCart = localCart.map((item) => {
           if (item.productId === id) {
             currentProduct.quantity = item.quantity + 1;
@@ -73,7 +71,7 @@ export async function quantityManagerInCartLocal(
         localCart = localCart
           .map((item) => {
             if (item.productId === id) {
-              currentProduct.quantity=item.quantity - 1;
+              currentProduct.quantity = item.quantity - 1;
               return { ...item, quantity: item.quantity - 1 };
             }
             return item;
@@ -85,7 +83,7 @@ export async function quantityManagerInCartLocal(
             }
             return true;
           });
-        
+
         localStorage.setItem("cart", JSON.stringify(localCart));
         cartDispatch({ type: type, payload: currentProduct });
         toastDispatch({

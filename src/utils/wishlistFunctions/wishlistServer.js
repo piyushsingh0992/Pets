@@ -5,12 +5,13 @@ export async function addToWishListServer(
   productId,
   toastDispatch
 ) {
-  let {user} = JSON.parse(localStorage.getItem("loginStatus"));
+  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`,
       {
-        productId,userKey:user._id
+        productId,
+        userKey: user._id,
       }
     );
 
@@ -44,13 +45,13 @@ export async function removeFromWishListServer(
   toastDispatch
 ) {
   try {
-    let {user} = JSON.parse(localStorage.getItem("loginStatus"));
-    
+    let { user } = JSON.parse(localStorage.getItem("loginStatus"));
+
     let { data } = await axios.delete(
       `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`,
-      { data: {   productId,userKey:user._id } }
+      { data: { productId, userKey: user._id } }
     );
-    
+
     if (data.status === "success") {
       wishlistDispatch({ type: "REMOVE", payload: data.product });
       toastDispatch({

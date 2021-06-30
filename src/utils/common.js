@@ -53,7 +53,7 @@ export function addedToWishlist(productList, wishList) {
 export function addedToCart(productList, cart) {
   return productList.map((product) => {
     const present = cart.find((item) => {
-      return product.id === item.id;
+      return product._id === item._id;
     });
     if (present) {
       return { ...product, quantity: present.quantity };

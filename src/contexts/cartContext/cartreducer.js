@@ -8,7 +8,7 @@ export function cartManager(state, action) {
       return [...state, payload];
     case "REMOVE":
       return state.filter((item) => {
-        if (item.id === payload.id) {
+        if (item._id === payload._id) {
           return false;
         } else {
           return true;
@@ -16,26 +16,34 @@ export function cartManager(state, action) {
       });
     case "INCREASE":
       return state.map((item) => {
-        if (item.id === payload.id) {
-          return { ...item, quantity: item.quantity + 1 };
+        if (item._id === payload._id) {
+          return payload;
         }
         return item;
       });
     case "DECREASE":
       if (payload.quantity < 1) {
         return state?.filter((item) => {
-          if (item.id === payload.id) {
+          if (item._id === payload._id) {
             return false;
           }
           return true;
         });
       }
+
       return state?.map((item) => {
-        if (item.id === payload.id) {
-          return { ...item, quantity: item.quantity - 1 };
+        if (item._id === payload._id) {
+          return payload;
         }
         return item;
       });
+
+    // return state?.map((item) => {
+    //   if (item._id === payload._id) {
+    //     return { ...item, quantity: item.quantity - 1 };
+    //   }
+    //   return item;
+    // });
     case "LOGOUT":
       return [];
     default:

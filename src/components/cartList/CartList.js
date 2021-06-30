@@ -18,7 +18,7 @@ const CartList = () => {
             productName={item.productName}
             price={item.price}
             wishlist={item.wishlist}
-            id={item.id}
+            id={item._id}
             quantity={item.quantity}
           />
         );

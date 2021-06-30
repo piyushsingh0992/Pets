@@ -20,11 +20,12 @@ export function CartProvider({ children }) {
       (async function () {
         try {
           let localCart = JSON.parse(localStorage.getItem("cart"));
+          let {user} = JSON.parse(localStorage.getItem("loginStatus"));
           loaderSetter(true);
           const { data } = await axios.post(
             "https://pets-1.piyushsingh6.repl.co/cart",
             {
-              localCart: localCart ? localCart : [],
+              localCart: localCart ? localCart : [],userKey:user._id
             }
           );
           cartDispatch({ type: "FIRST_LOAD", payload: data.products });
@@ -48,7 +49,6 @@ export function CartProvider({ children }) {
                 localCart,
               }
             );
-
             cartDispatch({ type: "FIRST_LOAD", payload: data.products });
           } catch (error) {
             console.error(error);

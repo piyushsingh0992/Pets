@@ -2,10 +2,11 @@ import axios from "axios";
 
 export async function addToCartServer(cartDispatch, id, toastDispatch) {
   try {
+    let { user } = JSON.parse(localStorage.getItem("loginStatus"));
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
-        action: "ADD",
+        action: "ADD",       userKey: user._id,
       }
     );
 
@@ -28,11 +29,12 @@ export async function quantityManagerInCartServer(
   id,
   toastDispatch
 ) {
+  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
-        action: type,
+        action: type,       userKey: user._id,
       }
     );
 
@@ -62,9 +64,12 @@ export async function removeFromCartServer(
   productId,
   toastDispatch
 ) {
+  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data } = await axios.delete(
-      `https://pets-1.piyushsingh6.repl.co/cart/${productId}`
+      `https://pets-1.piyushsingh6.repl.co/cart/${productId}`,{
+        data:{       userKey: user._id,}
+      }
     );
 
     if (data.status === "success") {

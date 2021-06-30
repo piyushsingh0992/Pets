@@ -5,7 +5,6 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch) {
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/cart/product/${id}`
     );
-
     if (data.status === "success") {
       let updatedProduct = { ...data.product, quantity: 1 };
       let cart = JSON.parse(localStorage.getItem("cart"));
@@ -45,19 +44,24 @@ export async function quantityManagerInCartLocal(
 
     let localCart = JSON.parse(localStorage.getItem("cart"));
 
+    let currentProduct = data.product;
+
     if (!localCart) {
       throw "Product Not Present";
     }
     switch (type) {
       case "INCREASE":
+        console.log("localCart ->",localCart);
+        
         localCart = localCart.map((item) => {
           if (item.productId === id) {
+            currentProduct.quantity = item.quantity + 1;
             return { ...item, quantity: item.quantity + 1 };
           }
           return item;
         });
         localStorage.setItem("cart", JSON.stringify(localCart));
-        cartDispatch({ type: type, payload: data.product });
+        cartDispatch({ type: type, payload: currentProduct });
         toastDispatch({
           trigger: true,
           type: "success",
@@ -69,6 +73,7 @@ export async function quantityManagerInCartLocal(
         localCart = localCart
           .map((item) => {
             if (item.productId === id) {
+              currentProduct.quantity=item.quantity - 1;
               return { ...item, quantity: item.quantity - 1 };
             }
             return item;
@@ -80,9 +85,9 @@ export async function quantityManagerInCartLocal(
             }
             return true;
           });
-
+        
         localStorage.setItem("cart", JSON.stringify(localCart));
-        cartDispatch({ type: type, payload: data.product });
+        cartDispatch({ type: type, payload: currentProduct });
         toastDispatch({
           trigger: true,
           type: "success",

@@ -4,7 +4,7 @@ import { English } from "./data.js";
 let LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  // const [language, languageSetter] = useState(English);
+
   const [language, languageSetter] = useReducer(languageReduer, English);
 
   return (

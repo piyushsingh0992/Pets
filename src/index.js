@@ -10,7 +10,6 @@ import { AuthProvider } from "./contexts/authContext/authContext.js";
 import { ToastProvider } from "./contexts/toastContext/toastContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>

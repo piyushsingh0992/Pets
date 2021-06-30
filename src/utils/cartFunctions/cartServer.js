@@ -6,7 +6,8 @@ export async function addToCartServer(cartDispatch, id, toastDispatch) {
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
-        action: "ADD",       userKey: user._id,
+        action: "ADD",
+        userKey: user._id,
       }
     );
 
@@ -34,7 +35,8 @@ export async function quantityManagerInCartServer(
     let { data } = await axios.post(
       `https://pets-1.piyushsingh6.repl.co/cart/${id}`,
       {
-        action: type,       userKey: user._id,
+        action: type,
+        userKey: user._id,
       }
     );
 
@@ -67,8 +69,9 @@ export async function removeFromCartServer(
   let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data } = await axios.delete(
-      `https://pets-1.piyushsingh6.repl.co/cart/${productId}`,{
-        data:{       userKey: user._id,}
+      `https://pets-1.piyushsingh6.repl.co/cart/${productId}`,
+      {
+        data: { userKey: user._id },
       }
     );
 

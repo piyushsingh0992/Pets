@@ -55,7 +55,4 @@ export async function apiCall({ type, endPoint, body }) {
         message: "Sorry Couldn't full fill your Request",
       };
   }
-
-  try {
-  } catch (error) {}
 }

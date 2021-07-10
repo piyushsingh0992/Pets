@@ -13,11 +13,7 @@ export async function addToCartServer(cartDispatch, id, toastDispatch) {
 
     if (data.status === "success") {
       cartDispatch({ type: "ADD", payload: data.product });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "ADDED to Cart",
-      });
+      toastDispatch("success","ADDED to Cart");
     }
   } catch (error) {
     console.error(error);
@@ -43,17 +39,9 @@ export async function quantityManagerInCartServer(
     if (data.status === "success") {
       cartDispatch({ type: type, payload: data.product });
       if (type === "INCREASE") {
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: "Quantity Increased",
-        });
+        toastDispatch( "success","Quantity Increased");
       } else if (type === "DECREASE") {
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: "Quantity Decreased",
-        });
+        toastDispatch( "success", "Quantity Decreased");
       }
     }
   } catch (error) {
@@ -77,11 +65,9 @@ export async function removeFromCartServer(
 
     if (data.status === "success") {
       cartDispatch({ type: "REMOVE", payload: data.product });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Removed from Cart",
-      });
+      toastDispatch( "success",
+        "Removed from Cart"
+      );
     }
   } catch (error) {
     console.error(error);

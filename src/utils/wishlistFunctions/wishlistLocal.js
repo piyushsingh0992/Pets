@@ -25,25 +25,13 @@ export async function addToWishListLocal(
         type: "ADD",
         payload: { ...data.product, wishlist: true },
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Added to Wishlist",
-      });
+      toastDispatch("success", "Added to Wishlist");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "Sorry! couldn't add to Wishlist",
-      });
+      toastDispatch("error", "Sorry! couldn't add to Wishlist");
     }
   } catch (error) {
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "Sorry!  couldn't add to Wishlist",
-    });
+    toastDispatch("error", "Sorry!  couldn't add to Wishlist");
   }
 }
 
@@ -58,11 +46,7 @@ function removingFromLocalStorage(productId, toastDispatch) {
     });
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   } else {
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "Sorry! couldn't remove Wishlist Please Try Again",
-    });
+    toastDispatch("error", "Sorry! couldn't remove Wishlist");
   }
 }
 
@@ -79,24 +63,12 @@ export async function removeFromWishListLocal(
     if (data.status === "success") {
       removingFromLocalStorage(productId, toastDispatch);
       wishlistDispatch({ type: "REMOVE", payload: data.product });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Removed from  Wishlist",
-      });
+      toastDispatch("success", "Removed from  Wishlist");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "Sorry! couldn't remove Wishlist",
-      });
+      toastDispatch("error", "Sorry! couldn't remove Wishlist");
     }
   } catch (error) {
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "Sorry! couldn't remove Wishlist",
-    });
+    toastDispatch("error", "Sorry! couldn't remove Wishlist");
   }
 }

@@ -20,11 +20,7 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch) {
         );
       }
       cartDispatch({ type: "ADD", payload: updatedProduct });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "ADDED to Cart",
-      });
+      toastDispatch("success", "ADDED to Cart");
     }
   } catch (error) {
     console.error(error);
@@ -60,11 +56,7 @@ export async function quantityManagerInCartLocal(
         });
         localStorage.setItem("cart", JSON.stringify(localCart));
         cartDispatch({ type: type, payload: currentProduct });
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: "Quantity Increased",
-        });
+        toastDispatch("success", "Quantity Increased");
         break;
 
       case "DECREASE":
@@ -86,11 +78,7 @@ export async function quantityManagerInCartLocal(
 
         localStorage.setItem("cart", JSON.stringify(localCart));
         cartDispatch({ type: type, payload: currentProduct });
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: "Quantity decreased",
-        });
+        toastDispatch("success", "Quantity Decreased");
         break;
 
       default:
@@ -98,11 +86,7 @@ export async function quantityManagerInCartLocal(
     }
   } catch (error) {
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "Error",
-      message: "sorry ! Error Occured",
-    });
+    toastDispatch("Error", "sorry ! Error Occured");
   }
 }
 
@@ -111,9 +95,5 @@ export async function removeFromCartLocal(
   productId,
   toastDispatch
 ) {
-  toastDispatch({
-    trigger: true,
-    type: "Error",
-    message: "Log in First",
-  });
+  toastDispatch("Error", "Log in First");
 }

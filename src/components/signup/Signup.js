@@ -26,26 +26,12 @@ const Signup = ({ userSetter }) => {
         userNameSetter("");
         userIdSetter("");
         passwordSetter("");
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: data.message,
-        });
+        toastDispatch("success", data.message);
       } else {
-        toastDispatch({
-          trigger: true,
-          type: "error",
-          message: data.message
-            ? data.message
-            : "Error ! Cann't create new account",
-        });
+        toastDispatch( "error",data.message);
       }
     } catch (error) {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "Error ! Cann't create new account",
-      });
+      toastDispatch( "error","Error ! Cann't create new account");
     }
   }
   return (

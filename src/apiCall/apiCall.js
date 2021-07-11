@@ -39,6 +39,7 @@ export async function apiCall(type, endPoint, body) {
         return apiErrorHandler(error);
       }
     case "DELETE":
+      
       try {
         let { status, data } = await axios.delete(
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`,

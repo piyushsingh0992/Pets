@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiCall } from "../../apiCall/apiCall.js";
 
 export async function addToWishListServer(
   wishlistDispatch,
@@ -7,22 +8,24 @@ export async function addToWishListServer(
 ) {
   let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
-    let { data } = await axios.post(
-      `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`,
+    let { data, message, success } = await apiCall(
+      "POST",
+      `wishlist/${productId}`,
       {
         productId,
         userKey: user._id,
       }
     );
 
-    if (data.status === "success") {
+    if (success === true) {
       wishlistDispatch({ type: "ADD", payload: data.product });
       toastDispatch("success", "Added to Wishlist");
     } else {
-      toastDispatch("error", "Sorry! couldn't add to Wishlist");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error(error);
+
     toastDispatch("error", "Sorry!  couldn't add to Wishlist");
   }
 }
@@ -35,16 +38,20 @@ export async function removeFromWishListServer(
   try {
     let { user } = JSON.parse(localStorage.getItem("loginStatus"));
 
-    let { data } = await axios.delete(
-      `https://pets-1.piyushsingh6.repl.co/wishlist/${productId}`,
-      { data: { productId, userKey: user._id } }
+    let { data, message, success } = await apiCall(
+      "DELETE",
+      `wishlist/${productId}`,
+      {
+        productId,
+        userKey: user._id,
+      }
     );
 
-    if (data.status === "success") {
+    if (success === true) {
       wishlistDispatch({ type: "REMOVE", payload: data.product });
       toastDispatch("success", "Removed from  Wishlist");
     } else {
-      toastDispatch("error", "Sorry! couldn't remove Wishlist");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error(error);

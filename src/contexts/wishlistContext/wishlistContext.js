@@ -9,6 +9,7 @@ import axios from "axios";
 import { wishListManager } from "./wishlistreducer.js";
 import { useAuth } from "../authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { apiCall } from "../../apiCall/apiCall";
 const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
@@ -23,15 +24,15 @@ export const WishlistProvider = ({ children }) => {
           loaderSetter(true);
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
           let { user } = JSON.parse(localStorage.getItem("loginStatus"));
-          let { data } = await axios.post(
-            "https://pets-1.piyushsingh6.repl.co/wishlist",
-            {
-              localwishlist: wishlist ? wishlist : [],
-              userKey: user._id,
-            }
-          );
-          wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
-          localStorage.removeItem("wishlist");
+          let { data, message, success } = await apiCall("POST", "wishlist", {
+            localwishlist: wishlist ? wishlist : [],
+            userKey: user._id,
+          });
+          debugger;
+          if (success === true) {
+            wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
+            localStorage.removeItem("wishlist");
+          }
         } catch (error) {
           console.error(error);
         } finally {

@@ -1,11 +1,9 @@
 import axios from "axios";
-
+import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToCartLocal(cartDispatch, id, toastDispatch) {
   try {
-    let { data } = await axios.post(
-      `https://pets-1.piyushsingh6.repl.co/cart/product/${id}`
-    );
-    if (data.status === "success") {
+    let { success, data, message } = await apiCall("GET", `products/${id}`);
+    if (success === true) {
       let updatedProduct = { ...data.product, quantity: 1 };
       let cart = JSON.parse(localStorage.getItem("cart"));
       if (cart) {
@@ -21,6 +19,8 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch) {
       }
       cartDispatch({ type: "ADD", payload: updatedProduct });
       toastDispatch("success", "ADDED to Cart");
+    } else {
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error(error);
@@ -34,55 +34,60 @@ export async function quantityManagerInCartLocal(
   toastDispatch
 ) {
   try {
-    let { data } = await axios.post(
-      `https://pets-1.piyushsingh6.repl.co/cart/product/${id}`
-    );
-
     let localCart = JSON.parse(localStorage.getItem("cart"));
-
-    let currentProduct = data.product;
-
     if (!localCart) {
-      throw "Product Not Present";
+      toastDispatch(
+        "error",
+        "Can't alter quantity of a product not present in the cart"
+      );
+      return;
     }
-    switch (type) {
-      case "INCREASE":
-        localCart = localCart.map((item) => {
-          if (item.productId === id) {
-            currentProduct.quantity = item.quantity + 1;
-            return { ...item, quantity: item.quantity + 1 };
-          }
-          return item;
-        });
-        localStorage.setItem("cart", JSON.stringify(localCart));
-        cartDispatch({ type: type, payload: currentProduct });
-        toastDispatch("success", "Quantity Increased");
-        break;
 
-      case "DECREASE":
-        localCart = localCart
-          .map((item) => {
+    let { success, data, message } = await apiCall("GET", `products/${id}`);
+    if (success === true) {
+      let currentProduct = data.product;
+      switch (type) {
+        case "INCREASE":
+          localCart = localCart.map((item) => {
             if (item.productId === id) {
-              currentProduct.quantity = item.quantity - 1;
-              return { ...item, quantity: item.quantity - 1 };
+              currentProduct.quantity = item.quantity + 1;
+              return { ...item, quantity: item.quantity + 1 };
             }
             return item;
-          })
-          .filter((item) => {
-            if (item.quantity < 1) {
-              cartDispatch({ type: "REMOVE", payload: data.product });
-              return false;
-            }
-            return true;
           });
+          localStorage.setItem("cart", JSON.stringify(localCart));
+          cartDispatch({ type: type, payload: currentProduct });
+          toastDispatch("success", "Quantity Increased");
+          break;
 
-        localStorage.setItem("cart", JSON.stringify(localCart));
-        cartDispatch({ type: type, payload: currentProduct });
-        toastDispatch("success", "Quantity Decreased");
-        break;
+        case "DECREASE":
+          localCart = localCart
+            .map((item) => {
+              if (item.productId === id) {
+                currentProduct.quantity = item.quantity - 1;
+                return { ...item, quantity: item.quantity - 1 };
+              }
+              return item;
+            })
+            .filter((item) => {
+              if (item.quantity < 1) {
+                cartDispatch({ type: "REMOVE", payload: data.product });
+                return false;
+              }
+              return true;
+            });
 
-      default:
-        break;
+          localStorage.setItem("cart", JSON.stringify(localCart));
+          cartDispatch({ type: type, payload: currentProduct });
+          toastDispatch("success", "Quantity Decreased");
+          break;
+
+        default:
+          break;
+      }
+    } else {
+      toastDispatch("error", message);
+      return;
     }
   } catch (error) {
     console.error(error);

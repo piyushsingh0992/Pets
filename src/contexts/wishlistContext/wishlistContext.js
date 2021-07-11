@@ -28,7 +28,6 @@ export const WishlistProvider = ({ children }) => {
             localwishlist: wishlist ? wishlist : [],
             userKey: user._id,
           });
-          debugger;
           if (success === true) {
             wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
             localStorage.removeItem("wishlist");

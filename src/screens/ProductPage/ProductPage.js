@@ -7,13 +7,18 @@ import Loader from "../../components/loader/Loader.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useLocation } from "react-router-dom";
+
 import {
   filteringData,
   filterManager,
   checkingCartAndWishlist,
 } from "../../utils/common.js";
+
+import { apiCall } from "../../apiCall/apiCall.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
 const ProductPage = () => {
   const query = new URLSearchParams(useLocation().search);
+  const { toastDispatch } = useToast();
 
   const [productdataFromServer, productdataFromServerSetter] = useState([]);
   const [loader, loaderSetter] = useState(false);
@@ -30,22 +35,21 @@ const ProductPage = () => {
 
   useEffect(() => {
     (async function () {
-      try {
-        loaderSetter(true);
+      loaderSetter(true);
 
-        let { data } = await axios.get(
-          "https://pets-1.piyushsingh6.repl.co/products"
-        );
-
-        productdataFromServerSetter(data.products);
+      let { success, data, message } = await apiCall("GET", "products");
+      if (success === true) {
+        productdataFromServerSetter(data);
         filterdispatch({ type: "ANIMAL", payload: query.get("animal") });
         query.get("cateogry") &&
-          filterdispatch({ type: "CATEOGRY", payload: query.get("cateogry") });
-      } catch (error) {
-        console.error(error);
-      } finally {
-        loaderSetter(false);
+          filterdispatch({
+            type: "CATEOGRY",
+            payload: query.get("cateogry"),
+          });
+      } else {
+        toastDispatch("error", message);
       }
+      loaderSetter(false);
     })();
   }, []);
 

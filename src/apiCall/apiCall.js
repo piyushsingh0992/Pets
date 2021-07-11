@@ -1,8 +1,7 @@
 import React from "react";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
-function apiErrorHandler({ error }) {
-  debugger;
+function apiErrorHandler(error) {
   if (axios.isAxiosError(error)) {
     if (error && error.response) {
       return { success: false, message: error.response.data.message };
@@ -13,15 +12,14 @@ function apiErrorHandler({ error }) {
 }
 
 export async function apiCall(type, endPoint, body) {
-  debugger;
   switch (type) {
     case "GET":
       try {
         let { status, data } = await axios.get(
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`
         );
-        debugger;
-        if (  status === 200) {
+
+        if (status === 200) {
           return { success: true, data: data };
         }
       } catch (error) {
@@ -33,6 +31,7 @@ export async function apiCall(type, endPoint, body) {
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`,
           body
         );
+
         if (status === 200) {
           return { success: true, data: data };
         }

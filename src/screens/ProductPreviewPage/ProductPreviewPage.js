@@ -44,7 +44,7 @@ const ProductPreviewPage = () => {
       if (success === true) {
         productdataFromServerSetter(data.products);
       } else {
-        debugger;
+
         toastDispatch("error", message);
       }
       loaderSetter(false);

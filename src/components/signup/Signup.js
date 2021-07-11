@@ -7,6 +7,8 @@ import "./signup.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+
+import { apiCall } from "../../apiCall/apiCall.js";
 const Signup = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
@@ -17,21 +19,22 @@ const Signup = ({ userSetter }) => {
 
   async function createAccount() {
     try {
-      let { data } = await axios.post(
-        `https://pets-1.piyushsingh6.repl.co/auth/create`,
-        { userName, userId, password }
-      );
+      let { data, success, message } = await apiCall("POST", `auth/create`, {
+        userName,
+        userId,
+        password,
+      });
 
-      if (data.status === "success") {
+      if (success === true) {
         userNameSetter("");
         userIdSetter("");
         passwordSetter("");
         toastDispatch("success", data.message);
       } else {
-        toastDispatch( "error",data.message);
+        toastDispatch("error", message);
       }
     } catch (error) {
-      toastDispatch( "error","Error ! Cann't create new account");
+      toastDispatch("error", "Error ! Cann't create new account");
     }
   }
   return (

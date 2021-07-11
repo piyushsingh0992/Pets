@@ -7,20 +7,44 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
+import { apiCall } from "../../apiCall/apiCall.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+
 const Signin = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { login, authChecker } = useAuth();
+  const { login, loginDispatch } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [password, passwordSetter] = useState("");
   const [userId, userIdSetter] = useState("");
+  const { toastDispatch } = useToast();
 
   useEffect(() => {
     if (login) {
       navigate(state?.from ? state.from : "/");
     }
   }, [login]);
+
+  async function authChecker(userId, password) {
+    try {
+      let { data, success, message } = await apiCall("POST", "auth", {
+        userId,
+        password,
+      });
+      if (success === true) {
+        loginDispatch({ payload: "LOGIN" });
+        localStorage.setItem(
+          "loginStatus",
+          JSON.stringify({ loginStatus: true, user: data.user })
+        );
+      } else {
+        toastDispatch("error", message);
+      }
+    } catch (error) {
+      toastDispatch("error", "some error");
+    }
+  }
 
   return (
     <div
@@ -32,7 +56,11 @@ const Signin = ({ userSetter }) => {
         <h1 className="signin-brand-name">{language.pets}</h1>
       </div>
 
-      <TextField valueSetter={userIdSetter} label={language.auth.email} value={userId} />
+      <TextField
+        valueSetter={userIdSetter}
+        label={language.auth.email}
+        value={userId}
+      />
       <TextField
         valueSetter={passwordSetter}
         label={language.auth.password}

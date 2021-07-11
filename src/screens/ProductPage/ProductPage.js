@@ -39,7 +39,7 @@ const ProductPage = () => {
 
       let { success, data, message } = await apiCall("GET", "products");
       if (success === true) {
-        productdataFromServerSetter(data);
+        productdataFromServerSetter(data.products);
         filterdispatch({ type: "ANIMAL", payload: query.get("animal") });
         query.get("cateogry") &&
           filterdispatch({

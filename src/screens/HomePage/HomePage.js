@@ -9,35 +9,28 @@ import Recommend from "../../components/recommend/Recommend.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { checkingCartAndWishlist } from "../../utils/common.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { apiCall } from "../../apiCall/apiCall.js";
 
 const HomePage = () => {
   const [productdataFromServer, productdataFromServerSetter] = useState([]);
   const [loader, loaderSetter] = useState(false);
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
+  const { toastDispatch } = useToast();
 
   useEffect(() => {
-    let source = axios.CancelToken.source();
     (async function () {
-      try {
-        loaderSetter(true);
-        let { data } = await axios.get(
-          "https://pets-1.piyushsingh6.repl.co/recommendation",
-          {
-            cancelToken: source.token,
-          }
-        );
+      loaderSetter(true);
+      let { success, data, message } = await apiCall("GET", `recommendation`);
+      if (success === true) {
         productdataFromServerSetter(data.products);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        loaderSetter(false);
+      } else {
+        debugger;
+        toastDispatch("error", message);
       }
+      loaderSetter(false);
     })();
-
-    return () => {
-      source.cancel();
-    };
   }, []);
 
   let filteredData = checkingCartAndWishlist(

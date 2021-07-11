@@ -2,6 +2,7 @@ import React from "react";
 import axios, { AxiosError } from "axios";
 
 function apiErrorHandler({ error }) {
+  debugger;
   if (axios.isAxiosError(error)) {
     if (error && error.response) {
       return { success: false, message: error.response.data.message };
@@ -12,14 +13,16 @@ function apiErrorHandler({ error }) {
 }
 
 export async function apiCall(type, endPoint, body) {
+  debugger;
   switch (type) {
     case "GET":
       try {
         let { status, data } = await axios.get(
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`
         );
-        if (status === 200) {
-          return { success: true, data: data.products };
+        debugger;
+        if (  status === 200) {
+          return { success: true, data: data };
         }
       } catch (error) {
         return apiErrorHandler(error);

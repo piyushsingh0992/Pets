@@ -8,7 +8,8 @@ import Loader from "../../components/loader/Loader.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { checkingCartAndWishlist } from "../../utils/common.js";
-
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { apiCall } from "../../apiCall/apiCall.js";
 const ProductPreviewPage = () => {
   const { productId } = useParams();
   const [productdataFromServer, productdataFromServerSetter] = useState([]);
@@ -16,46 +17,38 @@ const ProductPreviewPage = () => {
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
   const [productDetails, productDetailsSetter] = useState({});
+  const { toastDispatch } = useToast();
 
   useEffect(() => {
-    const source = axios.CancelToken.source();
     (async function () {
-      try {
-        loaderSetter(true);
-        let response = await axios.get(
-          `https://pets-1.piyushsingh6.repl.co/products/${productId}`
-        );
-
-        productDetailsSetter(response.data.product);
-      } catch (error) {
-        console.error(error.message);
+      loaderSetter(true);
+      let { success, data, message } = await apiCall(
+        "GET",
+        `products/${productId}`
+      );
+      if (success === true) {
+        productDetailsSetter(data.product);
+      } else {
+        toastDispatch("error", message);
       }
     })();
-
-    return () => {
-      source.cancel();
-    };
   }, [productId]);
 
   useEffect(() => {
-    let source = axios.CancelToken.source();
     (async function () {
-      try {
-        let response = await axios.get(
-          `https://pets-1.piyushsingh6.repl.co/recommendation/${productId}`
-        );
+      let { success, data, message } = await apiCall(
+        "GET",
+        `recommendation/${productId}`
+      );
 
-        productdataFromServerSetter(response.data.products);
-      } catch (error) {
-        console.error(error.message);
-      } finally {
-        loaderSetter(false);
+      if (success === true) {
+        productdataFromServerSetter(data.products);
+      } else {
+        debugger;
+        toastDispatch("error", message);
       }
+      loaderSetter(false);
     })();
-
-    return () => {
-      source.cancel();
-    };
   }, [productId]);
 
   let filteredData = checkingCartAndWishlist(

@@ -9,7 +9,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     let {payload} = JSON.parse(localStorage.getItem("activetheme"))||{};
     payload && themeDispatch({payload});
-    debugger;
+  
   },[]);
 
   return (

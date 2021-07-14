@@ -32,11 +32,12 @@ const Signin = ({ userSetter }) => {
         userId,
         password,
       });
+      
       if (success === true) {
         loginDispatch({ payload: "LOGIN" });
         localStorage.setItem(
           "loginStatus",
-          JSON.stringify({ loginStatus: true, user: data.user })
+          JSON.stringify({ loginStatus: true, user: data.user ,token:data.token})
         );
       } else {
         toastDispatch("error", message);

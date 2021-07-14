@@ -2,7 +2,6 @@ import { day, night } from "./data.js";
 
 export function themeReducer(state, action) {
   const { payload } = action;
-  debugger;
   switch (payload) {
     case "day":
       localStorage.setItem("activetheme", JSON.stringify({ payload: "day" }));

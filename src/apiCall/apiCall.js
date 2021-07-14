@@ -31,7 +31,7 @@ export async function apiCall(type, endPoint, body) {
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`,
           body
         );
-
+ 
         if (status === 200) {
           return { success: true, data: data };
         }

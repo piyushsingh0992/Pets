@@ -49,7 +49,7 @@ export function CartProvider({ children }) {
       (async function () {
         try {
           let localCart = JSON.parse(localStorage.getItem("cart"));
-          let { user } = JSON.parse(localStorage.getItem("loginStatus"));
+
           loaderSetter(true);
           let { data, message, success } = await apiCall(
             "POST",

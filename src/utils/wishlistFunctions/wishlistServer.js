@@ -1,4 +1,3 @@
-import axios from "axios";
 import { apiCall } from "../../apiCall/apiCall.js";
 
 export async function addToWishListServer(
@@ -7,7 +6,7 @@ export async function addToWishListServer(
   toastDispatch,
   token
 ) {
-  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
+
   try {
     let { data, message, success } = await apiCall(
       "POST",
@@ -38,7 +37,7 @@ export async function removeFromWishListServer(
   token
 ) {
   try {
-    let { user } = JSON.parse(localStorage.getItem("loginStatus"));
+
 
     let { data, message, success } = await apiCall(
       "DELETE",

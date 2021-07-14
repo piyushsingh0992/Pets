@@ -55,7 +55,7 @@ export const WishlistProvider = ({ children }) => {
         try {
           loaderSetter(true);
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
-          let { user } = JSON.parse(localStorage.getItem("loginStatus"));
+
 
           let { data, message, success } = await apiCall(
             "POST",

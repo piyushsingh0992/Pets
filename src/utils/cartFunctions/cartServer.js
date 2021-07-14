@@ -1,8 +1,6 @@
-import axios from "axios";
 import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToCartServer(cartDispatch, id, toastDispatch, token) {
   try {
-    let { user } = JSON.parse(localStorage.getItem("loginStatus"));
     let { data, success, message } = await apiCall(
       "POST",
       `cart/${id}`,
@@ -31,7 +29,6 @@ export async function quantityManagerInCartServer(
   toastDispatch,
   token
 ) {
-  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data, success, message } = await apiCall(
       "POST",
@@ -63,7 +60,6 @@ export async function removeFromCartServer(
   toastDispatch,
   token
 ) {
-  let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
     let { data, success, message } = await apiCall(
       "DELETE",

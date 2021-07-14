@@ -8,30 +8,27 @@ import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { logoutNavbar, logoutSideNavbar } from "./common.js";
 
 const Logout = ({ type }) => {
-  const { login, loginDispatch } = useAuth();
+  const { login:{loginStatus}, loginDispatch } = useAuth();
   const { language } = useLanguage();
   const { theme } = useTheme();
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
 
   function logoutHanlder() {
-   
     loginDispatch({ type: "LOGOUT" });
-  
     cartDispatch({ type: "LOGOUT" });
-   
     wishlistDispatch({ type: "LOGOUT" });
    
   }
   switch (type) {
     case "LOGOUT_NAVBAR":
-      return logoutNavbar(login, language, theme, logoutHanlder);
+      return logoutNavbar(loginStatus, language, theme, logoutHanlder);
 
     case "LOGOUT_SIDENAVBAR":
-      return logoutSideNavbar(login, language, theme, logoutHanlder);
+      return logoutSideNavbar(loginStatus, language, theme, logoutHanlder);
 
     default:
-      return logoutNavbar(login, language, theme, logoutHanlder);
+      return logoutNavbar(loginStatus, language, theme, logoutHanlder);
   }
 };
 

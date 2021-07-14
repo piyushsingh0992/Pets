@@ -1,11 +1,15 @@
 export function loginHandler(state, action) {
+  
   let { type, payload } = action;
   switch (type) {
     case "LOGIN":
-      return true;
+      return payload;
     case "LOGOUT":
       localStorage.removeItem("loginStatus");
-      return false;
+      return {
+        loginStatus: false,
+        token: null,
+      };
     default:
       return false;
   }

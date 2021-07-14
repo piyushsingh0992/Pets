@@ -14,9 +14,9 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartState, cartDispatch] = useReducer(cartManager, []);
   const [loader, loaderSetter] = useState(false);
-  const { login } = useAuth();
+  const { login:{loginStatus} } = useAuth();
   useEffect(() => {
-    if (login) {
+    if (loginStatus) {
       (async function () {
         try {
           let localCart = JSON.parse(localStorage.getItem("cart"));
@@ -59,7 +59,7 @@ export function CartProvider({ children }) {
         })();
       }
     }
-  }, [login]);
+  }, [loginStatus]);
 
   return (
     <CartContext.Provider value={{ loader, cartState, cartDispatch }}>

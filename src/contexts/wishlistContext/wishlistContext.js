@@ -15,10 +15,10 @@ const WishlistContext = createContext();
 export const WishlistProvider = ({ children }) => {
   const [wishlistState, wishlistDispatch] = useReducer(wishListManager, []);
   const [loader, loaderSetter] = useState(false);
-  const { login } = useAuth();
+  const { login:{loginStatus} } = useAuth();
   const { toastDispatch } = useToast();
   useEffect(() => {
-    if (login) {
+    if (loginStatus) {
       (async function () {
         try {
           loaderSetter(true);
@@ -57,7 +57,7 @@ export const WishlistProvider = ({ children }) => {
         }
       })();
     }
-  }, [login]);
+  }, [loginStatus]);
   return (
     <WishlistContext.Provider
       value={{ loader, wishlistState, wishlistDispatch }}

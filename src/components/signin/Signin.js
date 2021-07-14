@@ -13,7 +13,10 @@ import { useToast } from "../../contexts/toastContext/toastContext.js";
 const Signin = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { login, loginDispatch } = useAuth();
+  const {
+    login: { loginStatus },
+    loginDispatch,
+  } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [password, passwordSetter] = useState("");
@@ -21,12 +24,15 @@ const Signin = ({ userSetter }) => {
   const { toastDispatch } = useToast();
 
   useEffect(() => {
-    if (login) {
+    if (loginStatus) {
+      
       navigate(state?.from ? state.from : "/");
     }
-  }, [login]);
+  }, [loginStatus]);
+ 
 
   async function authChecker(userId, password) {
+    
     try {
       let { data, success, message } = await apiCall("POST", "auth", {
         userId,
@@ -34,11 +40,21 @@ const Signin = ({ userSetter }) => {
       });
       
       if (success === true) {
-        loginDispatch({ type: "LOGIN" ,payload: data.token });
+        
+        loginDispatch({
+          type: "LOGIN",
+          payload: { loginStatus: true, token: data.token },
+        });
+        
         localStorage.setItem(
           "loginStatus",
-          JSON.stringify({ loginStatus: true, user: data.user ,token:data.token})
+          JSON.stringify({
+            loginStatus: true,
+            user: data.user,
+            token: data.token,
+          })
         );
+        
       } else {
         toastDispatch("error", message);
       }
@@ -73,6 +89,7 @@ const Signin = ({ userSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
+            
             authChecker(userId, password);
           }}
         />

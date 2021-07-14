@@ -5,11 +5,17 @@ import { loginHandler } from "./reducer.js";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [login, loginDispatch] = useReducer(loginHandler, false);
+  const [login, loginDispatch] = useReducer(loginHandler, {
+    loginStatus: false,
+    token: null,
+  });
 
   useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("loginStatus"));
-    login && login.loginStatus && loginDispatch({ type: "LOGIN" });
+    let response = JSON.parse(localStorage.getItem("loginStatus")) || {
+      loginStatus: false,
+      token: null,
+    };
+    loginDispatch({ type: "LOGIN", payload: response });
   }, []);
 
   return (

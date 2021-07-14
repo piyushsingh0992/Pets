@@ -5,32 +5,37 @@ import {
   useReducer,
   useState,
 } from "react";
-import axios from "axios";
 import { cartManager } from "./cartreducer.js";
 import { useAuth } from "../authContext/authContext.js";
-
+import { apiCall } from "../../apiCall/apiCall";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartState, cartDispatch] = useReducer(cartManager, []);
   const [loader, loaderSetter] = useState(false);
-  const { login:{loginStatus} } = useAuth();
+  const { login } = useAuth();
+
   useEffect(() => {
+    let { loginStatus, token } = JSON.parse(
+      localStorage.getItem("loginStatus")
+    ) || {
+      loginStatus: false,
+      token: null,
+    };
     if (loginStatus) {
       (async function () {
         try {
           let localCart = JSON.parse(localStorage.getItem("cart"));
           let { user } = JSON.parse(localStorage.getItem("loginStatus"));
           loaderSetter(true);
-          const { data } = await axios.post(
-            "https://pets-1.piyushsingh6.repl.co/cart",
-            {
-              localCart: localCart ? localCart : [],
-              userKey: user._id,
-            }
-          );
-          cartDispatch({ type: "FIRST_LOAD", payload: data.products });
-          localStorage.removeItem("cart");
+          let { data, message, success } = await apiCall("POST", "cart", {
+            localCart: localCart ? localCart : [],
+            userKey: user._id,
+          });
+          if (success === true) {
+            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+            localStorage.removeItem("cart");
+          }
         } catch (error) {
           console.error(error);
         } finally {
@@ -44,13 +49,16 @@ export function CartProvider({ children }) {
         (async function () {
           try {
             loaderSetter(true);
-            const { data } = await axios.post(
-              "https://pets-1.piyushsingh6.repl.co/cart/products",
+            let { data, message, success } = await apiCall(
+              "POST",
+              " products/localCartProducts",
               {
                 localCart,
               }
             );
-            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+            if (success === true) {
+              cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+            }
           } catch (error) {
             console.error(error);
           } finally {
@@ -59,7 +67,7 @@ export function CartProvider({ children }) {
         })();
       }
     }
-  }, [loginStatus]);
+  }, [login]);
 
   return (
     <CartContext.Provider value={{ loader, cartState, cartDispatch }}>

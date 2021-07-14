@@ -9,24 +9,27 @@ import { CartProvider } from "./contexts/cartContext/cartContext.js";
 import { AuthProvider } from "./contexts/authContext/authContext.js";
 import { ToastProvider } from "./contexts/toastContext/toastContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ErrorProvider } from "./contexts/errorContext/errorContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <Router>
-        <ToastProvider>
-          <ThemeProvider>
-            <LanguageProvider>
-              <WishlistProvider>
-                <CartProvider>
-                  <App />
-                </CartProvider>
-              </WishlistProvider>
-            </LanguageProvider>
-          </ThemeProvider>
-        </ToastProvider>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <ErrorProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <ThemeProvider>
+              <LanguageProvider>
+                <WishlistProvider>
+                  <CartProvider>
+                    <App />
+                  </CartProvider>
+                </WishlistProvider>
+              </LanguageProvider>
+            </ThemeProvider>
+          </ToastProvider>
+        </AuthProvider>
+      </ErrorProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

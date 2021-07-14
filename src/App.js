@@ -12,11 +12,13 @@ import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
 import Toast from "./components/toast/Toast.js";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import ErrorModal from "./components/errorModal/errorModal";
 import { useTheme } from "./contexts/themeContext/themeContext.js";
 function App() {
   const { theme } = useTheme();
   return (
     <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
+      <ErrorModal />
       <Toast />
       <Navbar />
       <Routes>

@@ -16,7 +16,7 @@ import "./navbar.css";
 import Logout from "../logout/Logout.js";
 const Navbar = () => {
   const [phoneView, phoneViewSetter] = useState(true);
-  const { theme, themeSetter } = useTheme();
+  const { theme, themeDispatch } = useTheme();
   const { language, languageSetter } = useLanguage();
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
@@ -66,7 +66,7 @@ const Navbar = () => {
             <button
               className="themeChange-btn"
               onClick={() => {
-                themeSetter({ payload: true });
+                themeDispatch({ payload: "day" });
               }}
               style={{ backgroundColor: theme.primaryBackground }}
             >
@@ -76,7 +76,7 @@ const Navbar = () => {
             <button
               className="themeChange-btn"
               onClick={() => {
-                themeSetter({ payload: false });
+                themeDispatch({ payload: "night" });
               }}
               style={{ backgroundColor: theme.primaryBackground }}
             >

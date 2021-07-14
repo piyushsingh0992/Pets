@@ -14,13 +14,12 @@ export function CartProvider({ children }) {
   const [cartState, cartDispatch] = useReducer(cartManager, []);
   const [loader, loaderSetter] = useState(false);
   const {
-    login: { loginStatus },
+    login: { loginStatus, token },
   } = useAuth();
 
   useEffect(() => {
-
     let localCart = JSON.parse(localStorage.getItem("cart"));
-   
+
     if (localCart) {
       (async function () {
         try {
@@ -52,10 +51,14 @@ export function CartProvider({ children }) {
           let localCart = JSON.parse(localStorage.getItem("cart"));
           let { user } = JSON.parse(localStorage.getItem("loginStatus"));
           loaderSetter(true);
-          let { data, message, success } = await apiCall("POST", "cart", {
-            localCart: localCart ? localCart : [],
-            userKey: user._id,
-          });
+          let { data, message, success } = await apiCall(
+            "POST",
+            "cart",
+            {
+              localCart: localCart ? localCart : [],
+            },
+            token
+          );
 
           if (success === true) {
             cartDispatch({ type: "FIRST_LOAD", payload: data.products });

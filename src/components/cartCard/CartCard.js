@@ -9,12 +9,15 @@ import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { Link } from "react-router-dom";
 import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
 import CartButton from "../cartButton/CartButton.js";
+import { useAuth } from "../../contexts/authContext/authContext";
 const CartCard = ({ productImage, productName, price, id, quantity }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { cartDispatch } = useCart();
   const { toastDispatch } = useToast();
-
+  const {
+    login: { token },
+  } = useAuth();
   return (
     <div
       className="cartCard"
@@ -40,7 +43,8 @@ const CartCard = ({ productImage, productName, price, id, quantity }) => {
           text={language.removeCart}
           size="cartCard-btn"
           clickFunction={() => {
-            removeFromCart(cartDispatch, id, toastDispatch);
+           
+            removeFromCart(cartDispatch, id, toastDispatch, token);
           }}
         />
         <WishListButton type="CART_WISHLIST" id={id} />

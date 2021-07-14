@@ -11,12 +11,17 @@ function apiErrorHandler(error) {
   return { success: false, message: "Sorry Couldn't full fill your Request" };
 }
 
-export async function apiCall(type, endPoint, body) {
+export async function apiCall(type, endPoint, body, token) {
   switch (type) {
     case "GET":
       try {
         let { status, data } = await axios.get(
-          `https://pets-1.piyushsingh6.repl.co/${endPoint}`
+          `https://pets-1.piyushsingh6.repl.co/${endPoint}`,
+          {
+            headers: {
+              auth: token,
+            },
+          }
         );
 
         if (status === 200) {
@@ -29,9 +34,15 @@ export async function apiCall(type, endPoint, body) {
       try {
         let { status, data } = await axios.post(
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`,
-          body
+
+          body,
+          {
+            headers: {
+              auth: token,
+            },
+          }
         );
- 
+
         if (status === 200) {
           return { success: true, data: data };
         }
@@ -39,11 +50,13 @@ export async function apiCall(type, endPoint, body) {
         return apiErrorHandler(error);
       }
     case "DELETE":
-      
       try {
         let { status, data } = await axios.delete(
           `https://pets-1.piyushsingh6.repl.co/${endPoint}`,
           {
+            headers: {
+              auth: token,
+            },
             data: body,
           }
         );

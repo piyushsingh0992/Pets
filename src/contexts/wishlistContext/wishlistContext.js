@@ -23,7 +23,7 @@ export const WishlistProvider = ({ children }) => {
 
   useEffect(() => {
     let wishlist = JSON.parse(localStorage.getItem("wishlist"));
-   
+
     if (wishlist) {
       (async function () {
         try {

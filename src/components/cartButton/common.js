@@ -9,6 +9,7 @@ import Button from "../button/Button";
 
 export function cardCartButton(
   id,
+  token,
   quantity,
   toastDispatch,
   cartDispatch,
@@ -20,7 +21,7 @@ export function cardCartButton(
       <img
         src={minus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch,token);
         }}
       />
 
@@ -28,7 +29,7 @@ export function cardCartButton(
       <img
         src={plus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch,token);
         }}
       />
     </div>
@@ -37,7 +38,7 @@ export function cardCartButton(
       type="primary"
       text={language.addCart}
       clickFunction={() => {
-        addToCart(cartDispatch, id, toastDispatch);
+        addToCart(cartDispatch, id, toastDispatch, token);
       }}
     />
   );
@@ -45,6 +46,7 @@ export function cardCartButton(
 
 export function productPreviewCartButton(
   id,
+  token,
   quantity,
   toastDispatch,
   cartDispatch,
@@ -56,14 +58,14 @@ export function productPreviewCartButton(
       <img
         src={minus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch,token);
         }}
       />
       <p style={{ color: theme.boldText }}>{quantity}</p>
       <img
         src={plus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch,token);
         }}
       />
     </div>
@@ -73,7 +75,7 @@ export function productPreviewCartButton(
       text={language.addCart}
       size="product-preview-btn"
       clickFunction={() => {
-        addToCart(cartDispatch, id, toastDispatch);
+        addToCart(cartDispatch, id, toastDispatch, token);
       }}
     />
   );
@@ -81,6 +83,7 @@ export function productPreviewCartButton(
 
 export function cartCartButton(
   id,
+  token,
   quantity,
   toastDispatch,
   cartDispatch,
@@ -93,14 +96,14 @@ export function cartCartButton(
       <img
         src={minus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch,token);
         }}
       />
       <p style={{ color: theme.boldText }}>{quantity}</p>
       <img
         src={plus}
         onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
+          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch,token);
         }}
       />
     </div>

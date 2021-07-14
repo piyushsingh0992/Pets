@@ -1,6 +1,6 @@
 export function loginHandler(state, action) {
-  let { payload } = action;
-  switch (payload) {
+  let { type, payload } = action;
+  switch (type) {
     case "LOGIN":
       return true;
     case "LOGOUT":

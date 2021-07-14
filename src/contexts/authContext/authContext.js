@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     let login = JSON.parse(localStorage.getItem("loginStatus"));
-    login && login.loginStatus && loginDispatch({ payload: "LOGIN" });
+    login && login.loginStatus && loginDispatch({ type: "LOGIN" });
   }, []);
 
   return (

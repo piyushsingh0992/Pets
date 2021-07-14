@@ -34,7 +34,7 @@ const Signin = ({ userSetter }) => {
       });
       
       if (success === true) {
-        loginDispatch({ payload: "LOGIN" });
+        loginDispatch({ type: "LOGIN" ,payload: data.token });
         localStorage.setItem(
           "loginStatus",
           JSON.stringify({ loginStatus: true, user: data.user ,token:data.token})

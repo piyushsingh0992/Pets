@@ -9,7 +9,6 @@ const LoginPage = () => {
   const [user, userSetter] = useState(true);
   const { loginDispatch } = useAuth();
 
-  
   return (
     <div className="loginPage">
       {user ? (

@@ -16,7 +16,7 @@ const Logout = ({ type }) => {
 
   function logoutHanlder() {
    
-    loginDispatch({ payload: "LOGOUT" });
+    loginDispatch({ type: "LOGOUT" });
   
     cartDispatch({ type: "LOGOUT" });
    

@@ -13,15 +13,39 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartState, cartDispatch] = useReducer(cartManager, []);
   const [loader, loaderSetter] = useState(false);
-  const { login } = useAuth();
+  const {
+    login: { loginStatus },
+  } = useAuth();
 
   useEffect(() => {
-    let { loginStatus, token } = JSON.parse(
-      localStorage.getItem("loginStatus")
-    ) || {
-      loginStatus: false,
-      token: null,
-    };
+
+    let localCart = JSON.parse(localStorage.getItem("cart"));
+   
+    if (localCart) {
+      (async function () {
+        try {
+          loaderSetter(true);
+          let { data, message, success } = await apiCall(
+            "POST",
+            "products/localCartProducts",
+            {
+              localCart,
+            }
+          );
+
+          if (success === true) {
+            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+          }
+        } catch (error) {
+          console.error(error);
+        } finally {
+          loaderSetter(false);
+        }
+      })();
+    }
+  }, []);
+
+  useEffect(() => {
     if (loginStatus) {
       (async function () {
         try {
@@ -32,6 +56,7 @@ export function CartProvider({ children }) {
             localCart: localCart ? localCart : [],
             userKey: user._id,
           });
+
           if (success === true) {
             cartDispatch({ type: "FIRST_LOAD", payload: data.products });
             localStorage.removeItem("cart");
@@ -42,32 +67,8 @@ export function CartProvider({ children }) {
           loaderSetter(false);
         }
       })();
-    } else {
-      let localCart = JSON.parse(localStorage.getItem("cart"));
-
-      if (localCart) {
-        (async function () {
-          try {
-            loaderSetter(true);
-            let { data, message, success } = await apiCall(
-              "POST",
-              " products/localCartProducts",
-              {
-                localCart,
-              }
-            );
-            if (success === true) {
-              cartDispatch({ type: "FIRST_LOAD", payload: data.products });
-            }
-          } catch (error) {
-            console.error(error);
-          } finally {
-            loaderSetter(false);
-          }
-        })();
-      }
     }
-  }, [login]);
+  }, [loginStatus]);
 
   return (
     <CartContext.Provider value={{ loader, cartState, cartDispatch }}>

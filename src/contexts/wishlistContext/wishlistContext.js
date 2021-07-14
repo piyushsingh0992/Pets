@@ -15,16 +15,41 @@ const WishlistContext = createContext();
 export const WishlistProvider = ({ children }) => {
   const [wishlistState, wishlistDispatch] = useReducer(wishListManager, []);
   const [loader, loaderSetter] = useState(false);
-  const { login } = useAuth();
+  const {
+    login: { loginStatus },
+  } = useAuth();
 
   const { toastDispatch } = useToast();
+
   useEffect(() => {
-    let { loginStatus, token } = JSON.parse(
-      localStorage.getItem("loginStatus")
-    ) || {
-      loginStatus: false,
-      token: null,
-    };
+    let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+   
+    if (wishlist) {
+      (async function () {
+        try {
+          loaderSetter(true);
+
+          let { data, message, success } = await apiCall(
+            "POST",
+            "products/localwishlistProducts",
+            {
+              localwishlist: wishlist ? wishlist : [],
+            }
+          );
+
+          if (success === true) {
+            wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
+          }
+        } catch (error) {
+          console.error(error);
+        } finally {
+          loaderSetter(false);
+        }
+      })();
+    }
+  }, []);
+
+  useEffect(() => {
     if (loginStatus) {
       (async function () {
         try {
@@ -46,30 +71,8 @@ export const WishlistProvider = ({ children }) => {
           loaderSetter(false);
         }
       })();
-    } else {
-      (async function () {
-        try {
-          loaderSetter(true);
-          let wishlist = JSON.parse(localStorage.getItem("wishlist"));
-          let { data, message, success } = await apiCall(
-            "POST",
-            "products/localwishlistProducts",
-            {
-              localwishlist: wishlist ? wishlist : [],
-            }
-          );
-
-          if (success === true) {
-            wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
-          }
-        } catch (error) {
-          console.error(error);
-        } finally {
-          loaderSetter(false);
-        }
-      })();
     }
-  }, [login]);
+  }, [loginStatus]);
   return (
     <WishlistContext.Provider
       value={{ loader, wishlistState, wishlistDispatch }}

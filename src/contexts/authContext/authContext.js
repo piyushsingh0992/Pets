@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
     loginStatus: false,
     token: null,
   });
-
+  console.log("login ->", login);
   useEffect(() => {
     let response = JSON.parse(localStorage.getItem("loginStatus")) || {
       loginStatus: false,

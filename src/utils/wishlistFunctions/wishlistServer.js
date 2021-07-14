@@ -4,7 +4,8 @@ import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch
+  toastDispatch,
+  token
 ) {
   let { user } = JSON.parse(localStorage.getItem("loginStatus"));
   try {
@@ -13,8 +14,8 @@ export async function addToWishListServer(
       `wishlist/${productId}`,
       {
         productId,
-        userKey: user._id,
-      }
+      },
+      token
     );
 
     if (success === true) {
@@ -33,7 +34,8 @@ export async function addToWishListServer(
 export async function removeFromWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch
+  toastDispatch,
+  token
 ) {
   try {
     let { user } = JSON.parse(localStorage.getItem("loginStatus"));
@@ -43,8 +45,8 @@ export async function removeFromWishListServer(
       `wishlist/${productId}`,
       {
         productId,
-        userKey: user._id,
-      }
+      },
+      token
     );
 
     if (success === true) {

@@ -25,36 +25,30 @@ const Signin = ({ userSetter }) => {
 
   useEffect(() => {
     if (loginStatus) {
-      
       navigate(state?.from ? state.from : "/");
     }
   }, [loginStatus]);
- 
 
   async function authChecker(userId, password) {
-    
     try {
       let { data, success, message } = await apiCall("POST", "auth", {
         userId,
         password,
       });
-      
+
       if (success === true) {
-        
         loginDispatch({
           type: "LOGIN",
           payload: { loginStatus: true, token: data.token },
         });
-        
+
         localStorage.setItem(
           "loginStatus",
           JSON.stringify({
             loginStatus: true,
-            user: data.user,
             token: data.token,
           })
         );
-        
       } else {
         toastDispatch("error", message);
       }
@@ -89,7 +83,6 @@ const Signin = ({ userSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
-            
             authChecker(userId, password);
           }}
         />

@@ -16,7 +16,7 @@ export const WishlistProvider = ({ children }) => {
   const [wishlistState, wishlistDispatch] = useReducer(wishListManager, []);
   const [loader, loaderSetter] = useState(false);
   const {
-    login: { loginStatus },
+    login: { loginStatus, token },
   } = useAuth();
 
   const { toastDispatch } = useToast();
@@ -57,10 +57,14 @@ export const WishlistProvider = ({ children }) => {
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
           let { user } = JSON.parse(localStorage.getItem("loginStatus"));
 
-          let { data, message, success } = await apiCall("POST", "wishlist", {
-            localwishlist: wishlist ? wishlist : [],
-            userKey: user._id,
-          });
+          let { data, message, success } = await apiCall(
+            "POST",
+            "wishlist",
+            {
+              localwishlist: wishlist ? wishlist : [],
+            },
+            token
+          );
           if (success === true) {
             wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
             localStorage.removeItem("wishlist");

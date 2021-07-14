@@ -11,22 +11,27 @@ import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
 
 const WishListButton = ({ wishlist, id, text, type }) => {
   const { wishlistDispatch } = useWishlist();
   const { toastDispatch } = useToast();
   const { cartDispatch } = useCart();
+  const {
+    login: {  token },
+  } = useAuth();
+  
   const wishListButtonHandler = () => {
     if (wishlist) {
-      removeFromWishList(wishlistDispatch, id, toastDispatch);
+      removeFromWishList(wishlistDispatch, id, toastDispatch,token);
     } else {
-      addToWishList(wishlistDispatch, id, toastDispatch);
+      addToWishList(wishlistDispatch, id, toastDispatch,token);
     }
   };
 
   function addTowishListHandler() {
-    addToWishList(wishlistDispatch, id, toastDispatch);
-    removeFromCart(cartDispatch, id);
+    addToWishList(wishlistDispatch, id, toastDispatch,token);
+    removeFromCart(cartDispatch, id,toastDispatch,token);
   }
 
   switch (type) {

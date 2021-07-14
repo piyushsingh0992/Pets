@@ -17,7 +17,7 @@ const CartButton = ({ type, id, quantity }) => {
   const { cartDispatch } = useCart();
   const { toastDispatch } = useToast();
   const {
-    login: { loginStatus, token },
+    login: {  token },
   } = useAuth();
   
 

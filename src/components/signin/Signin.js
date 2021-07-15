@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import "./signin.css";
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField/TextField.js";
@@ -74,6 +74,10 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           <span
             className="sign-in"
             onClick={() => {
+              signInDetailsSetter({
+                password: "",
+                userId: "",
+              });
               userSetter((value) => !value);
             }}
           >

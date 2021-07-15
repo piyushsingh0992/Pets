@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField/TextField.js";
 import Button from "../button/Button.js";
@@ -9,7 +9,12 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { createAccount } from "./common.js";
 
-const Signup = ({ userSetter ,signUpDetails, signUpDetailsSetter}) => {
+const Signup = ({
+  userSetter,
+  signUpDetails,
+  signUpDetailsSetter,
+  signInDetailsSetter,
+}) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
@@ -19,7 +24,6 @@ const Signup = ({ userSetter ,signUpDetails, signUpDetailsSetter}) => {
       return { ...value, userName: newUserName };
     });
   }
-
   function userIdHandler(newUserId) {
     signUpDetailsSetter((value) => {
       return { ...value, userId: newUserId };
@@ -62,7 +66,13 @@ const Signup = ({ userSetter ,signUpDetails, signUpDetailsSetter}) => {
           text={language.auth.signup}
           size="signUp-btn"
           clickFunction={() => {
-            createAccount(signUpDetails, toastDispatch);
+            createAccount(
+              signUpDetails,
+              toastDispatch,
+              signUpDetailsSetter,
+              signInDetailsSetter,
+              userSetter
+            );
           }}
         />
         <p style={{ color: theme.boldText }}>
@@ -71,6 +81,11 @@ const Signup = ({ userSetter ,signUpDetails, signUpDetailsSetter}) => {
           <span
             className="sign-up"
             onClick={() => {
+              signUpDetailsSetter({
+                userName: "",
+                password: "",
+                userId: "",
+              });
               userSetter((value) => !value);
             }}
           >

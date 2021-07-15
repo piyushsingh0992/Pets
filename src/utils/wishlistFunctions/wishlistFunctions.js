@@ -7,19 +7,19 @@ import {
   removeFromWishListServer,
 } from "./wishlistServer.js";
 
-export function addToWishList(wishlistDispatch, productId, toastDispatch,token) {
+export function addToWishList(wishlistDispatch, productId, toastDispatch) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    addToWishListServer(wishlistDispatch, productId, toastDispatch,token);
+    addToWishListServer(wishlistDispatch, productId, toastDispatch);
   } else {
     addToWishListLocal(wishlistDispatch, productId, toastDispatch);
   }
 }
 
-export function removeFromWishList(wishlistDispatch, productId, toastDispatch,token) {
+export function removeFromWishList(wishlistDispatch, productId, toastDispatch) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    removeFromWishListServer(wishlistDispatch, productId, toastDispatch,token);
+    removeFromWishListServer(wishlistDispatch, productId, toastDispatch);
   } else {
     removeFromWishListLocal(wishlistDispatch, productId, toastDispatch);
   }

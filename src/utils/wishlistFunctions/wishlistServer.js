@@ -3,18 +3,15 @@ import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch,
-  token
+  toastDispatch
 ) {
-
   try {
     let { data, message, success } = await apiCall(
       "POST",
       `wishlist/${productId}`,
       {
         productId,
-      },
-      token
+      }
     );
 
     if (success === true) {
@@ -33,19 +30,15 @@ export async function addToWishListServer(
 export async function removeFromWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch,
-  token
+  toastDispatch
 ) {
   try {
-
-
     let { data, message, success } = await apiCall(
       "DELETE",
       `wishlist/${productId}`,
       {
         productId,
-      },
-      token
+      }
     );
 
     if (success === true) {

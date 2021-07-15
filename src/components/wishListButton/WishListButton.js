@@ -23,15 +23,15 @@ const WishListButton = ({ wishlist, id, text, type }) => {
   
   const wishListButtonHandler = () => {
     if (wishlist) {
-      removeFromWishList(wishlistDispatch, id, toastDispatch,token);
+      removeFromWishList(wishlistDispatch, id, toastDispatch);
     } else {
-      addToWishList(wishlistDispatch, id, toastDispatch,token);
+      addToWishList(wishlistDispatch, id, toastDispatch);
     }
   };
 
   function addTowishListHandler() {
-    addToWishList(wishlistDispatch, id, toastDispatch,token);
-    removeFromCart(cartDispatch, id,toastDispatch,token);
+    addToWishList(wishlistDispatch, id, toastDispatch);
+    removeFromCart(cartDispatch, id,toastDispatch);
   }
 
   switch (type) {

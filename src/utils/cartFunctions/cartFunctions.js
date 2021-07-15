@@ -11,11 +11,11 @@ import {
   removeFromCartServer,
 } from "./cartServer.js";
 
-export async function addToCart(cartDispatch, productId, toastDispatch,    token,) {
+export async function addToCart(cartDispatch, productId, toastDispatch,    ) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
 
   if (loginStatus && loginStatus.loginStatus) {
-    addToCartServer(cartDispatch, productId, toastDispatch,token);
+    addToCartServer(cartDispatch, productId, toastDispatch);
   } else {
     addToCartLocal(cartDispatch, productId, toastDispatch);
   }
@@ -25,21 +25,21 @@ export async function quantityManagerInCart(
   cartDispatch,
   type,
   productId,
-  toastDispatch,token
+  toastDispatch
 ) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    quantityManagerInCartServer(cartDispatch, type, productId, toastDispatch,token);
+    quantityManagerInCartServer(cartDispatch, type, productId, toastDispatch);
   } else {
     quantityManagerInCartLocal(cartDispatch, type, productId, toastDispatch);
   }
 }
 
-export async function removeFromCart(cartDispatch, productId, toastDispatch,token) {
+export async function removeFromCart(cartDispatch, productId, toastDispatch) {
  
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    removeFromCartServer(cartDispatch, productId, toastDispatch,token);
+    removeFromCartServer(cartDispatch, productId, toastDispatch);
   } else {
     removeFromCartLocal(cartDispatch, productId, toastDispatch);
   }

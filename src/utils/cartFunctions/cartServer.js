@@ -1,14 +1,9 @@
 import { apiCall } from "../../apiCall/apiCall.js";
-export async function addToCartServer(cartDispatch, id, toastDispatch, token) {
+export async function addToCartServer(cartDispatch, id, toastDispatch) {
   try {
-    let { data, success, message } = await apiCall(
-      "POST",
-      `cart/${id}`,
-      {
-        action: "ADD",
-      },
-      token
-    );
+    let { data, success, message } = await apiCall("POST", `cart/${id}`, {
+      action: "ADD",
+    });
 
     if (success === true) {
       cartDispatch({ type: "ADD", payload: data.product });
@@ -26,18 +21,12 @@ export async function quantityManagerInCartServer(
   cartDispatch,
   type,
   id,
-  toastDispatch,
-  token
+  toastDispatch
 ) {
   try {
-    let { data, success, message } = await apiCall(
-      "POST",
-      `cart/${id}`,
-      {
-        action: type,
-      },
-      token
-    );
+    let { data, success, message } = await apiCall("POST", `cart/${id}`, {
+      action: type,
+    });
 
     if (success === true) {
       cartDispatch({ type: type, payload: data.product });
@@ -57,15 +46,12 @@ export async function quantityManagerInCartServer(
 export async function removeFromCartServer(
   cartDispatch,
   productId,
-  toastDispatch,
-  token
+  toastDispatch
 ) {
   try {
     let { data, success, message } = await apiCall(
       "DELETE",
-      `cart/${productId}`,
-      {},
-      token
+      `cart/${productId}`
     );
 
     if (success === true) {

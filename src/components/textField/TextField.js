@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
-const TextField = ({ label, type, value,valueSetter }) => {
+const TextField = ({ label, type, value,onChangeFunction }) => {
   const { theme } = useTheme();
   // const [value, valueSetter] = useState("");
 
@@ -18,7 +18,7 @@ const TextField = ({ label, type, value,valueSetter }) => {
         type={type ? type : "text"}
         value={value}
         onChange={(e) => {
-          valueSetter(e.target.value);
+          onChangeFunction(e.target.value);
         }}
         required
       />

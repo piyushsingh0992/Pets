@@ -7,36 +7,36 @@ import "./signup.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { createAccount } from "./common.js";
 
-import { apiCall } from "../../apiCall/apiCall.js";
 const Signup = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
-  const [userName, userNameSetter] = useState("");
-  const [userId, userIdSetter] = useState("");
-  const [password, passwordSetter] = useState("");
 
-  async function createAccount() {
-    try {
-      let { data, success, message } = await apiCall("POST", `auth/create`, {
-        userName,
-        userId,
-        password,
-      });
+  const [signUpDetails, signUpDetailsSetter] = useState({
+    userName: "",
+    password: "",
+    userId: "",
+  });
 
-      if (success === true) {
-        userNameSetter("");
-        userIdSetter("");
-        passwordSetter("");
-        toastDispatch("success", data.message);
-      } else {
-        toastDispatch("error", message);
-      }
-    } catch (error) {
-      toastDispatch("error", "Error ! Cann't create new account");
-    }
+  function userNameHandler(newUserName) {
+    signUpDetailsSetter((value) => {
+      return { ...value, userName: newUserName };
+    });
   }
+
+  function userIdHandler(newUserId) {
+    signUpDetailsSetter((value) => {
+      return { ...value, userId: newUserId };
+    });
+  }
+  function passwordHandler(newPassword) {
+    signUpDetailsSetter((value) => {
+      return { ...value, password: newPassword };
+    });
+  }
+
   return (
     <div
       className="signUp"
@@ -48,26 +48,28 @@ const Signup = ({ userSetter }) => {
       </div>
 
       <TextField
+        onChangeFunction={userNameHandler}
         label={language.auth.name}
-        valueSetter={userNameSetter}
-        value={userName}
+        value={signUpDetails.userName}
       />
       <TextField
-        valueSetter={userIdSetter}
+        onChangeFunction={userIdHandler}
         label={language.auth.email}
-        value={userId}
+        value={signUpDetails.userId}
       />
       <TextField
-        valueSetter={passwordSetter}
+        onChangeFunction={passwordHandler}
         label={language.auth.password}
-        value={password}
+        value={signUpDetails.password}
       />
       <div className="signUp-submit-btn">
         <Button
           type="primary"
           text={language.auth.signup}
           size="signUp-btn"
-          clickFunction={createAccount}
+          clickFunction={() => {
+            createAccount(signUpDetails, toastDispatch);
+          }}
         />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg2}

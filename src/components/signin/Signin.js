@@ -9,6 +9,7 @@ import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
 import { apiCall } from "../../apiCall/apiCall.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { authChecker } from "./common.js";
 
 const Signin = ({ userSetter }) => {
   const { theme } = useTheme();
@@ -19,6 +20,11 @@ const Signin = ({ userSetter }) => {
   } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
+
+  const [signInDetails, signInDetailsSetter] = useState({
+    password: "",
+    userId: "",
+  });
   const [password, passwordSetter] = useState("");
   const [userId, userIdSetter] = useState("");
   const { toastDispatch } = useToast();
@@ -29,32 +35,15 @@ const Signin = ({ userSetter }) => {
     }
   }, [loginStatus]);
 
-  async function authChecker(userId, password) {
-    try {
-      let { data, success, message } = await apiCall("POST", "auth", {
-        userId,
-        password,
-      });
-
-      if (success === true) {
-        loginDispatch({
-          type: "LOGIN",
-          payload: { loginStatus: true, token: data.token },
-        });
-
-        localStorage.setItem(
-          "loginStatus",
-          JSON.stringify({
-            loginStatus: true,
-            token: data.token,
-          })
-        );
-      } else {
-        toastDispatch("error", message);
-      }
-    } catch (error) {
-      toastDispatch("error", "some error");
-    }
+  function userIdHandler(newUserId) {
+    signInDetailsSetter((value) => {
+      return { ...value, userId: newUserId };
+    });
+  }
+  function passwordHandler(newPassword) {
+    signInDetailsSetter((value) => {
+      return { ...value, password: newPassword };
+    });
   }
 
   return (
@@ -68,14 +57,17 @@ const Signin = ({ userSetter }) => {
       </div>
 
       <TextField
-        valueSetter={userIdSetter}
+        onChangeFunction={userIdHandler}
+       
         label={language.auth.email}
-        value={userId}
+        value={signInDetails.userId}
       />
+
       <TextField
-        valueSetter={passwordSetter}
+        onChangeFunction={passwordHandler}
+    
         label={language.auth.password}
-        value={password}
+        value={signInDetails.password}
       />
       <div className="signin-submit-btn">
         <Button
@@ -83,7 +75,7 @@ const Signin = ({ userSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
-            authChecker(userId, password);
+            authChecker(signInDetails, loginDispatch, toastDispatch);
           }}
         />
         <p style={{ color: theme.boldText }}>

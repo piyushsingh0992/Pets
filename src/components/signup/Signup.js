@@ -59,6 +59,7 @@ const Signup = ({
         onChangeFunction={passwordHandler}
         label={language.auth.password}
         value={signUpDetails.password}
+        type="Password"
       />
       <div className="signUp-submit-btn">
         <Button

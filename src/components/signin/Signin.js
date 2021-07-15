@@ -58,6 +58,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
         onChangeFunction={passwordHandler}
         label={language.auth.password}
         value={signInDetails.password}
+        type="Password"
       />
       <div className="signin-submit-btn">
         <Button

@@ -9,16 +9,10 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { createAccount } from "./common.js";
 
-const Signup = ({ userSetter }) => {
+const Signup = ({ userSetter ,signUpDetails, signUpDetailsSetter}) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
-
-  const [signUpDetails, signUpDetailsSetter] = useState({
-    userName: "",
-    password: "",
-    userId: "",
-  });
 
   function userNameHandler(newUserName) {
     signUpDetailsSetter((value) => {

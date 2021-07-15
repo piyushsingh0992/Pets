@@ -7,11 +7,10 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
-import { apiCall } from "../../apiCall/apiCall.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { authChecker } from "./common.js";
 
-const Signin = ({ userSetter }) => {
+const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const {
@@ -20,13 +19,6 @@ const Signin = ({ userSetter }) => {
   } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
-
-  const [signInDetails, signInDetailsSetter] = useState({
-    password: "",
-    userId: "",
-  });
-  const [password, passwordSetter] = useState("");
-  const [userId, userIdSetter] = useState("");
   const { toastDispatch } = useToast();
 
   useEffect(() => {
@@ -58,14 +50,12 @@ const Signin = ({ userSetter }) => {
 
       <TextField
         onChangeFunction={userIdHandler}
-       
         label={language.auth.email}
         value={signInDetails.userId}
       />
 
       <TextField
         onChangeFunction={passwordHandler}
-    
         label={language.auth.password}
         value={signInDetails.password}
       />

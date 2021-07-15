@@ -8,13 +8,31 @@ import { useAuth } from "../../contexts/authContext/authContext.js";
 const LoginPage = () => {
   const [user, userSetter] = useState(true);
   const { loginDispatch } = useAuth();
+  const [signInDetails, signInDetailsSetter] = useState({
+    password: "",
+    userId: "",
+  });
+
+  const [signUpDetails, signUpDetailsSetter] = useState({
+    userName: "",
+    password: "",
+    userId: "",
+  });
 
   return (
     <div className="loginPage">
       {user ? (
-        <Signin userSetter={userSetter} />
+        <Signin
+          userSetter={userSetter}
+          signInDetails={signInDetails}
+          signInDetailsSetter={signInDetailsSetter}
+        />
       ) : (
-        <SignUp userSetter={userSetter} />
+        <SignUp
+          userSetter={userSetter}
+          signUpDetails={signUpDetails}
+          signUpDetailsSetter={signUpDetailsSetter}
+        />
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import { apiCall } from "../../apiCall/apiCall.js";
 
 export async function authChecker(signInDetails,loginDispatch, toastDispatch) {
-  try {
+  
     let { data, success, message } = await apiCall(
       "POST",
       "auth",
@@ -24,7 +24,5 @@ export async function authChecker(signInDetails,loginDispatch, toastDispatch) {
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    toastDispatch("error", "some error");
-  }
+  
 }

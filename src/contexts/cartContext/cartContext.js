@@ -22,24 +22,19 @@ export function CartProvider({ children }) {
 
     if (localCart) {
       (async function () {
-        try {
-          loaderSetter(true);
-          let { data, message, success } = await apiCall(
-            "POST",
-            "products/localCartProducts",
-            {
-              localCart,
-            }
-          );
-
-          if (success === true) {
-            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+        loaderSetter(true);
+        let { data, message, success } = await apiCall(
+          "POST",
+          "products/localCartProducts",
+          {
+            localCart,
           }
-        } catch (error) {
-          console.error(error);
-        } finally {
-          loaderSetter(false);
+        );
+
+        if (success === true) {
+          cartDispatch({ type: "FIRST_LOAD", payload: data.products });
         }
+        loaderSetter(false);
       })();
     }
   }, []);
@@ -47,28 +42,23 @@ export function CartProvider({ children }) {
   useEffect(() => {
     if (loginStatus) {
       (async function () {
-        try {
-          let localCart = JSON.parse(localStorage.getItem("cart"));
+        let localCart = JSON.parse(localStorage.getItem("cart"));
 
-          loaderSetter(true);
-          let { data, message, success } = await apiCall(
-            "POST",
-            "cart",
-            {
-              localCart: localCart ? localCart : [],
-            },
-            token
-          );
+        loaderSetter(true);
+        let { data, message, success } = await apiCall(
+          "POST",
+          "cart",
+          {
+            localCart: localCart ? localCart : [],
+          },
+          token
+        );
 
-          if (success === true) {
-            cartDispatch({ type: "FIRST_LOAD", payload: data.products });
-            localStorage.removeItem("cart");
-          }
-        } catch (error) {
-          console.error(error);
-        } finally {
-          loaderSetter(false);
+        if (success === true) {
+          cartDispatch({ type: "FIRST_LOAD", payload: data.products });
+          localStorage.removeItem("cart");
         }
+        loaderSetter(false);
       })();
     }
   }, [loginStatus]);

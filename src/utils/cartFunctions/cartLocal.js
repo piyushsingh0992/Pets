@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToCartLocal(cartDispatch, id, toastDispatch) {
-  try {
+  
     let { success, data, message } = await apiCall("GET", `products/${id}`);
     if (success === true) {
       let updatedProduct = { ...data.product, quantity: 1 };
@@ -22,9 +22,7 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch) {
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-  }
+
 }
 
 export async function quantityManagerInCartLocal(
@@ -33,7 +31,7 @@ export async function quantityManagerInCartLocal(
   id,
   toastDispatch
 ) {
-  try {
+
     let localCart = JSON.parse(localStorage.getItem("cart"));
     if (!localCart) {
       toastDispatch(
@@ -89,10 +87,7 @@ export async function quantityManagerInCartLocal(
       toastDispatch("error", message);
       return;
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("Error", "sorry ! Error Occured");
-  }
+  
 }
 
 export async function removeFromCartLocal(

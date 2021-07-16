@@ -26,7 +26,7 @@ export const WishlistProvider = ({ children }) => {
 
     if (wishlist) {
       (async function () {
-        try {
+        
           loaderSetter(true);
 
           let { data, message, success } = await apiCall(
@@ -40,11 +40,8 @@ export const WishlistProvider = ({ children }) => {
           if (success === true) {
             wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
           }
-        } catch (error) {
-          console.error(error);
-        } finally {
           loaderSetter(false);
-        }
+        
       })();
     }
   }, []);

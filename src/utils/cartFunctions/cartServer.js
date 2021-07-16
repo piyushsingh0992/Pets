@@ -1,6 +1,6 @@
 import { apiCall } from "../../apiCall/apiCall.js";
 export async function addToCartServer(cartDispatch, id, toastDispatch) {
-  try {
+
     let { data, success, message } = await apiCall("POST", `cart/${id}`, {
       action: "ADD",
     });
@@ -11,10 +11,7 @@ export async function addToCartServer(cartDispatch, id, toastDispatch) {
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("error", "Can't add to Cart now");
-  }
+
 }
 
 export async function quantityManagerInCartServer(
@@ -23,7 +20,8 @@ export async function quantityManagerInCartServer(
   id,
   toastDispatch
 ) {
-  try {
+  
+
     let { data, success, message } = await apiCall("POST", `cart/${id}`, {
       action: type,
     });
@@ -38,9 +36,7 @@ export async function quantityManagerInCartServer(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-  }
+  
 }
 
 export async function removeFromCartServer(
@@ -48,7 +44,7 @@ export async function removeFromCartServer(
   productId,
   toastDispatch
 ) {
-  try {
+
     let { data, success, message } = await apiCall(
       "DELETE",
       `cart/${productId}`
@@ -60,7 +56,5 @@ export async function removeFromCartServer(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-  }
+
 }

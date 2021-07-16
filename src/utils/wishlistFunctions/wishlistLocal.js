@@ -15,7 +15,7 @@ export async function addToWishListLocal(
   productId,
   toastDispatch
 ) {
-  try {
+
     let { success, data, message } = await apiCall(
       "GET",
       `products/${productId}`
@@ -31,10 +31,7 @@ export async function addToWishListLocal(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("error", "Sorry!  couldn't add to Wishlist");
-  }
+  
 }
 
 function removingFromLocalStorage(productId, toastDispatch) {

@@ -49,7 +49,7 @@ export const WishlistProvider = ({ children }) => {
   useEffect(() => {
     if (loginStatus) {
       (async function () {
-        try {
+        
           loaderSetter(true);
           let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 
@@ -66,11 +66,8 @@ export const WishlistProvider = ({ children }) => {
             wishlistDispatch({ type: "FIRST_LOAD", payload: data.products });
             localStorage.removeItem("wishlist");
           }
-        } catch (error) {
-          console.error(error);
-        } finally {
           loaderSetter(false);
-        }
+      
       })();
     }
   }, [loginStatus]);

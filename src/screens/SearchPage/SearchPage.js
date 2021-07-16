@@ -11,7 +11,7 @@ import SearchGrid from "../../components/searchGrid/SearchGrid.js";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { checkingCartAndWishlist } from "../../utils/common.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-
+import { apiCall } from "../../apiCall/apiCall";
 const SearchPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const searchTerm = query.get("search");
@@ -22,27 +22,27 @@ const SearchPage = () => {
 
   useEffect(() => {
     (async function () {
-      try {
+    
         loaderSetter(true);
 
-        let { data } = await axios.get(
-          "https://pets-1.piyushsingh6.repl.co/products"
+        let { data,success,message } = await apiCall("GET"
+          ,"products"
         );
+      debugger;
+        if(success===true){
+          allProductSetter(
+            data.products.filter((item) => {
+              return item.productName
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase());
+            })
+          );
+          loaderSetter(false);
+        }
 
-        allProductSetter(
-          data.products.filter((item) => {
-            return item.productName
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase());
-          })
-        );
-      } catch (error) {
-        console.error(error);
-      } finally {
-        loaderSetter(false);
-      }
+      
     })();
-  }, []);
+  }, [searchTerm]);
 
   let filteredData = checkingCartAndWishlist(
     allProducts,

@@ -38,12 +38,7 @@ export function cartManager(state, action) {
         return item;
       });
 
-    // return state?.map((item) => {
-    //   if (item._id === payload._id) {
-    //     return { ...item, quantity: item.quantity - 1 };
-    //   }
-    //   return item;
-    // });
+
     case "LOGOUT":
       return [];
     default:

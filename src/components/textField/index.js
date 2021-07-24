@@ -1,15 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+
 
 const TextField = ({ label, type, value,onChangeFunction }) => {
-  const { theme } = useTheme();
-  // const [value, valueSetter] = useState("");
-
-  // function inputValueHandler(e) {
-  //   valueSetter(e.target.value);
-  //   // textValueSetter(e.target.value);
-  // }
 
   return (
     <span className="textField">

@@ -27,7 +27,7 @@ const SearchGrid = ({ searchedData, searchTerm }) => {
     </div>
   ) : (
     <NoMatch searchTerm={searchTerm} />
-    // <p className="noResult">Sorry No Result for "{searchTerm}"</p>
+
   );
 };
 

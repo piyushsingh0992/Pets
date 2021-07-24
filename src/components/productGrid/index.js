@@ -1,5 +1,5 @@
 import React from "react";
-import "./productGrid.css";
+import "./style.css";
 import Card from "../card";
 
 const ProductGrid = ({ productData, filterdispatch }) => {

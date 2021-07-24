@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import "./badge.css";
+import "./style.css";
 const Badge = ({ children, item }) => {
   const { theme } = useTheme();
   return (

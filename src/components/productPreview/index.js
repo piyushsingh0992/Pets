@@ -1,5 +1,5 @@
 import React from "react";
-import "./productPreview.css";
+import "./style.css";
 import Rating from "../rating";
 import WishListButton from "../wishListButton";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

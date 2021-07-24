@@ -1,5 +1,5 @@
 import React from "react";
-import "./searchGrid.css";
+import "./style.css";
 import Card from "../card";
 import NoMatch from "../noMatch";
 

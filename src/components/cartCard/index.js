@@ -1,5 +1,5 @@
 import React from "react";
-import "./cartCard.css";
+import "./style.css";
 import Button from "../button";
 import WishListButton from "../wishListButton";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

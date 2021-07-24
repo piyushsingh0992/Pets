@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button";
 import wishlistError from "../../utils/images/icons/emptyWishlist.png";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import "./emptyWishlist.css";
+import "./style.css";
 import { Link } from "react-router-dom";
 const EmptyWishlist = () => {
   const { theme } = useTheme();

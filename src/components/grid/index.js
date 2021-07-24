@@ -1,5 +1,5 @@
 import React from "react";
-import "./grid.css";
+import "./style.css";
 import Button from "../button";
 import dog from "../../utils/images/icons/animal/dog.png";
 import cat from "../../utils/images/icons/animal/cat.png";

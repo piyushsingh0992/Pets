@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./card.css";
+import "./style.css";
 import Rating from "../rating";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

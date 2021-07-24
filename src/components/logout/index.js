@@ -1,5 +1,5 @@
 import React from "react";
-import "./logout.css";
+import "./style.css";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

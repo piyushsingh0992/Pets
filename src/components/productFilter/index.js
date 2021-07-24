@@ -1,5 +1,5 @@
-import React, { useState, useReducer } from "react";
-import "./productFilter.css";
+import React, { useState } from "react";
+import "./style.css";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

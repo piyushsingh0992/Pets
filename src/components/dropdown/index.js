@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./dropDown.css";
+import "./style.css";
 import downArrowPrimary from "../../utils/images/icons/downArrow-primary.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { Link } from "react-router-dom";

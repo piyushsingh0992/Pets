@@ -1,5 +1,5 @@
 import React from "react";
-import "./footer.css";
+import "./style.css";
 import instagram from "../../utils/images/icons/instagram.svg";
 import github from "../../utils/images/icons/github.svg";
 import linkedln from "../../utils/images/icons/linkedln.svg";

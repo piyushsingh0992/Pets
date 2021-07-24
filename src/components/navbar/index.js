@@ -12,7 +12,7 @@ import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { Link } from "react-router-dom";
 import nightIcon from "../../utils/images/icons/dark.svg";
 import dayIcon from "../../utils/images/icons/light.svg";
-import "./navbar.css";
+import "./style.css";
 import Logout from "../logout";
 const Navbar = () => {
   const [phoneView, phoneViewSetter] = useState(true);

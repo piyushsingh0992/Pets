@@ -1,5 +1,5 @@
 import React from "react";
-import "./rating.css";
+import "./style.css";
 function Rating({ rating }) {
   const ratingHandler = (rating) => {
     let finalRating = [];

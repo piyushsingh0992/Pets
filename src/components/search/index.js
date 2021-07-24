@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./search.css";
+import "./style.css";
 import search from "../../utils/images/icons/search.svg";
 import close from "../../utils/images/icons/close.svg";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

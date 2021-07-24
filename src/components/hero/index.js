@@ -1,7 +1,7 @@
 import React from "react";
 import dog from "../../utils/video/dog.mp4";
 import Button from "../button";
-import "./hero.css";
+import "./style.css";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { Link } from "react-router-dom";
 

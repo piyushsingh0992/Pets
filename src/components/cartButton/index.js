@@ -1,5 +1,5 @@
 import React from "react";
-import "./cartButton.css";
+import "./style.css";
 import {
   cardCartButton,
   productPreviewCartButton,

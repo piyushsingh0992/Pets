@@ -1,5 +1,5 @@
 import React from "react";
-import "./priceCalculator.css";
+import "./style.css";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

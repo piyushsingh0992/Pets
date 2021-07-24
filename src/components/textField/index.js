@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./textField.css";
+import "./style.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
 const TextField = ({ label, type, value,onChangeFunction }) => {

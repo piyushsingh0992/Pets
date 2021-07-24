@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button";
 import cartError from "../../utils/images/icons/emptyCart.png";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import "./emptyCart.css";
+import "./style.css";
 import { Link } from "react-router-dom";
 const EmptyWishlist = () => {
   const { theme } = useTheme();

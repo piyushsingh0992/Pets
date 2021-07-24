@@ -3,7 +3,7 @@ import React from "react";
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField";
 import Button from "../button";
-import "./signup.css";
+import "./style.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";

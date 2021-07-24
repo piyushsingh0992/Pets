@@ -1,5 +1,5 @@
 import React from "react";
-import "./wishlistGrid.css";
+import "./style.css";
 
 import Card from "../card";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";

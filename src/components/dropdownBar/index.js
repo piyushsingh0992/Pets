@@ -3,7 +3,7 @@ import DropDown from "../dropdown";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 
-import "./dropdownBar.css";
+import "./style.css";
 const DropdownBar = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();

@@ -1,5 +1,5 @@
 import React from "react";
-import "./recommend.css";
+import "./style.css";
 import Card from "../card";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

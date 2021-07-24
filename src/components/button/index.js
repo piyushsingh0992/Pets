@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-function Button({ text, type, clickFunction, size }) {
+import Miniloader from "../miniloader";
+function Button({ text, type, clickFunction, size, loader }) {
   function clickHandler() {
     clickFunction && clickFunction();
   }
@@ -11,7 +12,8 @@ function Button({ text, type, clickFunction, size }) {
         size ? size : "default"
       }`}
     >
-      {text}
+
+      {loader?<Miniloader/>:text}
     </button>
   );
 }

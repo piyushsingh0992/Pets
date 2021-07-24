@@ -5,8 +5,9 @@ export async function createAccount(
   toastDispatch,
   signUpDetailsSetter,
   signInDetailsSetter,
-  userSetter
-) {
+  userSetter,
+  loaderSetter
+) {  loaderSetter(true)
 
     let { data, success, message } = await apiCall(
       "POST",
@@ -29,5 +30,6 @@ export async function createAccount(
     } else {
       toastDispatch("error", message);
     }
+    loaderSetter(false);
   
 }

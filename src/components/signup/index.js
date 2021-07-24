@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField";
@@ -9,6 +9,8 @@ import { useLanguage } from "../../contexts/languageContext";
 import { useToast } from "../../contexts/toastContext";
 import { createAccount } from "./common.js";
 
+
+
 const Signup = ({
   userSetter,
   signUpDetails,
@@ -16,8 +18,11 @@ const Signup = ({
   signInDetailsSetter,
 }) => {
   const { theme } = useTheme();
+  
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
+  const [loader,loaderSetter]=useState(false);
+
 
   function userNameHandler(newUserName) {
     signUpDetailsSetter((value) => {
@@ -63,6 +68,7 @@ const Signup = ({
       />
       <div className="signUp-submit-btn">
         <Button
+        loader={loader}
           type="primary"
           text={language.auth.signup}
           size="signUp-btn"
@@ -72,7 +78,7 @@ const Signup = ({
               toastDispatch,
               signUpDetailsSetter,
               signInDetailsSetter,
-              userSetter
+              userSetter,loaderSetter
             );
           }}
         />
@@ -87,6 +93,7 @@ const Signup = ({
                 password: "",
                 userId: "",
               });
+              loaderSetter(true);
               userSetter((value) => !value);
             }}
           >

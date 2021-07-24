@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField";
@@ -14,18 +14,21 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const {
-    login: { loginStatus },
+    login,
     loginDispatch,
   } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const { toastDispatch } = useToast();
-
+  const [loader, loaderSetter] = useState(false);
+  let  { loginStatus }=login;
   useEffect(() => {
     if (loginStatus) {
       navigate(state?.from ? state.from : "/");
     }
+
   }, [loginStatus]);
+
 
   function userIdHandler(newUserId) {
     signInDetailsSetter((value) => {
@@ -66,8 +69,10 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
-            authChecker(signInDetails, loginDispatch, toastDispatch);
+            authChecker(signInDetails, loginDispatch, toastDispatch,loaderSetter);
+            ;
           }}
+          loader={loader}
         />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}

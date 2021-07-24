@@ -1,6 +1,6 @@
 import React from "react";
 import "./recommend.css";
-import Card from "../card/Card.js";
+import Card from "../card";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

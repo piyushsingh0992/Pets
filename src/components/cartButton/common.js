@@ -5,7 +5,7 @@ import {
   addToCart,
 } from "../../utils/cartFunctions/cartFunctions.js";
 
-import Button from "../button/Button";
+import Button from "../button";
 
 export function cardCartButton(
   id,

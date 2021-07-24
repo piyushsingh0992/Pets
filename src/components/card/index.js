@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./card.css";
-import Rating from "../rating/Rating";
+import Rating from "../rating";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { Link } from "react-router-dom";
-import WishListButton from "../wishListButton/WishListButton.js";
-import CartButton from "../cartButton/CartButton.js";
+import WishListButton from "../wishListButton";
+import CartButton from "../cartButton";
 
 const Card = ({
   productImage,

@@ -1,4 +1,4 @@
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 
 export async function authChecker(signInDetails,loginDispatch, toastDispatch) {
   

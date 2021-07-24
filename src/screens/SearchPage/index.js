@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./searchPage.css";
 import axios from "axios";
 
-import Loader from "../../components/loader/Loader.js";
+import Loader from "../../components/loader";
 
-import Card from "../../components/card/Card.js";
+import Card from "../../components/card";
 
 import { useLocation } from "react-router-dom";
-import SearchGrid from "../../components/searchGrid/SearchGrid.js";
+import SearchGrid from "../../components/searchGrid";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { checkingCartAndWishlist } from "../../utils/common.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 const SearchPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const searchTerm = query.get("search");

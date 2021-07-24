@@ -1,4 +1,4 @@
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 export async function addToCartServer(cartDispatch, id, toastDispatch) {
 
     let { data, success, message } = await apiCall("POST", `cart/${id}`, {

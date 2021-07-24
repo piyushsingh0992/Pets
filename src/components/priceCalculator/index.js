@@ -1,6 +1,6 @@
 import React from "react";
 import "./priceCalculator.css";
-import Button from "../button/Button.js";
+import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";

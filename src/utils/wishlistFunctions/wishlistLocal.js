@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 
 function addtoLocalStorage(productId) {
   let wishlist = JSON.parse(localStorage.getItem("wishlist"));

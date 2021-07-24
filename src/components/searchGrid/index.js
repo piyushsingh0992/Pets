@@ -1,14 +1,14 @@
 import React from "react";
-import "./productGrid.css";
-import Card from "../card/Card.js";
+import "./searchGrid.css";
+import Card from "../card";
+import NoMatch from "../noMatch";
 
-const ProductGrid = ({ productData, filterdispatch }) => {
-  return (
-    <div className="productGrid">
-      {productData.map((item) => {
+const SearchGrid = ({ searchedData, searchTerm }) => {
+  return searchedData.length > 1 ? (
+    <div className="searchGrid">
+      {searchedData.map((item) => {
         return (
           <Card
-            quantity={item.quantity}
             productImage={item.productImg}
             productName={item.productName}
             price={item.price}
@@ -20,12 +20,15 @@ const ProductGrid = ({ productData, filterdispatch }) => {
             imgHeight={item.imgHeight}
             id={item._id}
             fast={item.fastDelivery}
-            filterdispatch={filterdispatch}
+            quantity={item.quantity}
           />
         );
       })}
     </div>
+  ) : (
+    <NoMatch searchTerm={searchTerm} />
+    // <p className="noResult">Sorry No Result for "{searchTerm}"</p>
   );
 };
 
-export default ProductGrid;
+export default SearchGrid;

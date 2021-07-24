@@ -1,9 +1,9 @@
 import React from "react";
 import "./productPreview.css";
-import Rating from "../rating/Rating";
-import WishListButton from "../wishListButton/WishListButton.js";
+import Rating from "../rating";
+import WishListButton from "../wishListButton";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import CartButton from "../cartButton/CartButton.js";
+import CartButton from "../cartButton";
 
 const ProductPreview = ({ productDetails }) => {
   const { theme } = useTheme();

@@ -1,6 +1,6 @@
 import React from "react";
 import "./grid.css";
-import Button from "../button/Button.js";
+import Button from "../button";
 import dog from "../../utils/images/icons/animal/dog.png";
 import cat from "../../utils/images/icons/animal/cat.png";
 import bird from "../../utils/images/icons/animal/bird.png";

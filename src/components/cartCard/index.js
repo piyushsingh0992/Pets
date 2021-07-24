@@ -1,14 +1,14 @@
 import React from "react";
 import "./cartCard.css";
-import Button from "../button/Button";
-import WishListButton from "../wishListButton/WishListButton.js";
+import Button from "../button";
+import WishListButton from "../wishListButton";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { Link } from "react-router-dom";
 import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
-import CartButton from "../cartButton/CartButton.js";
+import CartButton from "../cartButton";
 import { useAuth } from "../../contexts/authContext/authContext";
 const CartCard = ({ productImage, productName, price, id, quantity }) => {
   const { theme } = useTheme();

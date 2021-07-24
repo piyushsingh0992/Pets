@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../button/Button.js";
+import Button from "../button";
 import cartError from "../../utils/images/icons/emptyCart.png";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import "./emptyCart.css";

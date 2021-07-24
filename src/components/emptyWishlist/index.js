@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../button/Button.js";
+import Button from "../button";
 import wishlistError from "../../utils/images/icons/emptyWishlist.png";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import "./emptyWishlist.css";

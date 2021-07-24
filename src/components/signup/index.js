@@ -1,8 +1,8 @@
 import React from "react";
 
 import pets from "../../utils/images/logo/pets.svg";
-import TextField from "../textField/TextField.js";
-import Button from "../button/Button.js";
+import TextField from "../textField";
+import Button from "../button";
 import "./signup.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";

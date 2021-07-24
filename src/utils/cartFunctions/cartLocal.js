@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 export async function addToCartLocal(cartDispatch, id, toastDispatch) {
   
     let { success, data, message } = await apiCall("GET", `products/${id}`);

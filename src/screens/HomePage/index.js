@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./homePage.css";
 import axios from "axios";
-import Hero from "../../components/hero/Hero.js";
-import DropdownBar from "../../components/dropdownBar/DropdownBar.js";
-import Loader from "../../components/loader/Loader.js";
-import Grid from "../../components/grid/Grid.js";
-import Recommend from "../../components/recommend/Recommend.js";
+import Hero from "../../components/hero";
+import DropdownBar from "../../components/dropdownBar";
+import Loader from "../../components/loader";
+import Grid from "../../components/grid";
+import Recommend from "../../components/recommend";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { checkingCartAndWishlist } from "../../utils/common.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 
 const HomePage = () => {
   const [productdataFromServer, productdataFromServerSetter] = useState([]);

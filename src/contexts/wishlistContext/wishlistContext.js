@@ -9,7 +9,7 @@ import {
 import { wishListManager } from "./wishlistreducer.js";
 import { useAuth } from "../authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {

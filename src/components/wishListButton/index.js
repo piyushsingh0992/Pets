@@ -2,7 +2,7 @@ import React from "react";
 import "./wishListButton.css";
 import heart1 from "../../utils/images/icons/heart1.svg";
 import heart2 from "../../utils/images/icons/heart2.svg";
-import Button from "../button/Button";
+import Button from "../button";
 import {
   addToWishList,
   removeFromWishList,

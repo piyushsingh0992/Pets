@@ -1,10 +1,10 @@
 import React from "react";
 import "./wishlistGrid.css";
 
-import Card from "../card/Card.js";
+import Card from "../card";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
-import EmptyWishlist from "../emptyWishlist/EmptyWishlist.js";
+import EmptyWishlist from "../emptyWishlist";
 import { addedToCart } from "../../utils/common.js";
 const WishlistGrid = () => {
   const { wishlistState } = useWishlist();

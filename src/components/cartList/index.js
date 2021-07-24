@@ -1,6 +1,6 @@
 import React from "react";
 import "./cartList.css";
-import CartCard from "../cartCard/CartCard.js";
+import CartCard from "../cartCard";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 

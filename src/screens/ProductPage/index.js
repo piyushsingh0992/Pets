@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useReducer } from "react";
 import "./productPage.css";
-import ProductGrid from "../../components/productGrid/ProductGrid.js";
-import ProductFilter from "../../components/productFilter/ProductFilter.js";
+import ProductGrid from "../../components/productGrid";
+import ProductFilter from "../../components/productFilter";
 import axios from "axios";
-import Loader from "../../components/loader/Loader.js";
+import Loader from "../../components/loader";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";
 import { useLocation } from "react-router-dom";
@@ -14,7 +14,7 @@ import {
   checkingCartAndWishlist,
 } from "../../utils/common.js";
 
-import { apiCall } from "../../apiCall/apiCall.js";
+import { apiCall } from "../../apiCall";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 const ProductPage = () => {
   const query = new URLSearchParams(useLocation().search);

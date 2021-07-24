@@ -1,7 +1,7 @@
 import React from "react";
 import "./wishlistPage.css";
-import WishlistGrid from "../../components/wishlistGrid/WishlistGrid.js";
-import Loader from "../../components/loader/Loader.js";
+import WishlistGrid from "../../components/wishlistGrid";
+import Loader from "../../components/loader";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 
 const WishlistPage = () => {

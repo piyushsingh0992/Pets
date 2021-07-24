@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
-import "./productPage.css";
+import "./style.css";
 import ProductGrid from "../../components/productGrid";
 import ProductFilter from "../../components/productFilter";
-import axios from "axios";
 import Loader from "../../components/loader";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
 import { useCart } from "../../contexts/cartContext/cartContext.js";

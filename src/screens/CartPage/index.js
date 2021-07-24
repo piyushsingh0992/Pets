@@ -1,5 +1,5 @@
 import React from "react";
-import "./cartPage.css";
+import "./style.css";
 import CartList from "../../components/cartList";
 import PriceCalculator from "../../components/priceCalculator";
 import Loader from "../../components/loader";

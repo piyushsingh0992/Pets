@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./productPreviewPage.css";
-import axios from "axios";
+import "./style.css";
+
 import { useParams } from "react-router-dom";
 import ProductPreview from "../../components/productPreview";
 import Recommend from "../../components/recommend";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./wishlistPage.css";
+import "./style.css";
 import WishlistGrid from "../../components/wishlistGrid";
 import Loader from "../../components/loader";
 import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";

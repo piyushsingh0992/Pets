@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./homePage.css";
-import axios from "axios";
+import "./style.css";
 import Hero from "../../components/hero";
 import DropdownBar from "../../components/dropdownBar";
 import Loader from "../../components/loader";

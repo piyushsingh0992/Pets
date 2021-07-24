@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./searchPage.css";
-import axios from "axios";
+import "./style.css";
+
 
 import Loader from "../../components/loader";
 
-import Card from "../../components/card";
+
 
 import { useLocation } from "react-router-dom";
 import SearchGrid from "../../components/searchGrid";

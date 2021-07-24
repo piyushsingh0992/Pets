@@ -3,11 +3,11 @@ import "./style.css";
 import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField";
 import Button from "../button";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
+import { useAuth } from "../../contexts/authContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useToast } from "../../contexts/toastContext";
 import { authChecker } from "./common.js";
 
 const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {

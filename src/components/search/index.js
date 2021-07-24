@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import search from "../../utils/images/icons/search.svg";
 import close from "../../utils/images/icons/close.svg";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useLanguage } from "../../contexts/languageContext";
 
 import { useLocation, useNavigate } from "react-router-dom";
 const Search = () => {

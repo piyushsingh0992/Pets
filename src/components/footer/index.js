@@ -4,8 +4,8 @@ import instagram from "../../utils/images/icons/instagram.svg";
 import github from "../../utils/images/icons/github.svg";
 import linkedln from "../../utils/images/icons/linkedln.svg";
 import twitter from "../../utils/images/icons/twitter.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 
 const Footer = () => {
   const { theme } = useTheme();

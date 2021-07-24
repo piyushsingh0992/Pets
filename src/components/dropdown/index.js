@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import downArrowPrimary from "../../utils/images/icons/downArrow-primary.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext";
 import { Link } from "react-router-dom";
 const Dropdown = ({ item, title }) => {
   const { theme } = useTheme();

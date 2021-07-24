@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Rating from "../rating";
 import WishListButton from "../wishListButton";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext";
 import CartButton from "../cartButton";
 
 const ProductPreview = ({ productDetails }) => {

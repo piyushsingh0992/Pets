@@ -2,7 +2,7 @@ import React from "react";
 import dog from "../../utils/video/dog.mp4";
 import Button from "../button";
 import "./style.css";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useLanguage } from "../../contexts/languageContext";
 import { Link } from "react-router-dom";
 
 const Hero = () => {

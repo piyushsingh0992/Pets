@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
-import { LanguageProvider } from "./contexts/languageContext/languageContext.js";
-import { WishlistProvider } from "./contexts/wishlistContext/wishlistContext.js";
-import { CartProvider } from "./contexts/cartContext/cartContext.js";
-import { AuthProvider } from "./contexts/authContext/authContext.js";
-import { ToastProvider } from "./contexts/toastContext/toastContext.js";
+import { ThemeProvider } from "./contexts/themeContext";
+import { LanguageProvider } from "./contexts/languageContext";
+import { WishlistProvider } from "./contexts/wishlistContext";
+import { CartProvider } from "./contexts/cartContext";
+import { AuthProvider } from "./contexts/authContext";
+import { ToastProvider } from "./contexts/toastContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ErrorProvider } from "./contexts/errorContext/errorContext";
+import { ErrorProvider } from "./contexts/errorContext";
 
 ReactDOM.render(
   <React.StrictMode>

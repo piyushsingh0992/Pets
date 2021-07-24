@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import Button from "../button";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 
 const ProductFilter = ({ filterState, filterdispatch }) => {
   const [show, showSetter] = useState(false);

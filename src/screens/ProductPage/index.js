@@ -3,8 +3,8 @@ import "./style.css";
 import ProductGrid from "../../components/productGrid";
 import ProductFilter from "../../components/productFilter";
 import Loader from "../../components/loader";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useWishlist } from "../../contexts/wishlistContext";
+import { useCart } from "../../contexts/cartContext";
 import { useLocation } from "react-router-dom";
 
 import {
@@ -14,7 +14,7 @@ import {
 } from "../../utils/common.js";
 
 import { apiCall } from "../../apiCall";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useToast } from "../../contexts/toastContext";
 const ProductPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const { toastDispatch } = useToast();

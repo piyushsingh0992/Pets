@@ -8,9 +8,9 @@ import Loader from "../../components/loader";
 
 import { useLocation } from "react-router-dom";
 import SearchGrid from "../../components/searchGrid";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useWishlist } from "../../contexts/wishlistContext";
 import { checkingCartAndWishlist } from "../../utils/common.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useCart } from "../../contexts/cartContext";
 import { apiCall } from "../../apiCall";
 const SearchPage = () => {
   const query = new URLSearchParams(useLocation().search);

@@ -13,7 +13,7 @@ import Toast from "./components/toast";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ErrorModal from "./components/errorModal";
-import { useTheme } from "./contexts/themeContext/themeContext.js";
+import { useTheme } from "./contexts/themeContext";
 function App() {
   const { theme } = useTheme();
 

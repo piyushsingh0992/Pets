@@ -5,10 +5,10 @@ import DropdownBar from "../../components/dropdownBar";
 import Loader from "../../components/loader";
 import Grid from "../../components/grid";
 import Recommend from "../../components/recommend";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useWishlist } from "../../contexts/wishlistContext";
+import { useCart } from "../../contexts/cartContext";
 import { checkingCartAndWishlist } from "../../utils/common.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";
 
 const HomePage = () => {

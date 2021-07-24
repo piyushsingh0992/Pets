@@ -1,7 +1,7 @@
 import React from "react";
 import DropDown from "../dropdown";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 
 import "./style.css";
 const DropdownBar = () => {

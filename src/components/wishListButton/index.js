@@ -8,10 +8,10 @@ import {
   removeFromWishList,
 } from "../../utils/wishlistFunctions/wishlistFunctions.js";
 import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useWishlist } from "../../contexts/wishlistContext";
+import { useCart } from "../../contexts/cartContext";
+import { useToast } from "../../contexts/toastContext";
+import { useAuth } from "../../contexts/authContext/index.js";
 
 const WishListButton = ({ wishlist, id, text, type }) => {
   const { wishlistDispatch } = useWishlist();

@@ -2,8 +2,8 @@ import React from "react";
 import "./style.css";
 import Button from "../button";
 
-import { useError } from "../../contexts/errorContext/errorContext";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useError } from "../../contexts/errorContext";
+import { useTheme } from "../../contexts/themeContext";
 
 const ErrorModal = () => {
   const { errorState, errorDispatch } = useError();

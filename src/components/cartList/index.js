@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 import CartCard from "../cartCard";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useLanguage } from "../../contexts/languageContext";
+import { useCart } from "../../contexts/cartContext";
 
 const CartList = () => {
   const { language } = useLanguage();

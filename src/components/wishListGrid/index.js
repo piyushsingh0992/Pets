@@ -2,8 +2,8 @@ import React from "react";
 import "./style.css";
 
 import Card from "../card";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useWishlist } from "../../contexts/wishlistContext";
+import { useCart } from "../../contexts/cartContext";
 import EmptyWishlist from "../emptyWishlist";
 import { addedToCart } from "../../utils/common.js";
 const WishlistGrid = () => {

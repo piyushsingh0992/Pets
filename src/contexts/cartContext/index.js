@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { cartManager } from "./cartreducer.js";
-import { useAuth } from "../authContext/authContext.js";
+import { useAuth } from "../authContext/index.js";
 import { apiCall } from "../../apiCall";
 const CartContext = createContext();
 

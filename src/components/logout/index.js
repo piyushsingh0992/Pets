@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
-import { useWishlist } from "../../contexts/wishlistContext/wishlistContext.js";
+import { useAuth } from "../../contexts/authContext";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
+import { useCart } from "../../contexts/cartContext";
+import { useWishlist } from "../../contexts/wishlistContext";
 import { logoutNavbar, logoutSideNavbar } from "./common.js";
 
 const Logout = ({ type }) => {

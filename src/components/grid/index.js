@@ -6,8 +6,8 @@ import cat from "../../utils/images/icons/animal/cat.png";
 import bird from "../../utils/images/icons/animal/bird.png";
 import reptile from "../../utils/images/icons/animal/reptile.png";
 import fish from "../../utils/images/icons/animal/fish.png";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 import { Link } from "react-router-dom";
 const Grid = () => {
   const { theme } = useTheme();

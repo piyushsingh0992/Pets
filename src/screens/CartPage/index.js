@@ -4,7 +4,7 @@ import CartList from "../../components/cartList";
 import PriceCalculator from "../../components/priceCalculator";
 import Loader from "../../components/loader";
 import EmptyCart from "../../components/emptyCart";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useCart } from "../../contexts/cartContext";
 const CartPage = () => {
   const { loader, cartState } = useCart();
   return loader ? (

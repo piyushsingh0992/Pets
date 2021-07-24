@@ -5,10 +5,10 @@ import {
   productPreviewCartButton,
   cartCartButton,
 } from "./common.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { useCart } from "../../contexts/cartContext/cartContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
+import { useToast } from "../../contexts/toastContext";
+import { useCart } from "../../contexts/cartContext";
 
 
 const CartButton = ({ type, id, quantity }) => {

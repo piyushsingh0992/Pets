@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import error from "../../utils/images/icons/error.png";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext";
 const ErrorPage = () => {
   const { theme } = useTheme();
   return (

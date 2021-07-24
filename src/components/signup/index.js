@@ -4,9 +4,9 @@ import pets from "../../utils/images/logo/pets.svg";
 import TextField from "../textField";
 import Button from "../button";
 import "./style.css";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
+import { useToast } from "../../contexts/toastContext";
 import { createAccount } from "./common.js";
 
 const Signup = ({

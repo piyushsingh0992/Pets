@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import Rating from "../rating";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 import { Link } from "react-router-dom";
 import WishListButton from "../wishListButton";
 import CartButton from "../cartButton";

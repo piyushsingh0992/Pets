@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./screens/HomePage";
 import ProductPage from "./screens/ProductPage";
 import ProductPreviewPage from "./screens/ProductPreviewPage";
@@ -14,8 +14,13 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ErrorModal from "./components/errorModal";
 import { useTheme } from "./contexts/themeContext/themeContext.js";
+import { useAuth } from "./contexts/authContext/authContext";
+import axios from "axios"
 function App() {
   const { theme } = useTheme();
+  const navigate=useNavigate();
+  const {loginDispatch}=useAuth();
+ 
   return (
     <div className="app" style={{ backgroundColor: theme.primaryBackground }}>
       <ErrorModal />

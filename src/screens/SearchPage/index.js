@@ -28,7 +28,7 @@ const SearchPage = () => {
         let { data,success,message } = await apiCall("GET"
           ,"products"
         );
-      debugger;
+      
         if(success===true){
           allProductSetter(
             data.products.filter((item) => {

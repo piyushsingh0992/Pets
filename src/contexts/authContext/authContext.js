@@ -5,6 +5,7 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
+
 export function AuthProvider({ children }) {
   const [login, loginDispatch] = useReducer(loginHandler, {
     loginStatus: false,
@@ -13,21 +14,31 @@ export function AuthProvider({ children }) {
 
 
   function setupAuthHeaderForServiceCalls(token) {
-  
+    console.log("token ->",token);
+    
     if (token) {
       return (axios.defaults.headers.common["auth"] = token);
     }
     delete axios.defaults.headers.common["auth"];
   }
 
+  
   useEffect(() => {
     let response = JSON.parse(localStorage.getItem("loginStatus")) || {
       loginStatus: false,
       token: null,
     };
+    console.log("response ->",response);
+    
     setupAuthHeaderForServiceCalls(response.token);
     loginDispatch({ type: "LOGIN", payload: response });
   }, []);
+
+
+
+
+
+
 
   return (
     <AuthContext.Provider value={{ login, loginDispatch }}>

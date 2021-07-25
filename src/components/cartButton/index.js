@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState}from "react";
 import "./style.css";
 import {
   cardCartButton,
@@ -9,13 +9,15 @@ import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useToast } from "../../contexts/toastContext";
 import { useCart } from "../../contexts/cartContext";
-
+import MiniLoader from "../miniloader";
 
 const CartButton = ({ type, id, quantity }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { cartDispatch } = useCart();
   const { toastDispatch } = useToast();
+  const [loader,loaderSetter]=useState(false);
+  const [currentButton,currentButtonSetter]=useState("")
  
   
 
@@ -27,7 +29,7 @@ const CartButton = ({ type, id, quantity }) => {
         toastDispatch,
         cartDispatch,
         language,
-        theme
+        theme,loader,loaderSetter,currentButton,currentButtonSetter
       );
 
     case "PRODUCT_PREVIW_CART_BUTTON":
@@ -37,7 +39,7 @@ const CartButton = ({ type, id, quantity }) => {
         toastDispatch,
         cartDispatch,
         language,
-        theme
+        theme,loader,loaderSetter,currentButton,currentButtonSetter
       );
 
     case "CART_CART_BUTTON":
@@ -47,7 +49,7 @@ const CartButton = ({ type, id, quantity }) => {
         toastDispatch,
         cartDispatch,
         language,
-        theme
+        theme,loader,loaderSetter,currentButton,currentButtonSetter
       );
 
     default:
@@ -57,7 +59,7 @@ const CartButton = ({ type, id, quantity }) => {
         toastDispatch,
         cartDispatch,
         language,
-        theme
+        theme,loader,loaderSetter,currentButton,currentButtonSetter
       );
   }
 };

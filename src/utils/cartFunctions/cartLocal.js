@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiCall } from "../../apiCall";
-export async function addToCartLocal(cartDispatch, id, toastDispatch) {
-  
+export async function addToCartLocal(cartDispatch, id, toastDispatch,loaderSetter) {
+  loaderSetter(true);
     let { success, data, message } = await apiCall("GET", `products/${id}`);
     if (success === true) {
       let updatedProduct = { ...data.product, quantity: 1 };
@@ -22,6 +22,7 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch) {
     } else {
       toastDispatch("error", message);
     }
+    loaderSetter(false);
 
 }
 
@@ -29,9 +30,9 @@ export async function quantityManagerInCartLocal(
   cartDispatch,
   type,
   id,
-  toastDispatch
+  toastDispatch,loaderSetter
 ) {
-
+  loaderSetter(true)
     let localCart = JSON.parse(localStorage.getItem("cart"));
     if (!localCart) {
       toastDispatch(
@@ -56,6 +57,7 @@ export async function quantityManagerInCartLocal(
           localStorage.setItem("cart", JSON.stringify(localCart));
           cartDispatch({ type: type, payload: currentProduct });
           toastDispatch("success", "Quantity Increased");
+          loaderSetter(false);
           break;
 
         case "DECREASE":
@@ -78,9 +80,11 @@ export async function quantityManagerInCartLocal(
           localStorage.setItem("cart", JSON.stringify(localCart));
           cartDispatch({ type: type, payload: currentProduct });
           toastDispatch("success", "Quantity Decreased");
+          loaderSetter(false);
           break;
 
         default:
+          loaderSetter(false);
           break;
       }
     } else {
@@ -93,7 +97,7 @@ export async function quantityManagerInCartLocal(
 export async function removeFromCartLocal(
   cartDispatch,
   productId,
-  toastDispatch
+  toastDispatch,loaderSetter
 ) {
   toastDispatch("Error", "Log in First");
 }

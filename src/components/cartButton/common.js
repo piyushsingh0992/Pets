@@ -6,39 +6,65 @@ import {
 } from "../../utils/cartFunctions/cartFunctions.js";
 
 import Button from "../button";
-
+import MiniLoader from "../miniloader";
 export function cardCartButton(
   id,
-
   quantity,
   toastDispatch,
   cartDispatch,
   language,
-  theme
+  theme,
+  loader,
+  loaderSetter,
+  currentButton,
+  currentButtonSetter
 ) {
   return quantity > 0 ? (
     <div className="card-quantity-handler">
-      <img
-        src={minus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
-        }}
-      />
-
+      {loader && currentButton === "DECREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={minus}
+          onClick={() => {
+            currentButtonSetter("DECREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "DECREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
       <p style={{ color: theme.boldText }}>{quantity}</p>
-      <img
-        src={plus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
-        }}
-      />
+      {loader && currentButton === "INCREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={plus}
+          onClick={() => {
+            currentButtonSetter("INCREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "INCREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
     </div>
   ) : (
     <Button
       type="primary"
+      loader={loader}
       text={language.addCart}
       clickFunction={() => {
-        addToCart(cartDispatch, id, toastDispatch);
+        currentButtonSetter("ADD");
+        addToCart(cartDispatch, id, toastDispatch, loaderSetter);
       }}
     />
   );
@@ -50,31 +76,59 @@ export function productPreviewCartButton(
   toastDispatch,
   cartDispatch,
   language,
-  theme
+  theme,
+  loader,
+  loaderSetter,
+  currentButton,
+  currentButtonSetter
 ) {
   return quantity > 0 ? (
     <div className="productPreviewQuantityHandler">
-      <img
-        src={minus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
-        }}
-      />
+      {loader && currentButton === "DECREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={minus}
+          onClick={() => {
+            currentButtonSetter("DECREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "DECREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
       <p style={{ color: theme.boldText }}>{quantity}</p>
-      <img
-        src={plus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
-        }}
-      />
+      {loader && currentButton === "INCREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={plus}
+          onClick={() => {
+            currentButtonSetter("INCREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "INCREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
     </div>
   ) : (
     <Button
       type="primary"
+      loader={loader}
       text={language.addCart}
       size="product-preview-btn"
       clickFunction={() => {
-        addToCart(cartDispatch, id, toastDispatch);
+        currentButtonSetter("ADD");
+        addToCart(cartDispatch, id, toastDispatch, loaderSetter);
       }}
     />
   );
@@ -86,24 +140,50 @@ export function cartCartButton(
   toastDispatch,
   cartDispatch,
   language,
-  theme
+  theme,
+  loader,
+  loaderSetter,
+  currentButton,
+  currentButtonSetter
 ) {
   return (
     <div className="quantity-controls" style={{ color: theme.primaryText }}>
       {language.quantity}: &ensp;
-      <img
-        src={minus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "DECREASE", id, toastDispatch);
-        }}
-      />
+      {loader && currentButton === "DECREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={minus}
+          onClick={() => {
+            currentButtonSetter("DECREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "DECREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
       <p style={{ color: theme.boldText }}>{quantity}</p>
-      <img
-        src={plus}
-        onClick={() => {
-          quantityManagerInCart(cartDispatch, "INCREASE", id, toastDispatch);
-        }}
-      />
+      {loader && currentButton === "INCREASE" ? (
+        <MiniLoader />
+      ) : (
+        <img
+          src={plus}
+          onClick={() => {
+            currentButtonSetter("INCREASE");
+            quantityManagerInCart(
+              cartDispatch,
+              "INCREASE",
+              id,
+              toastDispatch,
+              loaderSetter
+            );
+          }}
+        />
+      )}
     </div>
   );
 }

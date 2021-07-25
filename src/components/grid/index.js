@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 import Button from "../button";
-import dog from "../../utils/images/icons/animal/dog.png";
-import cat from "../../utils/images/icons/animal/cat.png";
-import bird from "../../utils/images/icons/animal/bird.png";
-import reptile from "../../utils/images/icons/animal/reptile.png";
-import fish from "../../utils/images/icons/animal/fish.png";
+import dog from "../../assets/images/icons/animal/dog.png";
+import cat from "../../assets/images/icons/animal/cat.png";
+import bird from "../../assets/images/icons/animal/bird.png";
+import reptile from "../../assets/images/icons/animal/reptile.png";
+import fish from "../../assets/images/icons/animal/fish.png";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { Link } from "react-router-dom";

@@ -20,6 +20,6 @@
 }
 
 @font-face {
-  src: url(font/Futura-Bold.otf);
+  src: url(../assets/font/Futura-Bold.otf);
   font-family: logo;
 }

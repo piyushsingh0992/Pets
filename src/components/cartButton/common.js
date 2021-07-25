@@ -1,5 +1,5 @@
-import plus from "../../utils/images/icons/plus.svg";
-import minus from "../../utils/images/icons/minus.svg";
+import plus from "../../assets/images/icons/plus.svg";
+import minus from "../../assets/images/icons/minus.svg";
 import {
   quantityManagerInCart,
   addToCart,

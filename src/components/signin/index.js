@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import pets from "../../utils/images/logo/pets.svg";
+import pets from "../../assets/images/logo/pets.svg";
 import TextField from "../textField";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";

@@ -1,5 +1,5 @@
 import React from "react";
-import dog from "../../utils/video/dog.mp4";
+import heroVideo from "../../assets/video/dog.mp4";
 import Button from "../button";
 import "./style.css";
 import { useLanguage } from "../../contexts/languageContext";
@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <video autoPlay muted loop id="myVideo">
-        <source src={dog} type="video/mp4" />
+        <source src={heroVideo} type="video/mp4" />
       </video>
       <div className="hero-tagline">
         <h1>{language.tag}</h1>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
-import heart1 from "../../utils/images/icons/heart1.svg";
-import heart2 from "../../utils/images/icons/heart2.svg";
+import heart1 from "../../assets/images/icons/heart1.svg";
+import heart2 from "../../assets/images/icons/heart2.svg";
 import Button from "../button";
 import {
   addToWishList,

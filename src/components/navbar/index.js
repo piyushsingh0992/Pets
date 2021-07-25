@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import pets from "../../utils/images/logo/pets.svg";
-import cart from "../../utils/images/icons/cart.svg";
-import wishlistICON from "../../utils/images/icons/wishlist.svg";
-import menu from "../../utils/images/icons/menu.svg";
+import pets from "../../assets/images/logo/pets.svg";
+import cart from "../../assets/images/icons/cart.svg";
+import wishlistICON from "../../assets/images/icons/wishlist.svg";
+import menu from "../../assets/images/icons/menu.svg";
 import Badge from "../badge";
 import Search from "../search/index.js";
 import { useTheme } from "../../contexts/themeContext";
@@ -10,8 +10,8 @@ import { useLanguage } from "../../contexts/languageContext";
 import { useWishlist } from "../../contexts/wishlistContext";
 import { useCart } from "../../contexts/cartContext";
 import { Link } from "react-router-dom";
-import nightIcon from "../../utils/images/icons/dark.svg";
-import dayIcon from "../../utils/images/icons/light.svg";
+import nightIcon from "../../assets/images/icons/dark.svg";
+import dayIcon from "../../assets/images/icons/light.svg";
 import "./style.css";
 import Logout from "../logout";
 const Navbar = () => {

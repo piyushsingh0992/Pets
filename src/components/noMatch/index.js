@@ -1,5 +1,5 @@
 import React from "react";
-import noMatch from "../../utils/images/icons/noMatch.png";
+import noMatch from "../../assets/images/icons/noMatch.png";
 import "./style.css";
 const NoMatch = ({ searchTerm }) => {
   return (

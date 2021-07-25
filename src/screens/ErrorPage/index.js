@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import error from "../../utils/images/icons/error.png";
+import error from "../../assets/images/icons/error.png";
 import { useTheme } from "../../contexts/themeContext";
 const ErrorPage = () => {
   const { theme } = useTheme();

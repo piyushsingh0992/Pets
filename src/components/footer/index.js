@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
-import instagram from "../../utils/images/icons/instagram.svg";
-import github from "../../utils/images/icons/github.svg";
-import linkedln from "../../utils/images/icons/linkedln.svg";
-import twitter from "../../utils/images/icons/twitter.svg";
+import instagram from "../../assets/images/icons/instagram.svg";
+import github from "../../assets/images/icons/github.svg";
+import linkedln from "../../assets/images/icons/linkedln.svg";
+import twitter from "../../assets/images/icons/twitter.svg";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 

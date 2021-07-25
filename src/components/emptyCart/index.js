@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../button";
-import cartError from "../../utils/images/icons/emptyCart.png";
+import cartError from "../../assets/images/icons/emptyCart.png";
 import { useTheme } from "../../contexts/themeContext";
 import "./style.css";
 import { Link } from "react-router-dom";

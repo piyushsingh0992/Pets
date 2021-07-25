@@ -10,15 +10,18 @@ function addtoLocalStorage(productId) {
     localStorage.setItem("wishlist", JSON.stringify([{ productId }]));
   }
 }
+
 export async function addToWishListLocal(
   wishlistDispatch,
   productId,
-  toastDispatch
+  toastDispatch,loaderSetter
 ) {
+  loaderSetter(true);
   let { success, data, message } = await apiCall(
     "GET",
     `products/${productId}`
   );
+
 
   if (success === true) {
     addtoLocalStorage(productId);
@@ -30,6 +33,7 @@ export async function addToWishListLocal(
   } else {
     toastDispatch("error", message);
   }
+  loaderSetter(false);
 }
 
 function removingFromLocalStorage(productId, toastDispatch) {
@@ -50,8 +54,9 @@ function removingFromLocalStorage(productId, toastDispatch) {
 export async function removeFromWishListLocal(
   wishlistDispatch,
   productId,
-  toastDispatch
+  toastDispatch,loaderSetter
 ) {
+  loaderSetter(true);
   let { success, data, message } = await apiCall(
     "GET",
     `products/${productId}`
@@ -64,4 +69,5 @@ export async function removeFromWishListLocal(
   } else {
     toastDispatch("error", message);
   }
+  loaderSetter(false);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Button from "../button";
 import WishListButton from "../wishListButton";
@@ -18,6 +18,7 @@ const CartCard = ({ productImage, productName, price, id, quantity }) => {
   const {
     login: { token },
   } = useAuth();
+  const [loader, loaderSetter] = useState(false);
   return (
     <div
       className="cartCard"
@@ -39,12 +40,18 @@ const CartCard = ({ productImage, productName, price, id, quantity }) => {
       </div>
       <div className="cartCard-btn-container">
         <Button
+          loader={loader}
           type="secondary"
           text={language.removeCart}
           size="cartCard-btn"
           clickFunction={() => {
-           
-            removeFromCart(cartDispatch, id, toastDispatch, token);
+            removeFromCart(
+              cartDispatch,
+              id,
+              toastDispatch,
+              token,
+              loaderSetter
+            );
           }}
         />
         <WishListButton type="CART_WISHLIST" id={id} />

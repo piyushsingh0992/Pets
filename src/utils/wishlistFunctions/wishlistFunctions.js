@@ -7,20 +7,20 @@ import {
   removeFromWishListServer,
 } from "./wishlistServer.js";
 
-export function addToWishList(wishlistDispatch, productId, toastDispatch) {
+export function addToWishList(wishlistDispatch, productId, toastDispatch, loaderSetter) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    addToWishListServer(wishlistDispatch, productId, toastDispatch);
+    addToWishListServer(wishlistDispatch, productId, toastDispatch,loaderSetter);
   } else {
-    addToWishListLocal(wishlistDispatch, productId, toastDispatch);
+    addToWishListLocal(wishlistDispatch, productId, toastDispatch,loaderSetter);
   }
 }
 
-export function removeFromWishList(wishlistDispatch, productId, toastDispatch) {
+export function removeFromWishList(wishlistDispatch, productId, toastDispatch, loaderSetter) {
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {
-    removeFromWishListServer(wishlistDispatch, productId, toastDispatch);
+    removeFromWishListServer(wishlistDispatch, productId, toastDispatch,loaderSetter);
   } else {
-    removeFromWishListLocal(wishlistDispatch, productId, toastDispatch);
+    removeFromWishListLocal(wishlistDispatch, productId, toastDispatch,loaderSetter);
   }
 }

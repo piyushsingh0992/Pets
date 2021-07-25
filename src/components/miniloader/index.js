@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
-const MiniLoader = () => {
+const MiniLoader = ({ extraClass }) => {
   return (
-    <div className="miniLoaderContainer">
+    <div className={`miniLoaderContainer ${extraClass && extraClass}`}>
       <div className="miniLoader"></div>
     </div>
   );

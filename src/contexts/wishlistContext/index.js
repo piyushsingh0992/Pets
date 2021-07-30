@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-import { wishListManager } from "./wishlistreducer.js";
+import { wishListManager } from "./reducer.js";
 import { useAuth } from "../authContext/index.js";
 import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";

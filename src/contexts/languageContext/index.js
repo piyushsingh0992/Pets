@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
-import { languageReduer } from "./languageReducer.js";
+import { languageReduer } from "./reducer.js";
 import { English } from "./data.js";
 let LanguageContext = createContext();
 

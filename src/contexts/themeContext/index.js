@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { themeReducer } from "./themeReducer.js";
+import { themeReducer } from "./reducer.js";
 import { day } from "./data.js";
 const ThemeContext = createContext();
 

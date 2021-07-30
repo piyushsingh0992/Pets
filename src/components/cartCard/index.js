@@ -49,7 +49,6 @@ const CartCard = ({ productImage, productName, price, id, quantity }) => {
               cartDispatch,
               id,
               toastDispatch,
-              token,
               loaderSetter
             );
           }}

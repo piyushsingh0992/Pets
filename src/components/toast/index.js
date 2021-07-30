@@ -10,7 +10,7 @@ function Toast() {
   
   const { trigger, type, message } = toastState;
   const [show, showSetter] = useState(false);
-  debugger;
+  
   useEffect(() => {
     if (trigger) {
       showSetter(trigger);

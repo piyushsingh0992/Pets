@@ -50,6 +50,7 @@ export async function removeFromCartServer(
   toastDispatch,
   loaderSetter
 ) {
+  debugger;
   loaderSetter(true);
   let { data, success, message } = await apiCall("DELETE", `cart/${productId}`);
 

@@ -50,7 +50,7 @@ const Navbar = () => {
               padding: "0.15rem 0.3rem ",
             }}
             onChange={(e) => {
-              languageSetter({ payload: e.target.value });
+              languageSetter({ type: e.target.value });
             }}
           >
             <option value="English">English</option>

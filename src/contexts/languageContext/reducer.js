@@ -10,9 +10,9 @@ import {
 } from "./data.js";
 
 export function languageReduer(state, action) {
-  const { payload } = action;
+  const { type } = action;
 
-  switch (payload) {
+  switch (type) {
     case "English":
       return English;
     case "Hindi":
@@ -25,10 +25,8 @@ export function languageReduer(state, action) {
       return Marathi;
     case "Spanish":
       return Spanish;
-
     case "French":
       return French;
-
     case "Italian":
       return Italian;
     default:

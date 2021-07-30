@@ -1,10 +1,9 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { languageReduer } from "./reducer.js";
 import { English } from "./data.js";
 let LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-
   const [language, languageSetter] = useReducer(languageReduer, English);
 
   return (

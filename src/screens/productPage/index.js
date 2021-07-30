@@ -46,7 +46,7 @@ const ProductPage = () => {
             payload: query.get("cateogry"),
           });
       } else {
-        toastDispatch("error", message);
+        toastDispatch({type:"error", message});
       }
       loaderSetter(false);
     })();

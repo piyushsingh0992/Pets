@@ -18,9 +18,9 @@ export async function addToCartLocal(cartDispatch, id, toastDispatch,loaderSette
         );
       }
       cartDispatch({ type: "ADD", payload: updatedProduct });
-      toastDispatch("success", "ADDED to Cart");
+      toastDispatch({type:"success", message:"ADDED to Cart"});
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
     }
     loaderSetter(false);
 
@@ -56,7 +56,7 @@ export async function quantityManagerInCartLocal(
           });
           localStorage.setItem("cart", JSON.stringify(localCart));
           cartDispatch({ type: type, payload: currentProduct });
-          toastDispatch("success", "Quantity Increased");
+          toastDispatch({type:"success", message:"Quantity Increased"});
           loaderSetter(false);
           break;
 
@@ -79,7 +79,7 @@ export async function quantityManagerInCartLocal(
 
           localStorage.setItem("cart", JSON.stringify(localCart));
           cartDispatch({ type: type, payload: currentProduct });
-          toastDispatch("success", "Quantity Decreased");
+          toastDispatch({type:"success", message:"Quantity Decreased"});
           loaderSetter(false);
           break;
 
@@ -88,7 +88,7 @@ export async function quantityManagerInCartLocal(
           break;
       }
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
       return;
     }
   
@@ -99,5 +99,5 @@ export async function removeFromCartLocal(
   productId,
   toastDispatch,loaderSetter
 ) {
-  toastDispatch("Error", "Log in First");
+  toastDispatch({type:"Error", message:"Log in First"});
 }

@@ -25,7 +25,7 @@ const HomePage = () => {
       if (success === true) {
         productdataFromServerSetter(data.products);
       } else {
-        toastDispatch("error", message);
+        toastDispatch({type:"error", message});
       }
       loaderSetter(false);
     })();

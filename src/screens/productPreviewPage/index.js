@@ -29,7 +29,7 @@ const ProductPreviewPage = () => {
       if (success === true) {
         productDetailsSetter(data.product);
       } else {
-        toastDispatch("error", message);
+        toastDispatch({type:"error", message});
       }
     })();
   }, [productId]);
@@ -45,7 +45,7 @@ const ProductPreviewPage = () => {
         productdataFromServerSetter(data.products);
       } else {
 
-        toastDispatch("error", message);
+        toastDispatch({type:"error", message});
       }
       loaderSetter(false);
     })();

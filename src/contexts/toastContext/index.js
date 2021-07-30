@@ -1,18 +1,21 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 
 const ToastContext = createContext();
 
 export function ToastProvider({ children }) {
-  const [toastState, toastSetter] = useState({ trigger: false });
+  const [toastState, toastDispatch] = useReducer(toastManager, {
+    trigger: false,
+  });
 
-  function toastDispatch(type, message) {
+  function toastManager(state, action) {
+    debugger;
+    const { type, message } = action;
     switch (type) {
       case "RESET":
-        toastSetter({ trigger: false });
-        break;
+        return { trigger: false };
+
       default:
-        toastSetter({ trigger: true, type, message });
-        break;
+        return { trigger: true, type, message };
     }
   }
 

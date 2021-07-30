@@ -30,7 +30,7 @@ export async function authChecker(signInDetails, loginDispatch, toastDispatch,lo
     );
 
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }

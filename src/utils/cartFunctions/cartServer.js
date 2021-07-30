@@ -12,9 +12,9 @@ export async function addToCartServer(
 
   if (success === true) {
     cartDispatch({ type: "ADD", payload: data.product });
-    toastDispatch("success", "ADDED to Cart");
+    toastDispatch({type:"success", message:"ADDED to Cart"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }
@@ -34,12 +34,12 @@ export async function quantityManagerInCartServer(
   if (success === true) {
     cartDispatch({ type: type, payload: data.product });
     if (type === "INCREASE") {
-      toastDispatch("success", "Quantity Increased");
+      toastDispatch({type:"success", message:"Quantity Increased"});
     } else if (type === "DECREASE") {
-      toastDispatch("success", "Quantity Decreased");
+      toastDispatch({type:"success", message:"Quantity Decreased"});
     }
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }
@@ -55,9 +55,9 @@ export async function removeFromCartServer(
 
   if (success === true) {
     cartDispatch({ type: "REMOVE", payload: data.product });
-    toastDispatch("success", "Removed from Cart");
+    toastDispatch({type:"success", message:"Removed from Cart"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }

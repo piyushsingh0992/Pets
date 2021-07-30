@@ -7,15 +7,16 @@ import Info from "./images/info.svg";
 import { useToast } from "../../contexts/toastContext";
 function Toast() {
   const { toastState, toastDispatch } = useToast();
+  
   const { trigger, type, message } = toastState;
   const [show, showSetter] = useState(false);
-
+  debugger;
   useEffect(() => {
     if (trigger) {
       showSetter(trigger);
       setTimeout(() => {
         showSetter(false);
-        toastDispatch("RESET");
+        toastDispatch({type:"RESET"});
       }, 2000);
     }
   }, [trigger]);

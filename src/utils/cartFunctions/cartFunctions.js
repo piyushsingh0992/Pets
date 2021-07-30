@@ -35,7 +35,7 @@ export async function quantityManagerInCart(
   }
 }
 
-export async function removeFromCart(cartDispatch, productId, toastDispatch,token,loaderSetter) {
+export async function removeFromCart(cartDispatch, productId, toastDispatch,loaderSetter) {
   debugger;
   let loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
   if (loginStatus && loginStatus.loginStatus) {

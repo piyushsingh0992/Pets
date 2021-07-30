@@ -3,7 +3,8 @@ import { apiCall } from "../../apiCall";
 export async function addToWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch, loaderSetter
+  toastDispatch,
+  loaderSetter
 ) {
   loaderSetter(true);
   let { data, message, success } = await apiCall(
@@ -16,9 +17,9 @@ export async function addToWishListServer(
 
   if (success === true) {
     wishlistDispatch({ type: "ADD", payload: data.product });
-    toastDispatch("success", "Added to Wishlist");
+    toastDispatch({ type: "success", message: "Added to Wishlist" });
   } else {
-    toastDispatch("error", message);
+    toastDispatch({ type: "error", message });
   }
   loaderSetter(false);
 }
@@ -26,7 +27,8 @@ export async function addToWishListServer(
 export async function removeFromWishListServer(
   wishlistDispatch,
   productId,
-  toastDispatch, loaderSetter
+  toastDispatch,
+  loaderSetter
 ) {
   loaderSetter(true);
   let { data, message, success } = await apiCall(
@@ -39,9 +41,9 @@ export async function removeFromWishListServer(
 
   if (success === true) {
     wishlistDispatch({ type: "REMOVE", payload: data.product });
-    toastDispatch("success", "Removed from  Wishlist");
+    toastDispatch({ type: "success", message: "Removed from  Wishlist" });
   } else {
-    toastDispatch("error", message);
+    toastDispatch({ type: "error", message });
   }
   loaderSetter(false);
 }

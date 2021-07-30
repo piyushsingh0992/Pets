@@ -16,7 +16,7 @@ export async function createAccount(
     );
 
     if (success === true) {
-      toastDispatch("success", data.message);
+      toastDispatch({type:"success",message: data.message});
       signInDetailsSetter({
         password: signUpDetails.password,
         userId: signUpDetails.userId,
@@ -28,7 +28,7 @@ export async function createAccount(
       });
       userSetter((value) => !value);
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
     }
     loaderSetter(false);
   

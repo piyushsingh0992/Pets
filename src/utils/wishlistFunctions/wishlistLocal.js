@@ -29,9 +29,9 @@ export async function addToWishListLocal(
       type: "ADD",
       payload: { ...data.product, wishlist: true },
     });
-    toastDispatch("success", "Added to Wishlist");
+    toastDispatch({type:"success", message:"Added to Wishlist"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }
@@ -47,7 +47,7 @@ function removingFromLocalStorage(productId, toastDispatch) {
     });
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   } else {
-    toastDispatch("error", "Sorry! couldn't remove Wishlist");
+    toastDispatch({type:"error", message:"Sorry! couldn't remove Wishlist"});
   }
 }
 
@@ -65,9 +65,9 @@ export async function removeFromWishListLocal(
   if (success === true) {
     removingFromLocalStorage(productId, toastDispatch);
     wishlistDispatch({ type: "REMOVE", payload: data.product });
-    toastDispatch("success", "Removed from  Wishlist");
+    toastDispatch({type:"success", message:"Removed from  Wishlist"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
   loaderSetter(false);
 }

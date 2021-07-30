@@ -1,6 +1,6 @@
 import { day, night } from "./data.js";
 
-export function themeReducer(state, action) {
+export function themeManager(state, action) {
   const { payload } = action;
   switch (payload) {
     case "day":

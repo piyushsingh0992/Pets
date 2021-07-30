@@ -2,7 +2,6 @@ import { apiCall } from "../../apiCall";
 import axios from "axios";
 
 function setupAuthHeaderForServiceCalls(token) {
-  console.log("token ->", token);
 
   if (token) {
     return (axios.defaults.headers.common["auth"] = token);

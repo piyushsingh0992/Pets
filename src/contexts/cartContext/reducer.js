@@ -38,7 +38,6 @@ export function cartManager(state, action) {
         return item;
       });
 
-
     case "LOGOUT":
       return [];
     default:

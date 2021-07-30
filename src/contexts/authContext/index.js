@@ -14,7 +14,6 @@ export function AuthProvider({ children }) {
 
 
   function setupAuthHeaderForServiceCalls(token) {
-    console.log("token ->",token);
     
     if (token) {
       return (axios.defaults.headers.common["auth"] = token);
@@ -28,7 +27,6 @@ export function AuthProvider({ children }) {
       loginStatus: false,
       token: null,
     };
-    console.log("response ->",response);
     
     setupAuthHeaderForServiceCalls(response.token);
     loginDispatch({ type: "LOGIN", payload: response });

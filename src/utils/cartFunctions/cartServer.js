@@ -12,9 +12,9 @@ export async function addToCartServer(
 
   if (success === true) {
     cartDispatch({ type: "ADD", payload: data.product });
-    toastDispatch({type:"success", message:"ADDED to Cart"});
+    toastDispatch({ type: "success", message: "ADDED to Cart" });
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
   loaderSetter(false);
 }
@@ -34,12 +34,12 @@ export async function quantityManagerInCartServer(
   if (success === true) {
     cartDispatch({ type: type, payload: data.product });
     if (type === "INCREASE") {
-      toastDispatch({type:"success", message:"Quantity Increased"});
+      toastDispatch({ type: "success", message: "Quantity Increased" });
     } else if (type === "DECREASE") {
-      toastDispatch({type:"success", message:"Quantity Decreased"});
+      toastDispatch({ type: "success", message: "Quantity Decreased" });
     }
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
   loaderSetter(false);
 }
@@ -50,15 +50,14 @@ export async function removeFromCartServer(
   toastDispatch,
   loaderSetter
 ) {
-  debugger;
   loaderSetter(true);
   let { data, success, message } = await apiCall("DELETE", `cart/${productId}`);
 
   if (success === true) {
     cartDispatch({ type: "REMOVE", payload: data.product });
-    toastDispatch({type:"success", message:"Removed from Cart"});
+    toastDispatch({ type: "success", message: "Removed from Cart" });
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
   loaderSetter(false);
 }

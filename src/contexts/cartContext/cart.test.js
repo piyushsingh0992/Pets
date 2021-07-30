@@ -246,38 +246,199 @@ test("Remove from Cart", () => {
       _id: "60dc22d374176500a15e79ca",
     },
   ];
-  expect(result).toBe(expectedState);
+  expect(result).toEqual(expectedState);
 });
 
-// test("Increase   quantity ", () => {
-//   const initialState = {};
+test("Remove from Cart 2", () => {
+  const initialState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
 
-//   const action = { type: "INCREASE", payload: "" };
-//   let result = cartManager(initialState, action);
+  const action = {
+    type: "REMOVE",
+    payload: {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  };
+  let result = cartManager(initialState, action);
 
-//   const expectedState = {};
-//   expect().toBe(expectedState);
-// });
+  const expectedState = [];
+  expect(result).toEqual(expectedState);
+});
+test("Increase   quantity ", () => {
+  const initialState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      quantity: 4,
+      price: 700,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
 
-// test("Decrease  quantity ", () => {
-//   const initialState = {};
+  const action = {
+    type: "INCREASE",
+    payload: {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      quantity: 5,
+      price: 700,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  };
+  let result = cartManager(initialState, action);
 
-//   const action = { type: "DECREASE", payload: "" };
-//   let result = cartManager(initialState, action);
+  const expectedState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 5,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
+  expect(result).toEqual(expectedState);
+});
 
-//   const expectedState = {};
-//   expect().toBe(expectedState);
-// });
+test("Decrease  quantity ", () => {
+  const initialState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 5,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
 
-// test("Increase   quantity  and remove the item if It's quantity is 0", () => {
-//   const initialState = {};
+  const action = {
+    type: "DECREASE",
+    payload: {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 4,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  };
+  let result = cartManager(initialState, action);
 
-//   const action = { type: "DECREASE", payload: "" };
-//   let result = cartManager(initialState, action);
+  const expectedState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 4,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
+  expect(result).toEqual(expectedState);
+});
 
-//   const expectedState = {};
-//   expect().toBe(expectedState);
-// });
+test("Decrease   quantity  and remove the item if It's quantity is 0", () => {
+  const initialState = [
+    {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 1,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  ];
+
+  const action = {
+    type: "DECREASE",
+    payload: {
+      desc: "Nutrient food for your reptile friend",
+      fastDelivery: true,
+      off: 22,
+      outOfStock: false,
+      price: 700,
+      quantity: 0,
+      productImg: "https://i.ibb.co/0tmyPg8/reptilefood2.png",
+      productName: "Reptile Food",
+      rating: 3,
+      tags: { animal: "reptile", category: "food" },
+      wishlist: false,
+      _id: "60dc22d374176500a15e79ad",
+    },
+  };
+  let result = cartManager(initialState, action);
+
+  const expectedState = [];
+  expect(result).toEqual(expectedState);
+});
 
 test("Empty the Cart when someone Logout", () => {
   const initialState = [

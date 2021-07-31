@@ -95,13 +95,18 @@ export function filteringData(productdataFromServer, filterState) {
 
 export function setupAuthExceptionHandler(loginDispatch, navigate) {
   const UNAUTHORIZED = 401;
+  const NO_PAGE_FOUND = 404;
   axios.interceptors.response.use(
     (response) => response,
     (error) => {
       if (error?.response?.status === UNAUTHORIZED) {
-        console.log("here");
         loginDispatch({ type: "LOGOUT" });
         navigate("login");
+      }
+
+
+      else if (error?.response?.status === NO_PAGE_FOUND) {
+        navigate("pageNOtFound");
       }
       return Promise.reject(error);
     }

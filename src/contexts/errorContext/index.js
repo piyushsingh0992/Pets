@@ -1,30 +1,28 @@
-import { createContext, useContext, useState} from "react";
+import { createContext, useContext, useState } from "react";
 
+const ErrorContext = createContext({});
 
-const ErrorContext = createContext({} );
+export function ErrorProvider({ children }) {
+  const [errorState, errorSetter] = useState(false);
 
-export function ErrorProvider({ children } ) {
-    const [errorState, errorSetter] = useState(false);
-
-    function errorDispatch(status) {
-        switch (status) {
-            case "ERROR":
-                errorSetter(true);
-                break;
-            case "RESOLVE":
-                errorSetter(false);
-                break;
-        }
+  function errorDispatch(status) {
+    switch (status) {
+      case "ERROR":
+        errorSetter(true);
+        break;
+      case "RESOLVE":
+        errorSetter(false);
+        break;
     }
+  }
 
-    return (
-        <ErrorContext.Provider value={{ errorState, errorDispatch }}>
-            {children}
-        </ErrorContext.Provider>
-    );
+  return (
+    <ErrorContext.Provider value={{ errorState, errorDispatch }}>
+      {children}
+    </ErrorContext.Provider>
+  );
 }
 
-
 export function useError() {
-    return useContext(ErrorContext);
+  return useContext(ErrorContext);
 }

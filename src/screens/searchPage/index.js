@@ -9,32 +9,32 @@ import { useWishlist } from "../../contexts/wishlistContext";
 import { checkingCartAndWishlist } from "../../utils/common.js";
 import { useCart } from "../../contexts/cartContext";
 import { apiCall } from "../../apiCall";
+import { useError } from "../../contexts/errorContext";
 const SearchPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const searchTerm = query.get("search");
   const [loader, loaderSetter] = useState(false);
   const [allProducts, allProductSetter] = useState([]);
   const { wishlistState } = useWishlist();
+  const [searchMessage, searchMessageSetter] = useState("Search Results");
   const { cartState } = useCart();
+  const { errorDispatch } = useError();
 
   useEffect(() => {
-    async function searchCall() {
+    async function searchCall(searchTerm) {
       loaderSetter(true);
 
-      let { data, success, message } = await apiCall("GET", "products");
+      let { data, success } = await apiCall("GET", `search/${searchTerm}`);
 
       if (success === true) {
-        allProductSetter(
-          data.products.filter((item) => {
-            return item.productName
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase());
-          })
-        );
+        searchMessageSetter(data.message);
+        allProductSetter(data.products);
         loaderSetter(false);
+      } else {
+        errorDispatch("ERROR");
       }
     }
-    searchCall();
+    searchCall(searchTerm);
   }, [searchTerm]);
 
   let filteredData = checkingCartAndWishlist(
@@ -56,7 +56,7 @@ const SearchPage = () => {
     </div>
   ) : (
     <div className="searchPage">
-      <h1>Search Results</h1>
+      <h1>{searchMessage}</h1>
       <SearchGrid searchedData={filteredData} searchTerm={searchTerm} />
     </div>
   );

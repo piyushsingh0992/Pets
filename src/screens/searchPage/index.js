@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-
 import Loader from "../../components/loader";
-
-
 
 import { useLocation } from "react-router-dom";
 import SearchGrid from "../../components/searchGrid";
@@ -21,27 +18,23 @@ const SearchPage = () => {
   const { cartState } = useCart();
 
   useEffect(() => {
-    (async function () {
-    
-        loaderSetter(true);
+    async function searchCall() {
+      loaderSetter(true);
 
-        let { data,success,message } = await apiCall("GET"
-          ,"products"
+      let { data, success, message } = await apiCall("GET", "products");
+
+      if (success === true) {
+        allProductSetter(
+          data.products.filter((item) => {
+            return item.productName
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase());
+          })
         );
-      
-        if(success===true){
-          allProductSetter(
-            data.products.filter((item) => {
-              return item.productName
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase());
-            })
-          );
-          loaderSetter(false);
-        }
-
-      
-    })();
+        loaderSetter(false);
+      }
+    }
+    searchCall();
   }, [searchTerm]);
 
   let filteredData = checkingCartAndWishlist(

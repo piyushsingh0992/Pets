@@ -10,36 +10,29 @@ const Search = () => {
   const searchText = query.get("search");
   const navigate = useNavigate();
   const location = useLocation();
-
   const { language } = useLanguage();
   const [searchTerm, searchTermSetter] = useState("");
-
   const [prevLocation, setPrevLocation] = useState("/");
 
   useEffect(() => {
-    if (searchText) {
-      searchTermSetter(searchText);
-    } else {
-      searchTermSetter("");
-    }
+    searchText ? searchTermSetter(searchText) : searchTermSetter("");
+    location.pathname !== "/search" && setPrevLocation(location.pathname);
   }, [location.pathname]);
 
-  function keyListener(e) {
-    if (e.keyCode === 13 && searchTerm.length > 1) {
-      navigate(`/search?search=${searchTerm}`);
-      if (location.pathname !== "/search") {
-        setPrevLocation(location.pathname);
-      }
-    }
+  
+  function changehandler(e) {
+    searchTermSetter(e.target.value);
+    e.target.value.length <= 0 && location.pathname === "/search"
+      ? navigate(prevLocation)
+      : navigate(`/search?search=${e.target.value}`);
   }
 
+  
   function cancelSearch() {
     searchTermSetter("");
-    if (location.pathname === "/search") {
-      navigate(prevLocation);
-    }
+    navigate(prevLocation);
   }
-
+  
   return (
     <div className="search">
       <img src={search} className="search-icon" />
@@ -47,8 +40,7 @@ const Search = () => {
         placeholder={`${language.search}`}
         required
         value={searchTerm}
-        onChange={(e) => searchTermSetter(e.target.value)}
-        onKeyDown={keyListener}
+        onChange={changehandler}
       />
       {searchTerm.length > 0 && (
         <img onClick={cancelSearch} src={close} className="close-icon" />

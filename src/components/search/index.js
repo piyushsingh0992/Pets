@@ -3,8 +3,9 @@ import "./style.css";
 import search from "../../assets/images/icons/search.svg";
 import close from "../../assets/images/icons/close.svg";
 import { useLanguage } from "../../contexts/languageContext";
-
 import { useLocation, useNavigate } from "react-router-dom";
+import useDebounce from "../../utils/debouce";
+
 const Search = () => {
   const query = new URLSearchParams(useLocation().search);
   const searchText = query.get("search");
@@ -13,26 +14,26 @@ const Search = () => {
   const { language } = useLanguage();
   const [searchTerm, searchTermSetter] = useState("");
   const [prevLocation, setPrevLocation] = useState("/");
+  const searchFunction = useDebounce(searchHandler, 300);
+
 
   useEffect(() => {
     searchText ? searchTermSetter(searchText) : searchTermSetter("");
     location.pathname !== "/search" && setPrevLocation(location.pathname);
   }, [location.pathname]);
 
-  
-  function changehandler(e) {
-    searchTermSetter(e.target.value);
-    e.target.value.length <= 0 && location.pathname === "/search"
+  function searchHandler(text) {
+    text.length <= 0 && location.pathname === "/search"
       ? navigate(prevLocation)
-      : navigate(`/search?search=${e.target.value}`);
+      : navigate(`/search?search=${text}`);
   }
 
-  
   function cancelSearch() {
     searchTermSetter("");
     navigate(prevLocation);
   }
-  
+
+
   return (
     <div className="search">
       <img src={search} className="search-icon" />
@@ -40,7 +41,11 @@ const Search = () => {
         placeholder={`${language.search}`}
         required
         value={searchTerm}
-        onChange={changehandler}
+        onChange={(e) => {
+          searchTermSetter(e.target.value);
+
+          searchFunction(e.target.value);
+        }}
       />
       {searchTerm.length > 0 && (
         <img onClick={cancelSearch} src={close} className="close-icon" />

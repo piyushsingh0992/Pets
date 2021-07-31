@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-
 import { loginHandler } from "./reducer.js";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+import {setupAuthExceptionHandler} from "../../utils/common.js";
 
 const AuthContext = createContext();
+
 
 
 export function AuthProvider({ children }) {
@@ -11,32 +13,16 @@ export function AuthProvider({ children }) {
     loginStatus: false,
     token: null,
   });
+  const navigate = useNavigate();
 
-
-  function setupAuthHeaderForServiceCalls(token) {
-    
-    if (token) {
-      return (axios.defaults.headers.common["auth"] = token);
-    }
-    delete axios.defaults.headers.common["auth"];
-  }
-
-  
   useEffect(() => {
     let response = JSON.parse(localStorage.getItem("loginStatus")) || {
       loginStatus: false,
       token: null,
     };
-    
-    setupAuthHeaderForServiceCalls(response.token);
+    setupAuthExceptionHandler(loginDispatch, navigate);
     loginDispatch({ type: "LOGIN", payload: response });
   }, []);
-
-
-
-
-
-
 
   return (
     <AuthContext.Provider value={{ login, loginDispatch }}>

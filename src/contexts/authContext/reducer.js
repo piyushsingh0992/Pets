@@ -1,16 +1,11 @@
-import axios from "axios";
 
-function setupAuthHeaderForServiceCalls(token) {
-  if (token) {
-    return (axios.defaults.headers.common["auth"] = token);
-  }
-  delete axios.defaults.headers.common["auth"];
-}
-
+import {setupAuthHeaderForServiceCalls} from "../../utils/common.js";
 export function loginHandler(state, action) {
   let { type, payload } = action;
+
   switch (type) {
     case "LOGIN":
+      setupAuthHeaderForServiceCalls(payload.token);
       return payload;
     case "LOGOUT":
       setupAuthHeaderForServiceCalls(null);

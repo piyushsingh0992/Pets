@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   ratingHandler,
   sortHandler,
@@ -90,4 +91,26 @@ export function filteringData(productdataFromServer, filterState) {
   let filteredData = fastDeliveryHandler(outOfStockData, fastDelivery);
 
   return filteredData;
+}
+
+export function setupAuthExceptionHandler(loginDispatch, navigate) {
+  const UNAUTHORIZED = 401;
+  axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error?.response?.status === UNAUTHORIZED) {
+        console.log("here");
+        loginDispatch({ type: "LOGOUT" });
+        navigate("login");
+      }
+      return Promise.reject(error);
+    }
+  );
+}
+
+export function setupAuthHeaderForServiceCalls(token) {
+  if (token) {
+    return (axios.defaults.headers.common["auth"] = token);
+  }
+  delete axios.defaults.headers.common["auth"];
 }

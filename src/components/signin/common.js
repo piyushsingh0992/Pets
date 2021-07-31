@@ -1,13 +1,6 @@
 import { apiCall } from "../../apiCall";
 import axios from "axios";
 
-function setupAuthHeaderForServiceCalls(token) {
-
-  if (token) {
-    return (axios.defaults.headers.common["auth"] = token);
-  }
-  delete axios.defaults.headers.common["auth"];
-}
 
 export async function authChecker(signInDetails, loginDispatch, toastDispatch,loaderSetter) {
   loaderSetter(true);
@@ -15,7 +8,7 @@ export async function authChecker(signInDetails, loginDispatch, toastDispatch,lo
   let { data, success, message } = await apiCall("POST", "auth", signInDetails);
 
   if (success === true) {
-    setupAuthHeaderForServiceCalls(data.token);
+
     loginDispatch({
       type: "LOGIN",
       payload: { loginStatus: true, token: data.token },

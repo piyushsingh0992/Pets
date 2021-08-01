@@ -13,34 +13,27 @@ import { authChecker } from "./common.js";
 const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const {
-    login,
-    loginDispatch,
-  } = useAuth();
+  const { login, loginDispatch } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   const { toastDispatch } = useToast();
   const [loader, loaderSetter] = useState(false);
-  let  { loginStatus }=login;
+  let { loginStatus } = login;
   useEffect(() => {
     if (loginStatus) {
       navigate(state?.from ? state.from : "/");
     }
-
   }, [loginStatus]);
 
-
-  function userIdHandler(newUserId) {
-    signInDetailsSetter((value) => {
-      return { ...value, userId: newUserId };
+  const handleChange = (event) => {
+    const name = event.target.name;
+    signInDetailsSetter((state) => {
+      return {
+        ...state,
+        [name]: event.target.value,
+      };
     });
-  }
-  function passwordHandler(newPassword) {
-    signInDetailsSetter((value) => {
-      return { ...value, password: newPassword };
-    });
-  }
-
+  };
   return (
     <div
       className="signin"
@@ -52,16 +45,18 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
       </div>
 
       <TextField
-        onChangeFunction={userIdHandler}
+        onChangeFunction={handleChange}
         label={language.auth.email}
         value={signInDetails.userId}
+        name="userId"
       />
 
       <TextField
-        onChangeFunction={passwordHandler}
+        onChangeFunction={handleChange}
         label={language.auth.password}
         value={signInDetails.password}
         type="Password"
+        name="password"
       />
       <div className="signin-submit-btn">
         <Button
@@ -69,8 +64,12 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
-            authChecker(signInDetails, loginDispatch, toastDispatch,loaderSetter);
-            ;
+            authChecker(
+              signInDetails,
+              loginDispatch,
+              toastDispatch,
+              loaderSetter
+            );
           }}
           loader={loader}
         />

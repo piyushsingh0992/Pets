@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 import pets from "../../assets/images/logo/pets.svg";
 import TextField from "../textField";
@@ -9,8 +9,6 @@ import { useLanguage } from "../../contexts/languageContext";
 import { useToast } from "../../contexts/toastContext";
 import { createAccount } from "./common.js";
 
-
-
 const Signup = ({
   userSetter,
   signUpDetails,
@@ -18,27 +16,20 @@ const Signup = ({
   signInDetailsSetter,
 }) => {
   const { theme } = useTheme();
-  
+
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
-  const [loader,loaderSetter]=useState(false);
+  const [loader, loaderSetter] = useState(false);
 
-
-  function userNameHandler(newUserName) {
-    signUpDetailsSetter((value) => {
-      return { ...value, userName: newUserName };
+  const handleChange = (event) => {
+    const name = event.target.name;
+    signUpDetailsSetter((state) => {
+      return {
+        ...state,
+        [name]: event.target.value,
+      };
     });
-  }
-  function userIdHandler(newUserId) {
-    signUpDetailsSetter((value) => {
-      return { ...value, userId: newUserId };
-    });
-  }
-  function passwordHandler(newPassword) {
-    signUpDetailsSetter((value) => {
-      return { ...value, password: newPassword };
-    });
-  }
+  };
 
   return (
     <div
@@ -51,24 +42,28 @@ const Signup = ({
       </div>
 
       <TextField
-        onChangeFunction={userNameHandler}
+        onChangeFunction={handleChange}
         label={language.auth.name}
         value={signUpDetails.userName}
+        name="userName"
       />
+
       <TextField
-        onChangeFunction={userIdHandler}
+        onChangeFunction={handleChange}
         label={language.auth.email}
         value={signUpDetails.userId}
+        name="userId"
       />
       <TextField
-        onChangeFunction={passwordHandler}
+        onChangeFunction={handleChange}
         label={language.auth.password}
         value={signUpDetails.password}
         type="Password"
+        name="password"
       />
       <div className="signUp-submit-btn">
         <Button
-        loader={loader}
+          loader={loader}
           type="primary"
           text={language.auth.signup}
           size="signUp-btn"
@@ -78,7 +73,8 @@ const Signup = ({
               toastDispatch,
               signUpDetailsSetter,
               signInDetailsSetter,
-              userSetter,loaderSetter
+              userSetter,
+              loaderSetter
             );
           }}
         />

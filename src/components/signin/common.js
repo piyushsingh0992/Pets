@@ -1,5 +1,4 @@
 import { apiCall } from "../../apiCall";
-import axios from "axios";
 
 export async function authChecker(
   signInDetails,

@@ -4,7 +4,7 @@ import search from "../../assets/images/icons/search.svg";
 import close from "../../assets/images/icons/close.svg";
 import { useLanguage } from "../../contexts/languageContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import useDebounce from "../../utils/debouce";
+import useDebounce from "../../customHooks/debouce";
 
 const Search = () => {
   const query = new URLSearchParams(useLocation().search);

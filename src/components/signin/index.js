@@ -7,16 +7,13 @@ import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useAuth } from "../../contexts/authContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useToast } from "../../contexts/toastContext";
-import { authChecker } from "./common.js";
-
+import { useAuthChecker } from "../../customHooks/signIn";
 const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { login, loginDispatch } = useAuth();
+  const { login } = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { toastDispatch } = useToast();
   const [loader, loaderSetter] = useState(false);
   let { loginStatus } = login;
   useEffect(() => {
@@ -24,6 +21,8 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
       navigate(state?.from ? state.from : "/");
     }
   }, [loginStatus]);
+
+  const authChecker = useAuthChecker(loaderSetter);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -64,12 +63,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           text={language.auth.signin}
           size="signin-btn"
           clickFunction={() => {
-            authChecker(
-              signInDetails,
-              loginDispatch,
-              toastDispatch,
-              loaderSetter
-            );
+            authChecker(signInDetails);
           }}
           loader={loader}
         />

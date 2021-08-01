@@ -2,11 +2,9 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { loginHandler } from "./reducer.js";
 import { useNavigate } from "react-router-dom";
 
-import {setupAuthExceptionHandler} from "../../utils/common.js";
+import { setupAuthExceptionHandler } from "../../utils/common.js";
 
 const AuthContext = createContext();
-
-
 
 export function AuthProvider({ children }) {
   const [login, loginDispatch] = useReducer(loginHandler, {
@@ -21,7 +19,9 @@ export function AuthProvider({ children }) {
       token: null,
     };
     setupAuthExceptionHandler(loginDispatch, navigate);
-    loginDispatch({ type: "LOGIN", payload: response });
+    if (response.loginStatus) {
+      loginDispatch({ type: "LOGIN", payload: response });
+    }
   }, []);
 
   return (

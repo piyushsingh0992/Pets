@@ -3,18 +3,7 @@ import { createContext, useContext, useState } from "react";
 const ErrorContext = createContext({});
 
 export function ErrorProvider({ children }) {
-  const [errorState, errorSetter] = useState(false);
-
-  function errorDispatch(status) {
-    switch (status) {
-      case "ERROR":
-        errorSetter(true);
-        break;
-      case "RESOLVE":
-        errorSetter(false);
-        break;
-    }
-  }
+  const [errorState, errorDispatch] = useState(false);
 
   return (
     <ErrorContext.Provider value={{ errorState, errorDispatch }}>

@@ -20,7 +20,7 @@ const ErrorModal = () => {
           text="Reload the Page"
           clickFunction={() => {
             window.location.reload();
-            errorDispatch("RESOLVE");
+            errorDispatch(true);
           }}
         />
       </div>

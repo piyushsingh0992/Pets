@@ -31,7 +31,7 @@ const SearchPage = () => {
         allProductSetter(data.products);
         loaderSetter(false);
       } else {
-        errorDispatch("ERROR");
+        errorDispatch(false);
       }
     }
     searchCall(searchTerm);

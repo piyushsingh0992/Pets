@@ -5,7 +5,7 @@ export function loginHandler(state, action) {
   switch (type) {
     case "LOGIN":
       setupAuthHeaderForServiceCalls(payload.token);
-      debugger;
+    
       localStorage.setItem(
         "loginStatus",
         JSON.stringify({

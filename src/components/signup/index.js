@@ -6,8 +6,7 @@ import Button from "../button";
 import "./style.css";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
-import { useToast } from "../../contexts/toastContext";
-import { createAccount } from "./common.js";
+import { useCreateAccount } from "../../customHooks/signUp";
 
 const Signup = ({
   userSetter,
@@ -16,10 +15,15 @@ const Signup = ({
   signInDetailsSetter,
 }) => {
   const { theme } = useTheme();
-
   const { language } = useLanguage();
-  const { toastDispatch } = useToast();
   const [loader, loaderSetter] = useState(false);
+
+  const createAccount = useCreateAccount({
+    signUpDetailsSetter,
+    signInDetailsSetter,
+    userSetter,
+    loaderSetter,
+  });
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -68,14 +72,7 @@ const Signup = ({
           text={language.auth.signup}
           size="signUp-btn"
           clickFunction={() => {
-            createAccount(
-              signUpDetails,
-              toastDispatch,
-              signUpDetailsSetter,
-              signInDetailsSetter,
-              userSetter,
-              loaderSetter
-            );
+            createAccount(signUpDetails);
           }}
         />
         <p style={{ color: theme.boldText }}>

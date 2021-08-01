@@ -7,7 +7,7 @@ import { useLanguage } from "../../contexts/languageContext";
 import { useCart } from "../../contexts/cartContext";
 import { useToast } from "../../contexts/toastContext";
 import { Link } from "react-router-dom";
-import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
+import { removeFromCart } from "../../utils/cartFunctions";
 import CartButton from "../cartButton";
 import { useAuth } from "../../contexts/authContext";
 const CartCard = ({ productImage, productName, price, id, quantity }) => {

@@ -6,8 +6,8 @@ import Button from "../button";
 import {
   addToWishList,
   removeFromWishList,
-} from "../../utils/wishlistFunctions/wishlistFunctions.js";
-import { removeFromCart } from "../../utils/cartFunctions/cartFunctions.js";
+} from "../../utils/wishlistFunctions";
+import { removeFromCart } from "../../utils/cartFunctions";
 import { useWishlist } from "../../contexts/wishlistContext";
 import { useCart } from "../../contexts/cartContext";
 import { useToast } from "../../contexts/toastContext";

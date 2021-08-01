@@ -3,7 +3,7 @@ import minus from "../../assets/images/icons/minus.svg";
 import {
   quantityManagerInCart,
   addToCart,
-} from "../../utils/cartFunctions/cartFunctions.js";
+} from "../../utils/cartFunctions";
 
 import Button from "../button";
 import MiniLoader from "../miniloader";

@@ -11,7 +11,7 @@ import {
 import { languageReduer } from "./reducer.js";
 
 test("changing language to French", () => {
-  const initialState = French;
+  const initialState = English;
   const action = { type: "French" };
   let result = languageReduer(initialState, action);
 
@@ -21,7 +21,7 @@ test("changing language to French", () => {
 });
 
 test("changing language to Italian", () => {
-  const initialState = Italian;
+  const initialState = English;
   const action = { type: "Italian" };
   let result = languageReduer(initialState, action);
 
@@ -30,7 +30,7 @@ test("changing language to Italian", () => {
 });
 
 test("changing language to Bangla", () => {
-  const initialState = Bangla;
+  const initialState = English;
   const action = { type: "Bangla" };
   let result = languageReduer(initialState, action);
 
@@ -39,7 +39,7 @@ test("changing language to Bangla", () => {
   expect(result).toStrictEqual(expectedState);
 });
 test("changing language to Marathi", () => {
-  const initialState = Marathi;
+  const initialState = English;
   const action = { type: "Marathi" };
   let result = languageReduer(initialState, action);
 
@@ -48,7 +48,7 @@ test("changing language to Marathi", () => {
   expect(result).toStrictEqual(expectedState);
 });
 test("changing language to Spanish", () => {
-  const initialState = Spanish;
+  const initialState = English;
   const action = { type: "Spanish" };
   let result = languageReduer(initialState, action);
 
@@ -57,7 +57,7 @@ test("changing language to Spanish", () => {
   expect(result).toStrictEqual(expectedState);
 });
 test("changing language to Hindi", () => {
-  const initialState = Hindi;
+  const initialState = English;
   const action = { type: "Hindi" };
   let result = languageReduer(initialState, action);
 
@@ -66,7 +66,7 @@ test("changing language to Hindi", () => {
   expect(result).toStrictEqual(expectedState);
 });
 test("changing language to Gujrati", () => {
-  const initialState = Gujrati;
+  const initialState = English;
   const action = { type: "Gujrati" };
   let result = languageReduer(initialState, action);
 
@@ -76,7 +76,7 @@ test("changing language to Gujrati", () => {
 });
 
 test("changing language to English", () => {
-  const initialState = English;
+  const initialState = Hindi;
   const action = { type: "English" };
   let result = languageReduer(initialState, action);
 

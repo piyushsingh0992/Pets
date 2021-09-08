@@ -15,6 +15,7 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
 
   function changeHandler(e) {
     query.set(e.target.name, e.target.value);
+    query.delete("cateogry")
     navigate(window.location.pathname + "?" + query.toString());
     filterdispatch({ type: e.target.name, payload: e.target.value });
   }
@@ -59,6 +60,7 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
                 ].forEach((name) => {
                   query.delete(name);
                 });
+
                 navigate(window.location.pathname);
               }}
             >

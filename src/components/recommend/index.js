@@ -14,7 +14,13 @@ const Recommend = ({ filteredData }) => {
     <div className="recommend-container">
       <div className="recommendation-heading">
         <h1> {language.recommend}</h1>
-        <Link to="/products">
+        <Link
+          to={`/products?FAST_DELIVERY=true&ANIMAL=${
+            filteredData && filteredData[0] && filteredData[0].tags.animal
+          }&cateogry=${
+            filteredData && filteredData[0] && filteredData[0].tags.category
+          }`}
+        >
           <p style={{ color: theme.boldText }}>{language.more}</p>
         </Link>
       </div>

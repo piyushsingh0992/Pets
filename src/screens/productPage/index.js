@@ -39,7 +39,7 @@ const ProductPage = () => {
     const ratingFilter = query.get("RATING");
     const sortFilter = query.get("SORT");
     const outOfStockFilter = query.get("OUT_OF_STOCK");
-    debugger;
+   
     (async function () {
       loaderSetter(true);
       let { success, data, message } = await apiCall("GET", "products");

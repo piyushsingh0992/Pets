@@ -10,6 +10,7 @@ import { checkingCartAndWishlist } from "../../utils/common.js";
 import { useCart } from "../../contexts/cartContext";
 import { apiCall } from "../../apiCall";
 import { useError } from "../../contexts/errorContext";
+import { useTheme } from "../../contexts/themeContext";
 const SearchPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const searchTerm = query.get("search");
@@ -19,6 +20,7 @@ const SearchPage = () => {
   const [searchMessage, searchMessageSetter] = useState("Search Results");
   const { cartState } = useCart();
   const { errorDispatch } = useError();
+  const {theme}=useTheme();
 
   useEffect(() => {
     async function searchCall(searchTerm) {
@@ -56,7 +58,7 @@ const SearchPage = () => {
     </div>
   ) : (
     <div className="searchPage">
-      <h1>{searchMessage}</h1>
+      <h1 style={{ color: theme.boldText }}>{searchMessage}</h1>
       <SearchGrid searchedData={filteredData} searchTerm={searchTerm} />
     </div>
   );

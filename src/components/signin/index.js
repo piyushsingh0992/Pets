@@ -67,6 +67,19 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           }}
           loader={loader}
         />
+
+        <Button
+          type="primary"
+          text={language.auth.guest}
+          size="signin-btn"
+          clickFunction={() => {
+            authChecker({
+              userId: "piyush0997@gmail.com",
+              password: "piyush1997",
+            });
+          }}
+          loader={loader}
+        />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}
 

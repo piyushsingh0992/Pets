@@ -3,12 +3,21 @@ import "./style.css";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
-
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const ProductFilter = ({ filterState, filterdispatch }) => {
   const [show, showSetter] = useState(false);
   const { theme } = useTheme();
   const { language } = useLanguage();
+  let navigate = useNavigate();
   let { sort, rating, animal, fastDelivery, outOfStock } = filterState;
+  const query = new URLSearchParams(useLocation().search);
+
+  function changeHandler(e) {
+    query.set(e.target.name, e.target.value);
+    navigate(window.location.pathname + "?" + query.toString());
+    filterdispatch({ type: e.target.name, payload: e.target.value });
+  }
 
   return (
     <div>
@@ -40,6 +49,17 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               className="filter-clear-all"
               onClick={(e) => {
                 filterdispatch({ type: "CLEAR_ALL" });
+                [
+                  "cateogry",
+                  "FAST_DELIVERY",
+                  "ANIMAL",
+                  "RATING",
+                  "SORT",
+                  "OUT_OF_STOCK",
+                ].forEach((name) => {
+                  query.delete(name);
+                });
+                navigate(window.location.pathname);
               }}
             >
               {language.filter.clear}
@@ -55,11 +75,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.filter.sort.high}</label>
               <input
                 type="radio"
-                name="price"
+                name="SORT"
                 value="HIGH_TO_LOW"
-                onChange={(e) => {
-                  filterdispatch({ type: "SORT", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={sort && sort === "HIGH_TO_LOW"}
               />
             </div>
@@ -68,11 +86,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.filter.sort.low}</label>
               <input
                 type="radio"
-                name="price"
+                name="SORT"
                 value="LOW_TO_HIGH"
-                onChange={(e) => {
-                  filterdispatch({ type: "SORT", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={sort && sort === "LOW_TO_HIGH"}
               />
             </div>
@@ -88,11 +104,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>5 {language.filter.rating.only}</label>
               <input
                 type="radio"
-                name="stars"
+                name="RATING"
                 value={5}
-                onChange={(e) => {
-                  filterdispatch({ type: "RATING", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={rating === "5"}
               />
             </div>
@@ -100,11 +114,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>4 {language.filter.rating.above}</label>
               <input
                 type="radio"
-                name="stars"
+                name="RATING"
                 value={4}
-                onChange={(e) => {
-                  filterdispatch({ type: "RATING", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={rating === "4"}
               />
             </div>
@@ -112,11 +124,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>3 {language.filter.rating.above}</label>
               <input
                 type="radio"
-                name="stars"
+                name="RATING"
                 value={3}
-                onChange={(e) => {
-                  filterdispatch({ type: "RATING", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={rating === "3"}
               />
             </div>
@@ -124,11 +134,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>2 {language.filter.rating.above}</label>
               <input
                 type="radio"
-                name="stars"
+                name="RATING"
                 value={2}
-                onChange={(e) => {
-                  filterdispatch({ type: "RATING", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={rating === "2"}
               />
             </div>
@@ -136,11 +144,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>1 {language.filter.rating.above}</label>
               <input
                 type="radio"
-                name="stars"
+                name="RATING"
                 value={1}
-                onChange={(e) => {
-                  filterdispatch({ type: "RATING", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={rating === "1"}
               />
             </div>
@@ -156,11 +162,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.all}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="all"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "all"}
               />
             </div>
@@ -168,11 +172,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.dog}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="dog"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "dog"}
               />
             </div>
@@ -180,11 +182,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.cat}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="cat"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "cat"}
               />
             </div>
@@ -192,11 +192,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.bird}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="bird"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "bird"}
               />
             </div>
@@ -204,11 +202,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.fish}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="fish"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "fish"}
               />
             </div>
@@ -216,11 +212,9 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.reptile}</label>
               <input
                 type="radio"
-                name="animal"
+                name="ANIMAL"
                 value="reptile"
-                onChange={(e) => {
-                  filterdispatch({ type: "ANIMAL", payload: e.target.value });
-                }}
+                onChange={changeHandler}
                 checked={animal === "reptile"}
               />
             </div>
@@ -236,9 +230,16 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <label>{language.filter.delivery.fast}</label>
               <input
                 type="checkbox"
-                value="fast-delivery"
+                value="FAST_DELIVERY"
+                name="FAST_DELIVERY"
                 onChange={() => {
-                  filterdispatch({ type: "FAST_DELIVERY" });
+                  filterdispatch({
+                    type: "FAST_DELIVERY",
+                    payload: !fastDelivery,
+                  });
+
+                  query.set("FAST_DELIVERY", !fastDelivery);
+                  navigate(window.location.pathname + "?" + query.toString());
                 }}
                 checked={fastDelivery}
               />
@@ -256,8 +257,15 @@ const ProductFilter = ({ filterState, filterdispatch }) => {
               <input
                 type="checkbox"
                 value="out-of-stock"
+                name="out-of-stock"
                 onChange={() => {
-                  filterdispatch({ type: "OUT_OF_STOCK" });
+                  filterdispatch({
+                    type: "OUT_OF_STOCK",
+                    payload: !outOfStock,
+                  });
+
+                  query.set("OUT_OF_STOCK", !outOfStock);
+                  navigate(window.location.pathname + "?" + query.toString());
                 }}
                 checked={outOfStock}
               />

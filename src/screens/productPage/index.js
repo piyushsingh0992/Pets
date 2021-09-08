@@ -32,20 +32,58 @@ const ProductPage = () => {
     category: "all",
   });
 
+ 
+
+
   useEffect(() => {
+    const cateogryFilter = query.get("cateogry");
+    const fastDeliveryFilter = query.get("FAST_DELIVERY");
+    const animalFilter = query.get("ANIMAL");
+    const ratingFilter = query.get("RATING");
+    const sortFilter = query.get("SORT");
+    const outOfStockFilter = query.get("OUT_OF_STOCK");
+
     (async function () {
       loaderSetter(true);
       let { success, data, message } = await apiCall("GET", "products");
       if (success === true) {
         productdataFromServerSetter(data.products);
         filterdispatch({ type: "ANIMAL", payload: query.get("animal") });
-        query.get("cateogry") &&
+        cateogryFilter &&
           filterdispatch({
             type: "CATEOGRY",
-            payload: query.get("cateogry"),
+            payload: cateogryFilter,
+          });
+
+        fastDeliveryFilter &&
+          filterdispatch({
+            type: "FAST_DELIVERY",
+            payload: fastDeliveryFilter,
+          });
+
+        animalFilter &&
+          filterdispatch({
+            type: "ANIMAL",
+            payload: animalFilter,
+          });
+        ratingFilter &&
+          filterdispatch({
+            type: "RATING",
+            payload: ratingFilter,
+          });
+        sortFilter &&
+          filterdispatch({
+            type: "SORT",
+            payload: sortFilter,
+          });
+
+        outOfStockFilter &&
+          filterdispatch({
+            type: "OUT_OF_STOCK",
+            payload: outOfStockFilter,
           });
       } else {
-        toastDispatch({type:"error", message});
+        toastDispatch({ type: "error", message });
       }
       loaderSetter(false);
     })();

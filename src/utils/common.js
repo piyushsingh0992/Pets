@@ -19,9 +19,9 @@ export function filterManager(state, action) {
     case "ANIMAL":
       return { ...state, animal: payload, category: "all" };
     case "FAST_DELIVERY":
-      return { ...state, fastDelivery: !state.fastDelivery };
+      return { ...state, fastDelivery: payload };
     case "OUT_OF_STOCK":
-      return { ...state, outOfStock: !state.outOfStock };
+      return { ...state, outOfStock: payload };
     case "CLEAR_ALL":
       return {
         sort: null,

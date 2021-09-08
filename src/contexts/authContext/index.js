@@ -10,6 +10,8 @@ export function AuthProvider({ children }) {
   const [login, loginDispatch] = useReducer(loginHandler, {
     loginStatus: false,
     token: null,
+    userName: null,
+    userId: null,
   });
   const navigate = useNavigate();
 
@@ -17,6 +19,8 @@ export function AuthProvider({ children }) {
     let response = JSON.parse(localStorage.getItem("loginStatus")) || {
       loginStatus: false,
       token: null,
+      userName: null,
+      userId: null,
     };
     setupAuthExceptionHandler(loginDispatch, navigate);
     if (response.loginStatus) {

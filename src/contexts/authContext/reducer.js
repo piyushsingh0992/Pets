@@ -5,12 +5,13 @@ export function loginHandler(state, action) {
   switch (type) {
     case "LOGIN":
       setupAuthHeaderForServiceCalls(payload.token);
-    
       localStorage.setItem(
         "loginStatus",
         JSON.stringify({
           loginStatus: true,
           token: payload.token,
+          userName: payload.user,
+          userId: payload.userId,
         })
       );
       return payload;
@@ -20,6 +21,8 @@ export function loginHandler(state, action) {
       return {
         loginStatus: false,
         token: null,
+        userName: null,
+        userId: null,
       };
     default:
       return false;

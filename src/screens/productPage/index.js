@@ -35,7 +35,6 @@ const ProductPage = () => {
   useEffect(() => {
     (async function () {
       loaderSetter(true);
-
       let { success, data, message } = await apiCall("GET", "products");
       if (success === true) {
         productdataFromServerSetter(data.products);

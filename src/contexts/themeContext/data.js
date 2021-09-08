@@ -1,4 +1,8 @@
+import shareDay from "../../assets/images/icons/share.png";
+import shareNight from "../../assets/images/icons/share1.png";
+
 export const day = {
+  share:shareDay,
   primary: "var(--primary)",
   primaryText: "var(--primary-text)",
   boldText: "var(--bold-text)",
@@ -8,6 +12,7 @@ export const day = {
   toggleTo: false,
 };
 export const night = {
+  share:shareNight,
   primary: "var(--dark-primary)",
   primaryText: "var(--dark-primary-text)",
   boldText: "var(--dark-bold-text)",

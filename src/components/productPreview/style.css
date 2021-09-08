@@ -8,9 +8,47 @@
   background-color: white;
 
   border-radius: 20px;
+  position: relative;
 
 
 }
+
+.share-product{
+  position: absolute;
+  height: 2rem;
+  cursor: pointer;
+  top:1rem;right: 1rem;
+}
+
+.share-product >img {
+  height: 2rem;
+}
+.share-product:hover>img{
+  transform: scale(1.1);
+}
+.share-product:active>img {
+  transform: scale(0.85);
+}
+
+
+.share-product p{
+  position: absolute;
+  
+  right:-10%;
+  min-width:10rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 15px;
+  display: none;
+}
+
+.share-product:hover p{
+  display: block;
+}
+
+
+
+
+
 
 .product-img {
   height: 22rem;
@@ -81,6 +119,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
   }
 
   .product-img {

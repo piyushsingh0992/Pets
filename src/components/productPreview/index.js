@@ -3,13 +3,21 @@ import "./style.css";
 import Rating from "../rating";
 import WishListButton from "../wishListButton";
 import { useTheme } from "../../contexts/themeContext";
+import { useToast } from "../../contexts/toastContext";
 import CartButton from "../cartButton";
-
+import share from "../../assets/images/icons/share.png";
 const ProductPreview = ({ productDetails }) => {
   const { theme } = useTheme();
   let newPrice = Math.floor(
     productDetails.price - (productDetails.price / 100) * productDetails.off
   );
+  const { toastDispatch } = useToast();
+  function copyToClipBoard() {
+    navigator.clipboard.writeText(
+      `https://pets-1997.netlify.app/productdetails/${productDetails._id}`
+    );
+    toastDispatch({ type: "success", message: "copied to clipboard" });
+  }
 
   return (
     <div
@@ -18,6 +26,19 @@ const ProductPreview = ({ productDetails }) => {
         backgroundColor: theme.highLightBackground,
       }}
     >
+      <div className="share-product">
+        <img src={theme.share} onClick={copyToClipBoard} />
+        <div>
+          <p
+            style={{
+              backgroundColor: theme.primaryBackground,
+              color: theme.primaryText,
+            }}
+          >
+            <strong>Share with Friends</strong>
+          </p>
+        </div>
+      </div>
       <img src={productDetails.productImg} className="product-img" />
 
       <div className="product-description">

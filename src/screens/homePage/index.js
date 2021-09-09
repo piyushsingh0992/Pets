@@ -25,7 +25,7 @@ const HomePage = () => {
       if (success === true) {
         productdataFromServerSetter(data.products);
       } else {
-        toastDispatch({type:"error", message});
+        toastDispatch({ type: "error", message });
       }
       loaderSetter(false);
     })();
@@ -37,24 +37,26 @@ const HomePage = () => {
     wishlistState
   );
 
-  return loader ? (
-    <div
-      style={{
-        minWidth: "90vw",
-        minHeight: "90vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Loader size={5} />
-    </div>
-  ) : (
+  return (
     <div className="home">
       <DropdownBar />
       <Hero />
       <Grid />
-      <Recommend filteredData={filteredData} />
+      {loader ? (
+        <div
+          style={{
+            minHeight:"20rem",
+            padding:"2rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Loader size={5} />
+        </div>
+      ) : (
+        <Recommend filteredData={filteredData} />
+      )}
     </div>
   );
 };

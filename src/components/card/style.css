@@ -54,10 +54,11 @@
   width: 13rem;
   margin-bottom: 0.5rem;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .card-img {
-  height: 12rem;
+  max-height: 12rem;
   object-fit: contain;
 }
 
